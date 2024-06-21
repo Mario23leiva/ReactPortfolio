@@ -1,10 +1,10 @@
 import React from 'react';
 // import './ProfileAppItem.css';
 
-const ProfileAppItem = ({ number, title, description, checked }) => {
+const ProfileAppItem = ({ number, title, description, checked, onChange }) => {
     return (
         <li>
-            <input type="checkbox" name="accordion" id={number}/>
+            <input type="checkbox" name="accordion" id={number} checked={checked} onChange={onChange}/>
             <label htmlFor={number} >{title}</label>
             <div className='content'>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis quos saepe inventore magnam quas. Sequi necessitatibus consequuntur molestiae suscipit ab?</p>

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "titulo": "About Me",
+        "descripcion": "Junior Software Developer, graduated in Development of Web Applications and Multi-platform Applications Development. I have a passion for designing and developing websites and desktop/mobile apps. I consider myself a highly creative and organized, with high leadership capabilities."
+    },
+    {
+        "id": 1,
+        "titulo": "Certifications",
+        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+    },
+    {
+        "id": 2,
+        "titulo": "Soft Skills",
+        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+    },
+    {
+        "id": 3,
+        "titulo": "It Lenguages",
+        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+    },
+    {
+        "id": 4,
+        "titulo": "Lenguages",
+        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+    },
+    {
+        "id": 5,
+        "titulo": "Professional Experience",
+        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+    }
+]
