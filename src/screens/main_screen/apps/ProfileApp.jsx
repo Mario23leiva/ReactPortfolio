@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ProfileApp.css';
 import ProfileAppItem from './ProfileAppItem';
+import profileImg from './../../../assets/profile-picture.jpeg';
+import profileData from './../../../assets/json/my-profile.json';
 
-import profileImg from './../../../assets/foto_epica_redonda.png';
 
 const ProfileApp = ({ AppName }) => {
-  const [checkedItems, setCheckedItems] = useState({
-    first: true,
-    second: false,
-    third: false,
-    fourth: false,
-    fifth: false,
-    sixth: false,
-  });
+  const [checkedItems, setCheckedItems] = useState(
+    profileData.reduce((acc, item) => {
+      acc[item.id] = false;
+      return acc;
+    }, {})
+  );
 
   const handleCheckboxChange = (event) => {
     const { id, checked } = event.target;
@@ -37,12 +36,20 @@ const ProfileApp = ({ AppName }) => {
       </div>
       <div className="profile-app-main-container">
         <ul className="profile-app-main-container-accordion">
-          <ProfileAppItem number="first" title="About Me" description="" checked={checkedItems.first} onChange={handleCheckboxChange} />
-          <ProfileAppItem number="second" title="Certifications" description="" checked={checkedItems.second} onChange={handleCheckboxChange} />
-          <ProfileAppItem number="third" title="Soft Skills" description="" checked={checkedItems.third} onChange={handleCheckboxChange} />
-          <ProfileAppItem number="fourth" title="It Lenguages" description="" checked={checkedItems.fourth} onChange={handleCheckboxChange} />
-          <ProfileAppItem number="fifth" title="Lenguages" description="" checked={checkedItems.fifth} onChange={handleCheckboxChange} />
-          <ProfileAppItem number="sixth" title="Professional Experience" description="" checked={checkedItems.sixth} onChange={handleCheckboxChange} />
+          {profileData.map((item) => (
+            <ProfileAppItem
+              key={item.id}
+              number={item.id}
+              title={item.titulo}
+              aboutMe={item.aboutMe || ""}
+              certificates={item.certificates || []}
+              softSkills={item["soft-skills"] || []}
+              categories={item.categories || []}
+              languages={item.lenguages || []}
+              works={item.works || []}
+              onChange={handleCheckboxChange}
+            />
+          ))}
         </ul>
       </div>
     </div>

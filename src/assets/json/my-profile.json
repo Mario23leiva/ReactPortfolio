@@ -2,31 +2,168 @@
     {
         "id": 0,
         "titulo": "About Me",
-        "descripcion": "Junior Software Developer, graduated in Development of Web Applications and Multi-platform Applications Development. I have a passion for designing and developing websites and desktop/mobile apps. I consider myself a highly creative and organized, with high leadership capabilities."
+        "aboutMe": "Junior Software Developer, graduated in Development of Web Applications and Multi-platform Applications Development. I have a passion for designing and developing websites and desktop/mobile apps. I consider myself a highly creative and organized, with high leadership capabilities."
     },
     {
         "id": 1,
         "titulo": "Certifications",
-        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+        "certificates": [
+            {
+                "id": 0,
+                "title": "Higher Technician in Development of Web Applications",
+                "year": 2024
+            },
+            {
+                "id": 1,
+                "title": "Higher Technician in Multi-platform Applications Development",
+                "year": 2023
+            },
+            {
+                "id": 2,
+                "title": "Technician in Microcomputer Systems and Networks",
+                "year": 2021
+            }
+        ]
     },
     {
         "id": 2,
         "titulo": "Soft Skills",
-        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+        "soft-skills": [
+            {
+                "id": 0,
+                "name": "Creative"
+            },
+            {
+                "id": 1,
+                "name": "Flexible"
+            },
+            {
+                "id": 2,
+                "name": "Communicative"
+            },
+            {
+                "id": 0,
+                "name": "Polite"
+            },
+            {
+                "id": 1,
+                "name": "Responsible"
+            },
+            {
+                "id": 2,
+                "name": "Punctual"
+            }
+        ]
     },
     {
         "id": 3,
-        "titulo": "It Lenguages",
-        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+        "titulo": "It Lenguages/Frameworks",
+        "categories": [
+            {
+                "id": 0,
+                "name": "Front-End",
+                "it-lenguages": [                    
+                    {
+                        "id": 0,
+                        "name": "REACT"
+                    },
+                    {
+                        "id": 1,
+                        "name": "VUE"
+                    },
+                    {
+                        "id": 2,
+                        "name": "JS"
+                    },
+                    {
+                        "id": 3,
+                        "name": "CSS/BOOTSTRAP"
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "name": "Back-End",
+                "it-lenguages": [
+                    {
+                        "id": 0,
+                        "name": "PYTHON"
+                    },
+                    {
+                        "id": 1,
+                        "name": "C#"
+                    },
+                    {
+                        "id": 2,
+                        "name": "SQL"
+                    },
+                    {
+                        "id": 3,
+                        "name": "KOTLIN"
+                    },                    
+                    {
+                        "id": 4,
+                        "name": "JAVA"
+                    },
+                    {
+                        "id": 5,
+                        "name": "PHP/LARAVEL"
+                    }
+                ]
+            }
+        ]
     },
     {
         "id": 4,
         "titulo": "Lenguages",
-        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+        "lenguages": [
+            {
+                "id": 0,
+                "name": "Spanish",
+                "level": "Native"
+            },
+            {
+                "id": 1,
+                "name": "Catalan",
+                "level": "Native"
+            },
+            {
+                "id": 2,
+                "name": "English",
+                "level": "Intermediate"
+            },
+            {
+                "id": 3,
+                "name": "German",
+                "level": "Beginner"
+            }
+        ]
     },
     {
         "id": 5,
         "titulo": "Professional Experience",
-        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web."
+        "works": [
+            {
+                "id": 0,
+                "name": "OS Technician",
+                "year-from": "2024-01",
+                "year-to": "NOW",
+                "description": "I am managing users rols and permissions, Active Directory, windows and linux services, and backups."
+            },
+            {
+                "id": 1,
+                "name": "Software Developer",
+                "year-from": "2023-06",
+                "year-to": "2023-09",
+                "description": "I have been working in the development of management software targeted for businesses in .NET."
+            },
+            {
+                "id": 2,
+                "name": "Web Designer/Developer",
+                "year-from": "2021-02",
+                "year-to": "2021-05",
+                "description": "I have designed, created from scratch, published, and managed a website for an educational center."
+            }
+        ]
     }
 ]

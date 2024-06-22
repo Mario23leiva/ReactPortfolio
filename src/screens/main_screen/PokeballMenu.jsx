@@ -5,6 +5,7 @@ import DesktopApp from './DesktopApp';
 import Pokeball from '../../assets/pokeball-img.png';
 import MusicIcon from '../../assets/iconos/music.png';
 import FilesIcon from '../../assets/iconos/files.png';
+import AboutMe from '../../assets/perfil.png';
 import PicturesIcon from '../../assets/iconos/pictures.png';
 import PokeballTop from '../../assets/pokeball-top.png';
 import PokeballBottom from '../../assets/pokeball-bottom.png';
@@ -65,7 +66,7 @@ const PokeballMenu = () => {
             <div id="pokeball" className="pokeball pokeball-hover">
                 <img className='pokeball-img' src={PokeballTop} alt="" onClick={handleClick} />
                 <div className='pokeball-apps-container'>
-                    <DesktopApp AppId={PROFILE_APP_ID} AppImg={Pokeball} AppName={PROFILE_APP} onClickApp={openApp} />
+                    <DesktopApp AppId={PROFILE_APP_ID} AppImg={AboutMe} AppName={PROFILE_APP} onClickApp={openApp} />
                     <DesktopApp AppId={MUSIC_APP_ID} AppImg={MusicIcon} AppName={MUSIC_APP} onClickApp={openApp} />
                     <DesktopApp AppId={PICTURES_APP_ID} AppImg={PicturesIcon} AppName={PICTURES_APP} onClickApp={changeBackground} />
                     <DesktopApp AppId={FILES_APP_ID} AppImg={FilesIcon} AppName={FILES_APP} onClickApp={openApp} />
