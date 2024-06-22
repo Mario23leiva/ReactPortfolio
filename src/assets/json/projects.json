@@ -1,39 +1,119 @@
 [
     {
         "id": 0,
-        "titulo": "Proyecto 1",
-        "descripcion": "Este es mi primer proyecto personal. Lo hice para practicar mis habilidades de desarrollo web.",
+        "titulo": "React Portfolio",
+        "descripcion": "Well this is my portfolio, I create a Portfolio based in my desktop appearance and my personality, you could find my projects, favourites songs, my pictures edits and a little bit more about me :)",
         "tecnologias": [
-            "CSS",
-            "HTML",
-            "LARAVEL",
             "REACT",
-            "SQL",
-            "VUE",
-            "JAVASCRIPT"
+            "JAVASCRIPT",
+            "CSS",
+            "HTML"
         ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto1"
+        "url_repositorio": "https://github.com/Mario23leiva/ReactPortfolio",
+        "url_web": "https://mario23leiva.github.io"
     },
     {
         "id": 1,
-        "titulo": "Proyecto 2",
-        "descripcion": "Este es mi segundo proyecto personal. Es una aplicación de lista de tareas.",
+        "titulo": "Pokedex",
+        "descripcion": "I made an interactive Pokedex with VUE and Pokeapi API, basically you filter by region, number types... and add pokemons to your team or at your favourite list.",
         "tecnologias": [
-            "React",
-            "Node.js",
-            "MongoDB"
+            "VUE",
+            "API",
+            "JAVASCRIPT",
+            "CSS",
+            "HTML"
         ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto2"
+        "url_repositorio": "https://github.com/Mario23leiva/PikaPokedex-Vue",
+        "url_web": "https://mario23leiva.github.io/PikaPokedex-Vue/"
     },
     {
         "id": 2,
-        "titulo": "Proyecto 3",
+        "titulo": "StayWorking",
+        "descripcion": "This is one of my favourite projects, in this web you could find a mix with Pomodoro technique and a Kanban Board",
+        "tecnologias": [
+            "JAVASCRIPT",
+            "CSS",
+            "HTML"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },
+    {
+        "id": 3,
+        "titulo": "Crossy Road",
+        "descripcion": "Okey technically this is an educational game about recycling xd, you have to take the trash and recycle it in the correct container, oh sure, avoid the vehicles!",
+        "tecnologias": [
+            "JAVASCRIPT",
+            "CSS",
+            "HTML"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },
+    {
+        "id": 4,
+        "titulo": "WW3",
+        "descripcion": "This was my first game, I made it when i was 16 so don't judge me I was jounger",
+        "tecnologias": [
+            "PYTHON"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },
+    {
+        "id": 5,
+        "titulo": "Directories & Files",
+        "descripcion": "A simple .NET app to manage your files and directories",
+        "tecnologias": [
+            "C#"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },
+    {
+        "id": 6,
+        "titulo": "CheckATT",
+        "descripcion": "This is an app that you could use as a teacher or as a student, you can check your attendance and doing something more",
+        "tecnologias": [
+            "KOTLIN",
+            "SQL"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },
+    {
+        "id": 7,
+        "titulo": "Restaurant 23 - Manual",
+        "descripcion": "My grandpa has a restaurant so a made his probably corporate identity manual, te restaurant closed after 50 years in 2014 :(",
+        "tecnologias": [
+            "JAVASCRIPT",
+            "CSS",
+            "HTML"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },
+    {
+        "id": 8,
+        "titulo": "Restaurant 23 - Menu",
+        "descripcion": "Well this is a website where you could find the dishes that my grandpa has at his restaurant, the website was made it with JS Vanilla web componentes",
+        "tecnologias": [
+            "JAVASCRIPT",
+            "CSS",
+            "HTML"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
+    },{
+        "id": 9,
+        "titulo": "ShareBites",
         "descripcion": "Este es mi tercer proyecto personal. Es un blog personal donde comparto mis ideas sobre tecnología.",
         "tecnologias": [
-            "WordPress",
+            "LARAVEL",
             "PHP",
-            "MySQL"
+            "SQL"
         ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3"
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
     }
 ]

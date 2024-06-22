@@ -49,7 +49,7 @@ const DesktopAppLayout = ({ AppId, AppName, AppComponent }) => {
         <div
             id={AppId} 
             className={desktopAppClass}>
-            <div className="top-bar">
+            <div className="top-bar" onDoubleClick={maximizeApp}>
                 <div className="buttons">
                     <button type="button" id="closeBtn" title='Close' onClick={closeApp}></button>
                     <button type="button" id="minimizeBtn" title='Minimize' onClick={minimizeApp}></button>
