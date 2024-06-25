@@ -16,6 +16,8 @@ import IMG_SQL from '../../../assets/iconos/sql.png';
 import IMG_VUE from '../../../assets/iconos/vue.png';
 import IMG_JS from '../../../assets/iconos/js.png';
 import IMG_PHP from '../../../assets/iconos/php.png';
+import IMG_API from '../../../assets/iconos/api.png';
+import IMG_PYTHON from '../../../assets/iconos/python.png';
 
 const CSS_TECHNOLOGY = "CSS"
 const HTML_TECHNOLOGY = "HTML"
@@ -25,10 +27,13 @@ const SQL_TECHNOLOGY = "SQL"
 const VUE_TECHNOLOGY = "VUE"
 const JAVASCRIPT_TECHNOLOGY = "JAVASCRIPT"
 const PHP_TECHNOLOGY = "PHP"
+const API_TECHNOLOGY = "API"
+const PYTHON_TECHNOLOGY = "PYTHON"
 
 const FileInfo = ({ project }) => {
 
     const [showReadme, setShowReadme] = useState(false);
+    const [showVideo, setShowVideo] = useState(false);
 
     const loadAppTechnologies = (tecnologia, index) => {
         let imgTech;
@@ -57,6 +62,12 @@ const FileInfo = ({ project }) => {
             case PHP_TECHNOLOGY:
                 imgTech = IMG_PHP;
                 break;
+            case API_TECHNOLOGY:
+                imgTech = IMG_API;
+                break;
+            case PYTHON_TECHNOLOGY:
+                imgTech = IMG_PYTHON;
+                break;
         }
         return (
             <li key={index} className="file-info-item" title={tecnologia}>
@@ -75,11 +86,20 @@ const FileInfo = ({ project }) => {
         setShowReadme(!showReadme);
     };
 
+    const toggleVideo = () => {
+        setShowVideo(!showVideo);
+    };
+
     const readmeContent = (
         <DesktopAppLayout AppId={"readme-project-" + project.id} AppName="README.txt" AppComponent={project.descripcion}/>
     );
 
+    const videoContent = (
+        <DesktopAppLayout AppId={"video-project-" + project.id} AppName="VIDEO.mp4" AppComponent={project.video_url}/>
+    );
+
     const readmeContainer = document.getElementById('main-container');
+    const videoContainer = document.getElementById('main-container');
 
     return (
         <div className="file-info">
@@ -93,9 +113,14 @@ const FileInfo = ({ project }) => {
                         </li>
                     </a>
 
-                    <li className="file-info-item file-info-readme" title="About the project..." onClick={toggleReadme}>
+                    <li className="file-info-item file-info-clickable" title="About the project..." onClick={toggleReadme}>
                         <img src={IMG_FILE} alt="File" />
                         <span>README.txt</span>
+                    </li>
+
+                    <li className="file-info-item file-info-clickable" title="Video Resume" onClick={toggleVideo}>
+                        <img src={IMG_FILE} alt="File" />
+                        <span>VIDEO.mp4</span>
                     </li>
 
                     <a href="">
@@ -110,6 +135,7 @@ const FileInfo = ({ project }) => {
                 </ul>
             </div>
             {showReadme && readmeContainer && ReactDOM.createPortal(readmeContent, readmeContainer)}
+            {showVideo && videoContainer && ReactDOM.createPortal(videoContent, videoContainer)}
         </div>
     );
 }

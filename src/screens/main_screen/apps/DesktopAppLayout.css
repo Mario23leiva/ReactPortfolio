@@ -79,21 +79,13 @@ button#maximizeBtn{
 }
 
 
-#PROFILE{
+#PROFILE, #MUSIC, #FILES, .README, .VIDEO{
     display: none;
 }
 
-#PROFILE.active{
+#PROFILE.active, #FILES.active, .VIDEO.active{
     display: flex;
     flex-direction: column;
-}
-
-#MUSIC{
-    display: none;
-}
-
-.README{
-    display: none;
 }
 
 #MUSIC.active, .README.active{
@@ -107,15 +99,6 @@ button#maximizeBtn{
     width: 100%;
 }
 
-#FILES{
-    display: none;
-}
-
-#FILES.active{
-    display: flex;
-    flex-direction: column;
-}
-
 .README.active{
     background-color: #fbfbfb;
     color: #252525;
@@ -123,4 +106,9 @@ button#maximizeBtn{
 
 .README .app-container{
     padding: 10px;
+}
+
+.video-frame{
+    height: 100%;
+    width: 100%;
 }

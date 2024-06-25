@@ -10,7 +10,7 @@ import MainScreen from './screens/main_screen/MainScreen.jsx';
 
 
 function App() {
-  const [showMainScreen, setShowMainScreen] = useState(false);
+  const [showMainScreen, setShowMainScreen] = useState(true);
 
   // Función para mostrar la pantalla principal
   const handleEnter = () => {

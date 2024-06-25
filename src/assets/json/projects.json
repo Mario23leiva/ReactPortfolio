@@ -10,7 +10,8 @@
             "HTML"
         ],
         "url_repositorio": "https://github.com/Mario23leiva/ReactPortfolio",
-        "url_web": "https://mario23leiva.github.io"
+        "url_web": "https://mario23leiva.github.io",
+        "video_url": "www.youtube.com/watch?v=--iqrdHObSw"
     },
     {
         "id": 1,
@@ -49,9 +50,21 @@
         ],
         "url_repositorio": "https://github.com/tu_usuario/proyecto3",
         "url_web": ""
+    },{
+        "id": 4,
+        "titulo": "ShareBites",
+        "descripcion": "Este es mi tercer proyecto personal. Es un blog personal donde comparto mis ideas sobre tecnología.",
+        "tecnologias": [
+            "LARAVEL",
+            "PHP",
+            "SQL",
+            "VUE"
+        ],
+        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
+        "url_web": ""
     },
     {
-        "id": 4,
+        "id": 5,
         "titulo": "WW3",
         "descripcion": "This was my first game, I made it when i was 16 so don't judge me I was jounger",
         "tecnologias": [
@@ -61,7 +74,7 @@
         "url_web": ""
     },
     {
-        "id": 5,
+        "id": 6,
         "titulo": "Directories & Files",
         "descripcion": "A simple .NET app to manage your files and directories",
         "tecnologias": [
@@ -71,7 +84,7 @@
         "url_web": ""
     },
     {
-        "id": 6,
+        "id": 7,
         "titulo": "CheckATT",
         "descripcion": "This is an app that you could use as a teacher or as a student, you can check your attendance and doing something more",
         "tecnologias": [
@@ -82,7 +95,7 @@
         "url_web": ""
     },
     {
-        "id": 7,
+        "id": 8,
         "titulo": "Restaurant 23 - Manual",
         "descripcion": "My grandpa has a restaurant so a made his probably corporate identity manual, te restaurant closed after 50 years in 2014 :(",
         "tecnologias": [
@@ -94,24 +107,13 @@
         "url_web": ""
     },
     {
-        "id": 8,
+        "id": 9,
         "titulo": "Restaurant 23 - Menu",
         "descripcion": "Well this is a website where you could find the dishes that my grandpa has at his restaurant, the website was made it with JS Vanilla web componentes",
         "tecnologias": [
             "JAVASCRIPT",
             "CSS",
             "HTML"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },{
-        "id": 9,
-        "titulo": "ShareBites",
-        "descripcion": "Este es mi tercer proyecto personal. Es un blog personal donde comparto mis ideas sobre tecnología.",
-        "tecnologias": [
-            "LARAVEL",
-            "PHP",
-            "SQL"
         ],
         "url_repositorio": "https://github.com/tu_usuario/proyecto3",
         "url_web": ""
