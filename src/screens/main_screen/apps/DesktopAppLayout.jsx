@@ -4,7 +4,7 @@ import './DesktopAppLayout.css';
 const README_APP = "README.txt";
 const VIDEO_APP = "VIDEO.mp4";
 
-const DesktopAppLayout = ({ AppId, AppName, AppComponent }) => {
+const DesktopAppLayout = ({ AppId, AppName, AppComponent, AppTitle }) => {
     let desktopAppClass = 'desktop-app-layout';
     
     if (AppName === README_APP) {
@@ -59,6 +59,14 @@ const DesktopAppLayout = ({ AppId, AppName, AppComponent }) => {
                     allowFullScreen
                 ></iframe>
             );
+        } else if(AppName === README_APP){
+            return (
+                <div>
+                    <h2>{AppTitle}</h2>
+                    <br></br>
+                    <p>{AppComponent}</p>
+                </div>
+            )
         }
         return AppComponent;
     };

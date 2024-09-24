@@ -91,7 +91,7 @@ const FileInfo = ({ project }) => {
     };
 
     const readmeContent = (
-        <DesktopAppLayout AppId={"readme-project-" + project.id} AppName="README.txt" AppComponent={project.descripcion}/>
+        <DesktopAppLayout AppId={"readme-project-" + project.id} AppName="README.txt" AppComponent={project.descripcion} AppTitle={project.titulo}/>
     );
 
     const videoContent = (
@@ -103,7 +103,6 @@ const FileInfo = ({ project }) => {
 
     return (
         <div className="file-info">
-            <h2>{project.titulo}</h2>
             <div className="file-info-container">
                 <ul className="file-info-list">
                     <a href="https://google.com" target="_blank">

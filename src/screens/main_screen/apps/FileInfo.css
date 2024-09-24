@@ -1,6 +1,9 @@
 .file-info{
     color: #252525;
     position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
 }
 
 .file-info-container{
@@ -36,6 +39,10 @@
 
 .file-info-item span{
     margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: center;
 }
 
 .file-info-clickable{
