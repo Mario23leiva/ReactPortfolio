@@ -26,9 +26,9 @@ Lista de tareas en orden de prioridad.
 - [x] Accesibilidad: navegación por teclado, roles y textos `alt`
 
 ## Fase 5 · Acabado
-- [ ] `index.html`: título, meta description, Open Graph, favicon y manifest
-- [ ] README propio del proyecto
-- [ ] Optimizar imágenes pesadas (fondo de 2,9 MB, fotos de la galería) a WebP/tamaños adecuados
+- [x] `index.html`: título, meta description, Open Graph, favicon y manifest
+- [x] README propio del proyecto
+- [x] Optimizar imágenes pesadas a WebP/tamaños adecuados (8,8 MB → 0,8 MB)
 - [ ] (Opcional) Versión en español e inglés
 
 ## Pendiente de información

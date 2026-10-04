@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import './BlockedScreen.css';
-import FotoPerfil from '../../assets/foto_epica_redonda.png';
+import FotoPerfil from '../../assets/foto_epica_redonda.webp';
 import { preloadAssets } from '../../utils/preloadAssets.js';
 
 // Tiempo mínimo de la pantalla de carga para que la animación no parpadee

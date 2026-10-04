@@ -4,7 +4,7 @@ import { faChevronLeft, faChevronRight, faXmark } from '@fortawesome/free-solid-
 import './GalleryApp.css';
 
 // Carga todas las imágenes de src/assets/gallery: para añadir fotos basta con copiarlas en esa carpeta
-const imageModules = import.meta.glob('../../../assets/gallery/*.{png,jpg,jpeg,webp,gif}', {
+const imageModules = import.meta.glob('../../../assets/gallery/*.{png,jpg,jpeg,webp,gif,avif}', {
     eager: true,
     import: 'default',
 });

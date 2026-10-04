@@ -1,4 +1,4 @@
-import DirectoryFile from './../../../assets/iconos/icono_carpeta.png';
+import DirectoryFile from './../../../assets/iconos/icono_carpeta.webp';
 
 const FileItem = ({ title, selected, onClick }) => {
     return (

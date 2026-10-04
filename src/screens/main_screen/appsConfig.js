@@ -2,9 +2,9 @@ import ProfileApp from './apps/ProfileApp.jsx';
 import FilesApp from './apps/FilesApp.jsx';
 import GalleryApp from './apps/GalleryApp.jsx';
 
-import ProfileIcon from '../../assets/iconos/contact-icon.png';
-import FilesIcon from '../../assets/iconos/files.png';
-import GalleryIcon from '../../assets/iconos/pictures.png';
+import ProfileIcon from '../../assets/iconos/contact-icon.webp';
+import FilesIcon from '../../assets/iconos/files.webp';
+import GalleryIcon from '../../assets/iconos/pictures.webp';
 
 // Registro de las apps del dock. Para añadir una app nueva basta con añadirla aquí.
 export const APPS = [

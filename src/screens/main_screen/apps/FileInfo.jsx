@@ -1,21 +1,21 @@
 import './FileInfo.css';
 import { useWindowManager } from '../windows/WindowManagerContext.js';
 
-import IMG_CHROME from '../../../assets/iconos/chrome.png';
-import IMG_FILE from '../../../assets/iconos/archivo.png';
-import IMG_GITHUB from '../../../assets/iconos/github.png';
+import IMG_CHROME from '../../../assets/iconos/chrome.webp';
+import IMG_FILE from '../../../assets/iconos/archivo.webp';
+import IMG_GITHUB from '../../../assets/iconos/github.webp';
 
 //img technologies
-import IMG_CSS from '../../../assets/iconos/css.png';
-import IMG_HTML from '../../../assets/iconos/html.png';
-import IMG_LARAVEL from '../../../assets/iconos/laravel.png';
-import IMG_REACT from '../../../assets/iconos/react.png';
-import IMG_SQL from '../../../assets/iconos/sql.png';
-import IMG_VUE from '../../../assets/iconos/vue.png';
-import IMG_JS from '../../../assets/iconos/js.png';
-import IMG_PHP from '../../../assets/iconos/php.png';
-import IMG_API from '../../../assets/iconos/api.png';
-import IMG_PYTHON from '../../../assets/iconos/python.png';
+import IMG_CSS from '../../../assets/iconos/css.webp';
+import IMG_HTML from '../../../assets/iconos/html.webp';
+import IMG_LARAVEL from '../../../assets/iconos/laravel.webp';
+import IMG_REACT from '../../../assets/iconos/react.webp';
+import IMG_SQL from '../../../assets/iconos/sql.webp';
+import IMG_VUE from '../../../assets/iconos/vue.webp';
+import IMG_JS from '../../../assets/iconos/js.webp';
+import IMG_PHP from '../../../assets/iconos/php.webp';
+import IMG_API from '../../../assets/iconos/api.webp';
+import IMG_PYTHON from '../../../assets/iconos/python.webp';
 
 const TECHNOLOGY_ICONS = {
     CSS: IMG_CSS,

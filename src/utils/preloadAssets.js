@@ -1,6 +1,6 @@
 // Todas las imágenes de src/assets: se precargan en la pantalla de bloqueo
 // para que el escritorio aparezca con todo ya cargado
-const assetModules = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,gif,svg}', {
+const assetModules = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,gif,svg,avif}', {
     eager: true,
     import: 'default',
 });

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ProfileApp.css';
 import ProfileAppItem from './ProfileAppItem';
-import profileImg from './../../../assets/profile-picture.jpeg';
+import profileImg from './../../../assets/profile-picture.webp';
 import profileData from './../../../assets/json/my-profile.json';
 
 
