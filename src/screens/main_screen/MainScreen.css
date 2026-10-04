@@ -1,6 +1,7 @@
 .main-screen {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     background-image: url(../../assets/fondos/macOS-background.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,4 +28,10 @@
     display: flex;
     justify-content: center;
     z-index: 2;
+}
+
+@media (max-width: 640px) {
+    .main-screen .main-container {
+        bottom: 74px;
+    }
 }

@@ -30,6 +30,13 @@
 }
 
 .file-item{
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    text-align: left;
     cursor: pointer;
     margin: 10px 0;
     font-size: 1.2rem;
@@ -55,4 +62,40 @@
     height: 100%;
     width: 100%;
     background-color: #fdfffc;
+    overflow-y: auto;
+}
+
+/* Móvil: lista de proyectos arriba en horizontal y detalle debajo */
+@media (max-width: 640px) {
+    .files-app{
+        flex-direction: column;
+    }
+
+    .left-container{
+        width: 100%;
+        max-width: none;
+        height: auto;
+        padding: 10px 12px;
+    }
+
+    .left-container h2{
+        font-size: 1.1rem;
+    }
+
+    .file-list{
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+    }
+
+    .file-item{
+        margin: 6px 0;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    .right-container{
+        flex: 1;
+        height: auto;
+    }
 }

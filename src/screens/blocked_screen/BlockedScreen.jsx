@@ -11,7 +11,7 @@ function BlockedScreen({ onEnter }) {
 
     useEffect(() => {
         const handleKeyDown = (event) => {
-            if (event.code === 'Space' && !bluredScreen) {
+            if ((event.code === 'Space' || event.key === 'Enter') && !bluredScreen) {
                 setBlurValue(23)
                 setBluredScreen(true);
             }
@@ -93,7 +93,7 @@ function BlockedScreen({ onEnter }) {
             </div>
 
             {bluredScreen &&
-                <div className='blocked-screen-login'>
+                <div className='blocked-screen-login' role="status">
                     <img src={FotoPerfil} alt="" />
                     <h2>Mario Leiva Torres</h2>
                     <h1>Loading  <FontAwesomeIcon id="spinner" icon={faSpinner} /></h1>

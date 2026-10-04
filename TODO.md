@@ -21,9 +21,9 @@ Lista de tareas en orden de prioridad.
 - [x] Fondo de pantalla fijo (`macOS-background.jpg`)
 
 ## Fase 4 · Calidad
-- [ ] Responsive: ventanas y dock usables en móvil
-- [ ] Ventanas arrastrables desde la barra superior
-- [ ] Accesibilidad: navegación por teclado, roles y textos `alt`
+- [x] Responsive: ventanas y dock usables en móvil
+- [x] Ventanas arrastrables desde la barra superior
+- [x] Accesibilidad: navegación por teclado, roles y textos `alt`
 
 ## Fase 5 · Acabado
 - [ ] `index.html`: título, meta description, Open Graph, favicon y manifest

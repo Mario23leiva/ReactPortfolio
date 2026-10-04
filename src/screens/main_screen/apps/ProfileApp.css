@@ -93,15 +93,25 @@
     color: #252525;
 }
 
-label::before{
+.profile-app-main-container-accordion-item label::before{
     content: '+';
     font-size: 24px;
     margin-right: 10px;
     font-weight: 600;
 }
 
-input[type="checkbox"]{
-    display: none;
+/* Oculto visualmente pero accesible con teclado (Tab + Espacio) */
+.profile-app-main-container-accordion input[type="checkbox"]{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.profile-app-main-container-accordion input[type="checkbox"]:focus-visible + label{
+    outline: 2px solid #0a84ff;
+    outline-offset: -2px;
 }
 
 .profile-app-main-container-accordion .content{
@@ -124,4 +134,46 @@ input[type="checkbox"]{
 
 .profile-app-main-container-accordion .content ul li{
     margin-left: 10px;
+}
+@media (max-width: 1000px) {
+    .profile-app-img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+/* Móvil: datos personales arriba y acordeón debajo, todo con scroll */
+@media (max-width: 640px) {
+    .profile-app{
+        flex-direction: column;
+        align-items: stretch;
+        overflow-y: auto;
+    }
+
+    .profile-app-top-container{
+        width: 100%;
+        height: auto;
+    }
+
+    .profile-app-img{
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-app-user-details{
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .btn-download-resume{
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+
+    .profile-app-main-container,
+    .profile-app-main-container-accordion{
+        height: auto;
+        position: static;
+        overflow: visible;
+    }
 }

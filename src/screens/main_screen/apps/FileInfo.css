@@ -32,11 +32,18 @@
     
 }
 
-.file-info-item a{
+.file-info-item a,
+.file-info-item button{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
 }
 
 .file-info-item img{
@@ -52,6 +59,18 @@
     text-align: center;
 }
 
-.file-info-clickable{
-    cursor: pointer;
+@media (max-width: 640px) {
+    .file-info{
+        padding-top: 8px;
+    }
+
+    .file-info-item{
+        margin: 10px;
+        width: 70px;
+    }
+
+    .file-info-item img{
+        width: 40px;
+        height: 40px;
+    }
 }

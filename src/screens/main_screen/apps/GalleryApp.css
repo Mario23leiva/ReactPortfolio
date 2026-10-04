@@ -100,3 +100,11 @@
     color: #fff;
     font-size: 0.85rem;
 }
+
+@media (max-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 2px;
+        padding: 2px;
+    }
+}

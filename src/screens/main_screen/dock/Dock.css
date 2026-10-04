@@ -26,6 +26,12 @@
     outline: none;
 }
 
+.dock-item:focus-visible img {
+    outline: 2px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 3px;
+    border-radius: 14px;
+}
+
 .dock-item img {
     width: 56px;
     height: 56px;
@@ -77,4 +83,28 @@
 
 .dock-item.open .dock-item-indicator {
     opacity: 1;
+}
+
+/* Pantallas táctiles: sin efecto de ampliación ni etiqueta al tocar */
+@media (hover: none) {
+    .dock-item:hover img {
+        transform: none;
+    }
+
+    .dock-item:hover .dock-item-label {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .dock {
+        gap: 12px;
+        padding: 4px 12px;
+        border-radius: 16px;
+    }
+
+    .dock-item img {
+        width: 46px;
+        height: 46px;
+    }
 }

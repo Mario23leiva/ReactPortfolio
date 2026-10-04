@@ -1,6 +1,7 @@
 .blocked-screen {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,4 +83,15 @@ h2.bounce-animation{
     97% { transform: translateY(0%); }
     99% { transform: translateY(-3%); }
     100% { transform: translateY(0); }
+}
+@media (max-width: 640px) {
+    h2.bounce-animation {
+        font-size: 18px;
+        text-align: center;
+        padding: 0 16px 24px;
+    }
+
+    .blocked-screen-login img {
+        width: 140px;
+    }
 }

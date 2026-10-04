@@ -32,7 +32,7 @@ const TECHNOLOGY_ICONS = {
 
 const LinkItem = ({ href, icon, label, title }) => (
     <li className="file-info-item" title={title}>
-        <a href={href} target="_blank" rel="noopener noreferrer">
+        <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`${label} (opens in a new tab)`}>
             <img src={icon} alt="" />
             <span>{label}</span>
         </a>
@@ -72,16 +72,20 @@ const FileInfo = ({ project }) => {
                         <LinkItem href={project.webUrl} icon={IMG_CHROME} label={project.title} title="Open the project" />
                     )}
 
-                    <li className="file-info-item file-info-clickable" title="About the project..." onClick={openReadme}>
-                        <img src={IMG_FILE} alt="" />
-                        <span>README.txt</span>
+                    <li className="file-info-item" title="About the project...">
+                        <button type="button" onClick={openReadme}>
+                            <img src={IMG_FILE} alt="" />
+                            <span>README.txt</span>
+                        </button>
                     </li>
 
                     {/* videoUrl debe ser una URL embed de YouTube: https://www.youtube.com/embed/<id> */}
                     {project.videoUrl && (
-                        <li className="file-info-item file-info-clickable" title="Video Resume" onClick={openVideo}>
-                            <img src={IMG_FILE} alt="" />
-                            <span>VIDEO.mp4</span>
+                        <li className="file-info-item" title="Video Resume">
+                            <button type="button" onClick={openVideo}>
+                                <img src={IMG_FILE} alt="" />
+                                <span>VIDEO.mp4</span>
+                            </button>
                         </li>
                     )}
 

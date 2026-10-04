@@ -25,7 +25,7 @@ const ProfileApp = () => {
     <div className="profile-app">
       <div className="profile-app-top-container">
         <div className="profile-app-top-container-user-info">
-          <img src={profileImg} alt="Me" className="profile-app-img" />
+          <img src={profileImg} alt="Mario Leiva Torres" className="profile-app-img" />
           <div className="profile-app-user-details">
             <p>Mario Leiva Torres</p>
             <p>Full Stack Developer</p>

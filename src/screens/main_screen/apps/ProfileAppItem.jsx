@@ -17,28 +17,18 @@ const ProfileAppItem = ({ number, title, aboutMe, certificates, softSkills, cate
           </ul>
         )}
         {softSkills.length > 0 && (
-          <ul>
-            {softSkills.map(skill => (
-              skill.name
-            )).join(" | ")}
-          </ul>
+          <p>{softSkills.map(skill => skill.name).join(" | ")}</p>
         )}
         {categories.length > 0 && categories.map(category => (
           <div key={category.id + category.name}>
             <h4>{category.name}</h4>
-            <ul style={{margin: 10 + 'px'}}>
-              {category["it-lenguages"].map(lang => (
-                lang.name
-              )).join(" | ")}
-            </ul>
+            <p style={{margin: 10 + 'px'}}>
+              {category["it-lenguages"].map(lang => lang.name).join(" | ")}
+            </p>
           </div>
         ))}
         {languages.length > 0 && (
-          <ul>
-            {languages.map(lang => (
-              lang.name + "(" + lang.level + ")"
-            )).join(" | ")}
-          </ul>
+          <p>{languages.map(lang => `${lang.name} (${lang.level})`).join(" | ")}</p>
         )}
         {works.length > 0 && (
           <ul>
