@@ -15,7 +15,7 @@ const FilesApp = () => {
                     {projects.map((project, index) => (
                         <FileItem
                             key={project.id}
-                            title={project.titulo}
+                            title={project.title}
                             selected={index === selectedIndex}
                             onClick={() => setSelectedIndex(index)} />
                     ))}

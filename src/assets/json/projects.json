@@ -1,121 +1,25 @@
 [
     {
-        "id": 0,
-        "titulo": "React Portfolio",
-        "descripcion": "Well this is my portfolio, I create a Portfolio based in my desktop appearance and my personality, you could find my projects, my pictures edits and a little bit more about me :)",
-        "tecnologias": [
-            "REACT",
-            "JAVASCRIPT",
-            "CSS",
-            "HTML"
-        ],
-        "url_repositorio": "https://github.com/Mario23leiva/ReactPortfolio",
-        "url_web": "https://mario23leiva.github.io",
-        "video_url": "www.youtube.com/watch?v=--iqrdHObSw"
+        "id": "react-portfolio",
+        "title": "React Portfolio",
+        "description": "Well this is my portfolio, I created a Portfolio based on my desktop appearance and my personality, you can find my projects, my pictures and a little bit more about me :)",
+        "technologies": ["REACT", "JAVASCRIPT", "CSS", "HTML"],
+        "repoUrl": "https://github.com/Mario23leiva/ReactPortfolio",
+        "webUrl": "https://mario23leiva.github.io/ReactPortfolio"
     },
     {
-        "id": 1,
-        "titulo": "Pokedex",
-        "descripcion": "I made an interactive Pokedex with VUE and Pokeapi API, basically you filter by region, number types... and add pokemons to your team or at your favourite list.",
-        "tecnologias": [
-            "VUE",
-            "API",
-            "JAVASCRIPT",
-            "CSS",
-            "HTML"
-        ],
-        "url_repositorio": "https://github.com/Mario23leiva/PikaPokedex-Vue",
-        "url_web": "https://mario23leiva.github.io/PikaPokedex-Vue/"
+        "id": "stayworking",
+        "title": "StayWorking",
+        "description": "This is one of my favourite projects, in this web you can find a mix of the Pomodoro technique and a Kanban Board.",
+        "technologies": ["JAVASCRIPT", "CSS", "HTML"],
+        "repoUrl": "https://github.com/Mario23leiva/StayWorking",
+        "webUrl": "https://mario23leiva.github.io/StayWorking"
     },
     {
-        "id": 2,
-        "titulo": "StayWorking",
-        "descripcion": "This is one of my favourite projects, in this web you could find a mix with Pomodoro technique and a Kanban Board",
-        "tecnologias": [
-            "JAVASCRIPT",
-            "CSS",
-            "HTML"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },
-    {
-        "id": 3,
-        "titulo": "Crossy Road",
-        "descripcion": "Okey technically this is an educational game about recycling xd, you have to take the trash and recycle it in the correct container, oh sure, avoid the vehicles!",
-        "tecnologias": [
-            "JAVASCRIPT",
-            "CSS",
-            "HTML"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },{
-        "id": 4,
-        "titulo": "ShareBites",
-        "descripcion": "Este es mi tercer proyecto personal. Es un blog personal donde comparto mis ideas sobre tecnología.",
-        "tecnologias": [
-            "LARAVEL",
-            "PHP",
-            "SQL",
-            "VUE"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },
-    {
-        "id": 5,
-        "titulo": "WW3",
-        "descripcion": "This was my first game, I made it when i was 16 so don't judge me I was jounger",
-        "tecnologias": [
-            "PYTHON"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },
-    {
-        "id": 6,
-        "titulo": "Directories & Files",
-        "descripcion": "A simple .NET app to manage your files and directories",
-        "tecnologias": [
-            "C#"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },
-    {
-        "id": 7,
-        "titulo": "CheckATT",
-        "descripcion": "This is an app that you could use as a teacher or as a student, you can check your attendance and doing something more",
-        "tecnologias": [
-            "KOTLIN",
-            "SQL"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },
-    {
-        "id": 8,
-        "titulo": "Restaurant 23 - Manual",
-        "descripcion": "My grandpa has a restaurant so a made his probably corporate identity manual, te restaurant closed after 50 years in 2014 :(",
-        "tecnologias": [
-            "JAVASCRIPT",
-            "CSS",
-            "HTML"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
-    },
-    {
-        "id": 9,
-        "titulo": "Restaurant 23 - Menu",
-        "descripcion": "Well this is a website where you could find the dishes that my grandpa has at his restaurant, the website was made it with JS Vanilla web componentes",
-        "tecnologias": [
-            "JAVASCRIPT",
-            "CSS",
-            "HTML"
-        ],
-        "url_repositorio": "https://github.com/tu_usuario/proyecto3",
-        "url_web": ""
+        "id": "restaurant-23-menu",
+        "title": "Restaurant 23 Menu",
+        "description": "Well this is a website where you can find the dishes that my grandpa had at his restaurant, the website was made with vanilla JS web components.",
+        "technologies": ["JAVASCRIPT", "CSS", "HTML"],
+        "webUrl": "https://mario23leiva.github.io/Restaurante23"
     }
 ]

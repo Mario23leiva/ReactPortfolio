@@ -16,7 +16,7 @@ Lista de tareas en orden de prioridad.
 - [x] Nuevo icono para Profile
 
 ## Fase 3 · Contenido
-- [ ] Renovar proyectos: dejar solo ReactPortfolio, StayWorking y Restaurant 23 Menu (enlaces reales, vídeo embed, campos del JSON unificados)
+- [x] Renovar proyectos: dejar solo ReactPortfolio, StayWorking y Restaurant 23 Menu (enlaces reales, campos del JSON unificados)
 - [x] App Galería: ventana con cuadrícula de fotos y visor, en lugar de cambiar el fondo (lee las imágenes de `src/assets/gallery/`)
 - [x] Fondo de pantalla fijo (`macOS-background.jpg`)
 
@@ -32,6 +32,6 @@ Lista de tareas en orden de prioridad.
 - [ ] (Opcional) Versión en español e inglés
 
 ## Pendiente de información
-- Restaurant 23 Menu: descripción, tecnologías, repo y vídeo (web: mario23leiva.github.io/Restaurante23)
-- StayWorking: descripción actualizada, tecnologías, repo y vídeo (web: mario23leiva.github.io/StayWorking)
+- Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)
+- Vídeos de los proyectos (añadir `videoUrl` con formato https://www.youtube.com/embed/<id>)
 - Fotos reales para la galería (de momento hay fotos de ejemplo)
