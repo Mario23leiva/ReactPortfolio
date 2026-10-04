@@ -2,7 +2,7 @@
     {
         "id": 0,
         "titulo": "React Portfolio",
-        "descripcion": "Well this is my portfolio, I create a Portfolio based in my desktop appearance and my personality, you could find my projects, favourites songs, my pictures edits and a little bit more about me :)",
+        "descripcion": "Well this is my portfolio, I create a Portfolio based in my desktop appearance and my personality, you could find my projects, my pictures edits and a little bit more about me :)",
         "tecnologias": [
             "REACT",
             "JAVASCRIPT",

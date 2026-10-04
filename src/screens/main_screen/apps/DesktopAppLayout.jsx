@@ -1,4 +1,3 @@
-import React from 'react';
 import './DesktopAppLayout.css';
 
 const README_APP = "README.txt";

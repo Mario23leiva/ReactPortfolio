@@ -43,6 +43,7 @@
 }
 
 .btn-download-resume{
+    display: inline-block;
     margin-top: 20px;
     background-color: #e32d2d;
     color: #fbfbfb;

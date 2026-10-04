@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './PokeballMenu.css';
 import DesktopApp from './DesktopApp';
+import { APPS } from './appsConfig.js';
 
-import Pokeball from '../../assets/pokeball-img.png';
-import MusicIcon from '../../assets/iconos/music.png';
 import FilesIcon from '../../assets/iconos/files.png';
 import AboutMe from '../../assets/perfil.png';
 import PicturesIcon from '../../assets/iconos/pictures.png';
@@ -20,16 +19,6 @@ const PokeballMenu = () => {
 
     const imgArray = [fondo1, fondo2, fondo3, fondo4];
     const [backgroundIndex, setBackgroundIndex] = useState(0);
-
-    const PROFILE_APP = "Profile";
-    const MUSIC_APP = "Music";
-    const PICTURES_APP = "My Wallpapers";
-    const FILES_APP = "Files";
-
-    const PROFILE_APP_ID = "PROFILE";
-    const MUSIC_APP_ID = "MUSIC";
-    const PICTURES_APP_ID = "PICTURES";
-    const FILES_APP_ID = "FILES";
 
     const handleClick = () => {
         const pokeball = document.getElementById('pokeball');
@@ -66,10 +55,9 @@ const PokeballMenu = () => {
             <div id="pokeball" className="pokeball pokeball-hover">
                 <img className='pokeball-img' src={PokeballTop} alt="" onClick={handleClick} />
                 <div className='pokeball-apps-container'>
-                    <DesktopApp AppId={PROFILE_APP_ID} AppImg={AboutMe} AppName={PROFILE_APP} onClickApp={openApp} />
-                    <DesktopApp AppId={MUSIC_APP_ID} AppImg={MusicIcon} AppName={MUSIC_APP} onClickApp={openApp} />
-                    <DesktopApp AppId={PICTURES_APP_ID} AppImg={PicturesIcon} AppName={PICTURES_APP} onClickApp={changeBackground} />
-                    <DesktopApp AppId={FILES_APP_ID} AppImg={FilesIcon} AppName={FILES_APP} onClickApp={openApp} />
+                    <DesktopApp AppId={APPS.PROFILE.id} AppImg={AboutMe} AppName={APPS.PROFILE.name} onClickApp={openApp} />
+                    <DesktopApp AppId={APPS.PICTURES.id} AppImg={PicturesIcon} AppName={APPS.PICTURES.name} onClickApp={changeBackground} />
+                    <DesktopApp AppId={APPS.FILES.id} AppImg={FilesIcon} AppName={APPS.FILES.name} onClickApp={openApp} />
                 </div>
                 <img className='pokeball-img' src={PokeballBottom} alt="" onClick={handleClick} />
             </div>

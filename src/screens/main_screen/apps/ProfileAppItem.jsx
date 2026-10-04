@@ -1,17 +1,10 @@
-import React from 'react';
+const ProfileAppItem = ({ number, title, aboutMe, certificates, softSkills, categories, languages, works, checked, onToggle }) => {
+  const inputId = `profile-section-${number}`;
 
-const ProfileAppItem = ({ number, title, aboutMe, certificates, softSkills, categories, languages, works, onChange }) => {
-    
-    let checkedValue
-
-    if(aboutMe != ""){
-        checkedValue = true
-    }
-  
-    return (
+  return (
     <li className='profile-app-main-container-accordion-item'>
-      <input type="checkbox" name="accordion" id={number} checked={checkedValue} onChange={onChange} />
-      <label htmlFor={number}>{title}</label>
+      <input type="checkbox" name="accordion" id={inputId} checked={checked} onChange={onToggle} />
+      <label htmlFor={inputId}>{title}</label>
       <div className="content">
         {aboutMe && <p>{aboutMe}</p>}
         {certificates.length > 0 && (

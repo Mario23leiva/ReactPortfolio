@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import './BlockedScreen.css';
@@ -14,7 +14,6 @@ function BlockedScreen({ onEnter }) {
             if (event.code === 'Space' && !bluredScreen) {
                 setBlurValue(23)
                 setBluredScreen(true);
-                startLoading();
             }
         };
 
@@ -24,6 +23,13 @@ function BlockedScreen({ onEnter }) {
             window.removeEventListener('keydown', handleKeyDown);
         };
     }, [bluredScreen]);
+
+    // Al desbloquear, muestra la pantalla de carga 2s antes de entrar
+    useEffect(() => {
+        if (!bluredScreen) return;
+        const timeout = setTimeout(onEnter, 2000);
+        return () => clearTimeout(timeout);
+    }, [bluredScreen, onEnter]);
 
     const handleTouchStart = (event) => {
         if (!bluredScreen) {
@@ -42,7 +48,6 @@ function BlockedScreen({ onEnter }) {
             if (startY && event.touches[0].clientY < startY - 200) {
                 setBluredScreen(true);
                 setStartY(null);
-                startLoading();
             }
         }
     };
@@ -71,15 +76,8 @@ function BlockedScreen({ onEnter }) {
             if (startY && event.clientY < startY - 200) {
                 setBluredScreen(true);
                 setStartY(null);
-                startLoading();
             }
         }
-    };
-
-    const startLoading = () => {
-        setTimeout(() => {
-            onEnter();
-        }, 2000);
     };
 
     return (

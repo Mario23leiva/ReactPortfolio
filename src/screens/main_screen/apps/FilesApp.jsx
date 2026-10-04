@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './FilesApp.css';
 import FileItem from './FileItem';
 import FileInfo from './FileInfo';

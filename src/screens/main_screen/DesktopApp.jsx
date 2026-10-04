@@ -1,6 +1,3 @@
-import React from 'react';
-import './DesktopApp.css';
-
 function DesktopApp({ AppId, AppImg, AppName, onClickApp }) {
 
     return (

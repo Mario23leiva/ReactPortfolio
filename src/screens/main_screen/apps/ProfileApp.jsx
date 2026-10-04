@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './ProfileApp.css';
 import ProfileAppItem from './ProfileAppItem';
 import profileImg from './../../../assets/profile-picture.jpeg';
 import profileData from './../../../assets/json/my-profile.json';
 
 
-const ProfileApp = ({ AppName }) => {
+const ProfileApp = () => {
+  // "About Me" abierto por defecto, el resto cerrado
   const [checkedItems, setCheckedItems] = useState(
     profileData.reduce((acc, item) => {
-      acc[item.id] = false;
+      acc[item.id] = item.aboutMe !== undefined;
       return acc;
     }, {})
   );
 
-  const handleCheckboxChange = (event) => {
-    const { id, checked } = event.target;
+  const toggleItem = (id) => {
     setCheckedItems((prevCheckedItems) => ({
       ...prevCheckedItems,
-      [id]: checked,
+      [id]: !prevCheckedItems[id],
     }));
   };
 
@@ -30,7 +30,7 @@ const ProfileApp = ({ AppName }) => {
             <p>Mario Leiva Torres</p>
             <p>Full Stack Developer</p>
             <p>marioleivatorres23@gmail.com</p>
-            <button className="btn-download-resume">Download Resume</button>
+            <a className="btn-download-resume" href="cv/Mario-Leiva-Torres-CV.pdf" download>Download Resume</a>
           </div>
         </div>
       </div>
@@ -47,7 +47,8 @@ const ProfileApp = ({ AppName }) => {
               categories={item.categories || []}
               languages={item.lenguages || []}
               works={item.works || []}
-              onChange={handleCheckboxChange}
+              checked={checkedItems[item.id]}
+              onToggle={() => toggleItem(item.id)}
             />
           ))}
         </ul>

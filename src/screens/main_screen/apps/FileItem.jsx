@@ -1,4 +1,3 @@
-import React from 'react';
 import DirectoryFile from './../../../assets/iconos/icono_carpeta.png';
 
 const FileItem = ({ index, title, onClick }) => {

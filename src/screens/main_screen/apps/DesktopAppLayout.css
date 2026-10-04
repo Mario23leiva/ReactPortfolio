@@ -79,7 +79,7 @@ button#maximizeBtn{
 }
 
 
-#PROFILE, #MUSIC, #FILES, .README, .VIDEO{
+#PROFILE, #FILES, .README, .VIDEO{
     display: none;
 }
 
@@ -88,14 +88,14 @@ button#maximizeBtn{
     flex-direction: column;
 }
 
-#MUSIC.active, .README.active{
+.README.active{
     display: flex;
     flex-direction: column;
     min-width: 200px;
     width: 400px;
 }
 
-#MUSIC.active.maximize, .README.active.maximize{
+.README.active.maximize{
     width: 100%;
 }
 
