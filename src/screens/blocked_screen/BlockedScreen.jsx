@@ -3,11 +3,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import './BlockedScreen.css';
 import FotoPerfil from '../../assets/foto_epica_redonda.png';
+import { preloadAssets } from '../../utils/preloadAssets.js';
+
+// Tiempo mínimo de la pantalla de carga para que la animación no parpadee
+const MIN_LOADING_MS = 2000;
 
 function BlockedScreen({ onEnter }) {
     const [bluredScreen, setBluredScreen] = useState(false);
     const [startY, setStartY] = useState(null);
     const [blurValue, setBlurValue] = useState(0);
+    const [assetsLoaded, setAssetsLoaded] = useState(false);
+    const [minLoadingDone, setMinLoadingDone] = useState(false);
+
+    // La precarga empieza nada más mostrarse la pantalla de bloqueo
+    useEffect(() => {
+        let cancelled = false;
+        preloadAssets().then(() => {
+            if (!cancelled) setAssetsLoaded(true);
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, []);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -24,12 +41,19 @@ function BlockedScreen({ onEnter }) {
         };
     }, [bluredScreen]);
 
-    // Al desbloquear, muestra la pantalla de carga 2s antes de entrar
+    // Al desbloquear, la pantalla de carga dura al menos MIN_LOADING_MS
     useEffect(() => {
         if (!bluredScreen) return;
-        const timeout = setTimeout(onEnter, 2000);
+        const timeout = setTimeout(() => setMinLoadingDone(true), MIN_LOADING_MS);
         return () => clearTimeout(timeout);
-    }, [bluredScreen, onEnter]);
+    }, [bluredScreen]);
+
+    // Solo se entra al escritorio cuando todo está cargado
+    useEffect(() => {
+        if (minLoadingDone && assetsLoaded) {
+            onEnter();
+        }
+    }, [minLoadingDone, assetsLoaded, onEnter]);
 
     const handleTouchStart = (event) => {
         if (!bluredScreen) {
