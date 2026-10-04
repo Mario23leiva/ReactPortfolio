@@ -1,19 +1,21 @@
 import './MainScreen.css'
-import PokeballMenu from './PokeballMenu';
-import MainContainer from './MainContainer';
+import Dock from './dock/Dock.jsx';
+import WindowsLayer from './windows/WindowsLayer.jsx';
+import WindowManagerProvider from './windows/WindowManagerProvider.jsx';
 
 function MainScreen() {
-
     return (
-        <div className="main-screen">
-            <div id="main-container" className='main-container'>
-                <MainContainer />
+        <WindowManagerProvider>
+            <div className="main-screen">
+                <div className="main-container">
+                    <WindowsLayer />
+                </div>
+                <div className="menu">
+                    <Dock />
+                </div>
             </div>
-            <div className="menu">
-                <PokeballMenu />
-            </div>
-        </div>
+        </WindowManagerProvider>
     );
 }
 
-export default MainScreen; // Exporta el componente MainScreen
+export default MainScreen;

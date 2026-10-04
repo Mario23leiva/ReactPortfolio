@@ -1,12 +1,12 @@
 import DirectoryFile from './../../../assets/iconos/icono_carpeta.png';
 
-const FileItem = ({ index, title, onClick }) => {
+const FileItem = ({ title, selected, onClick }) => {
     return (
-        <li id={`file-item-${index}`} className="file-item" title={title} onClick={onClick}>
+        <li className={`file-item${selected ? ' file-selected' : ''}`} title={title} onClick={onClick}>
             <img src={DirectoryFile} alt={title} />
             {title}
         </li>
-    );  
+    );
 }
 
 export default FileItem;

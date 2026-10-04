@@ -1,8 +1,5 @@
-import { useState } from 'react';
-import ReactDOM from 'react-dom';
 import './FileInfo.css';
-
-import DesktopAppLayout from './DesktopAppLayout';
+import { useWindowManager } from '../windows/WindowManagerContext.js';
 
 //img technologies
 import IMG_CHROME from '../../../assets/iconos/chrome.png';
@@ -32,8 +29,7 @@ const PYTHON_TECHNOLOGY = "PYTHON"
 
 const FileInfo = ({ project }) => {
 
-    const [showReadme, setShowReadme] = useState(false);
-    const [showVideo, setShowVideo] = useState(false);
+    const { openWindow } = useWindowManager();
 
     const loadAppTechnologies = (tecnologia, index) => {
         let imgTech;
@@ -82,24 +78,23 @@ const FileInfo = ({ project }) => {
         return null;
     }
 
-    const toggleReadme = () => {
-        setShowReadme(!showReadme);
+    const openReadme = () => {
+        openWindow({
+            id: `readme-project-${project.id}`,
+            title: 'README.txt',
+            variant: 'readme',
+            data: { title: project.titulo, text: project.descripcion },
+        });
     };
 
-    const toggleVideo = () => {
-        setShowVideo(!showVideo);
+    const openVideo = () => {
+        openWindow({
+            id: `video-project-${project.id}`,
+            title: 'VIDEO.mp4',
+            variant: 'video',
+            data: { url: project.video_url },
+        });
     };
-
-    const readmeContent = (
-        <DesktopAppLayout AppId={"readme-project-" + project.id} AppName="README.txt" AppComponent={project.descripcion} AppTitle={project.titulo}/>
-    );
-
-    const videoContent = (
-        <DesktopAppLayout AppId={"video-project-" + project.id} AppName="VIDEO.mp4" AppComponent={project.video_url}/>
-    );
-
-    const readmeContainer = document.getElementById('main-container');
-    const videoContainer = document.getElementById('main-container');
 
     return (
         <div className="file-info">
@@ -112,12 +107,12 @@ const FileInfo = ({ project }) => {
                         </li>
                     </a>
 
-                    <li className="file-info-item file-info-clickable" title="About the project..." onClick={toggleReadme}>
+                    <li className="file-info-item file-info-clickable" title="About the project..." onClick={openReadme}>
                         <img src={IMG_FILE} alt="File" />
                         <span>README.txt</span>
                     </li>
 
-                    <li className="file-info-item file-info-clickable" title="Video Resume" onClick={toggleVideo}>
+                    <li className="file-info-item file-info-clickable" title="Video Resume" onClick={openVideo}>
                         <img src={IMG_FILE} alt="File" />
                         <span>VIDEO.mp4</span>
                     </li>
@@ -133,8 +128,6 @@ const FileInfo = ({ project }) => {
                     ))}
                 </ul>
             </div>
-            {showReadme && readmeContainer && ReactDOM.createPortal(readmeContent, readmeContainer)}
-            {showVideo && videoContainer && ReactDOM.createPortal(videoContent, videoContainer)}
         </div>
     );
 }
