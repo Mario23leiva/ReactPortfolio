@@ -1,7 +1,8 @@
 {
     "lockScreen": {
         "unlock": "^ DESLIZA HACIA ARRIBA o PULSA ESPACIO PARA ENTRAR ^",
-        "loading": "Cargando"
+        "loading": "Cargando",
+        "swipeUp": "Desliza hacia arriba para desbloquear"
     },
     "common": {
         "newTab": "{name} (se abre en una pestaña nueva)"
@@ -68,5 +69,16 @@
             "gallery": "Galería",
             "otherProjects": "Otros proyectos"
         }
+    },
+    "phone": {
+        "homeScreen": "Pantalla de inicio",
+        "goHome": "Ir a la pantalla de inicio",
+        "openSwitcher": "Ver apps abiertas",
+        "switcher": "Apps abiertas",
+        "noApps": "No hay apps abiertas",
+        "closeApp": "Cerrar {name}",
+        "openApp": "Abrir {name}",
+        "swipeHint": "Desliza hacia arriba para cerrar",
+        "status": "Batería llena, wifi y cobertura"
     }
 }

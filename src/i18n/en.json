@@ -1,7 +1,8 @@
 {
     "lockScreen": {
         "unlock": "^ SWIPE UP or PRESS SPACE TO LOGIN ^",
-        "loading": "Loading"
+        "loading": "Loading",
+        "swipeUp": "Swipe up to unlock"
     },
     "common": {
         "newTab": "{name} (opens in a new tab)"
@@ -68,5 +69,16 @@
             "gallery": "Gallery",
             "otherProjects": "Other projects"
         }
+    },
+    "phone": {
+        "homeScreen": "Home screen",
+        "goHome": "Go to home screen",
+        "openSwitcher": "Show open apps",
+        "switcher": "Open apps",
+        "noApps": "No open apps",
+        "closeApp": "Close {name}",
+        "openApp": "Open {name}",
+        "swipeHint": "Swipe up to close",
+        "status": "Full battery, Wi-Fi and signal"
     }
 }

@@ -7,7 +7,6 @@ import { useI18n } from '../../../i18n/I18nContext.js';
 // Parte de la ventana que siempre queda visible al arrastrarla
 const MIN_VISIBLE_WIDTH = 100;
 const TOP_BAR_HEIGHT = 40;
-const MOBILE_QUERY = '(max-width: 640px)';
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
@@ -29,8 +28,7 @@ const Window = ({ win, topBarContent, children }) => {
     }, [win.z, win.minimized]);
 
     const handlePointerDown = (event) => {
-        const isMobile = window.matchMedia(MOBILE_QUERY).matches;
-        if (event.button !== 0 || win.maximized || isMobile || event.target.closest('button')) {
+        if (event.button !== 0 || win.maximized || event.target.closest('button')) {
             return;
         }
 

@@ -104,28 +104,3 @@
         opacity: 0;
     }
 }
-
-@media (max-width: 640px) {
-    /* Con muchos documentos abiertos el dock se desplaza en horizontal */
-    .dock {
-        gap: 10px;
-        padding: 4px 10px;
-        border-radius: 16px;
-        max-width: calc(100vw - 16px);
-        overflow-x: auto;
-        scrollbar-width: none;
-    }
-
-    .dock::-webkit-scrollbar {
-        display: none;
-    }
-
-    .dock-item {
-        flex-shrink: 0;
-    }
-
-    .dock-item img {
-        width: 44px;
-        height: 44px;
-    }
-}

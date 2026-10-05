@@ -19,8 +19,8 @@ const updateWindow = (state, id, changes) => ({
 });
 
 // Ventana visible (no minimizada) que está en primer plano
-const getTopWindow = (state) =>
-    state.windows
+export const getTopWindow = (windows) =>
+    windows
         .filter((win) => !win.minimized)
         .reduce((top, win) => (!top || win.z > top.z ? win : top), null);
 
@@ -53,7 +53,7 @@ export function windowReducer(state, action) {
 
         case 'FOCUS': {
             const win = findWindow(state, action.id);
-            if (!win || getTopWindow(state)?.id === win.id) {
+            if (!win || getTopWindow(state.windows)?.id === win.id) {
                 return state;
             }
             return bringToFront(state, action.id);
@@ -64,6 +64,10 @@ export function windowReducer(state, action) {
 
         case 'MINIMIZE':
             return updateWindow(state, action.id, { minimized: true });
+
+        // Ir a la pantalla de inicio del iPhone: todas las apps pasan a segundo plano
+        case 'MINIMIZE_ALL':
+            return { ...state, windows: state.windows.map((win) => ({ ...win, minimized: true })) };
 
         case 'TOGGLE_MAXIMIZE': {
             const win = findWindow(state, action.id);
@@ -79,7 +83,7 @@ export function windowReducer(state, action) {
             if (!win) {
                 return openWindow(state, action.window);
             }
-            if (getTopWindow(state)?.id === win.id) {
+            if (getTopWindow(state.windows)?.id === win.id) {
                 return updateWindow(state, win.id, { minimized: true });
             }
             return bringToFront(state, win.id);

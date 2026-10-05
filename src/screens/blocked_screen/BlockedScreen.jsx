@@ -5,12 +5,16 @@ import './BlockedScreen.css';
 import FotoPerfil from '../../assets/foto_epica_redonda.webp';
 import { preloadAssets } from '../../utils/preloadAssets.js';
 import { useI18n } from '../../i18n/I18nContext.js';
+import { PHONE_QUERY, useMediaQuery } from '../../hooks/useMediaQuery.js';
+import { formatDate, formatTime, useClock } from '../../hooks/useClock.js';
 
 // Tiempo mínimo de la pantalla de carga para que la animación no parpadee
 const MIN_LOADING_MS = 2000;
 
 function BlockedScreen({ onEnter }) {
-    const { t } = useI18n();
+    const { t, language } = useI18n();
+    const isPhone = useMediaQuery(PHONE_QUERY);
+    const now = useClock();
     const [bluredScreen, setBluredScreen] = useState(false);
     const [startY, setStartY] = useState(null);
     const [blurValue, setBlurValue] = useState(0);
@@ -115,7 +119,14 @@ function BlockedScreen({ onEnter }) {
             onMouseMove={handleMouseMove}
         >
             <div className='blocked-screen-background-image' style={{ filter: `blur(${blurValue}px)` }}>
-                <h2 className='bounce-animation'>{t('lockScreen.unlock')}</h2>
+                {/* En el móvil, pantalla de bloqueo de iPhone: fecha y hora grandes */}
+                {isPhone && !bluredScreen && (
+                    <div className="lock-clock">
+                        <p className="lock-clock-date">{formatDate(now, language)}</p>
+                        <time className="lock-clock-time" dateTime={now.toISOString()}>{formatTime(now, language)}</time>
+                    </div>
+                )}
+                <h2 className='bounce-animation'>{t(isPhone ? 'lockScreen.swipeUp' : 'lockScreen.unlock')}</h2>
             </div>
 
             {bluredScreen &&

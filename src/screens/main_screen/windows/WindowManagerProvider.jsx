@@ -10,6 +10,7 @@ const WindowManagerProvider = ({ children }) => {
         focusWindow: (id) => dispatch({ type: 'FOCUS', id }),
         closeWindow: (id) => dispatch({ type: 'CLOSE', id }),
         minimizeWindow: (id) => dispatch({ type: 'MINIMIZE', id }),
+        minimizeAll: () => dispatch({ type: 'MINIMIZE_ALL' }),
         toggleMaximize: (id) => dispatch({ type: 'TOGGLE_MAXIMIZE', id }),
         dockClick: (window) => dispatch({ type: 'DOCK_CLICK', window }),
         openInBrowser: (url) => dispatch({ type: 'BROWSER_OPEN', url }),

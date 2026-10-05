@@ -29,9 +29,3 @@
     justify-content: center;
     z-index: 2;
 }
-
-@media (max-width: 640px) {
-    .main-screen .main-container {
-        bottom: 74px;
-    }
-}

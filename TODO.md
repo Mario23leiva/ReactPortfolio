@@ -44,7 +44,12 @@ Lista de tareas en orden de prioridad.
   - [x] Pestaña nueva con buscador de proyectos y página de "sitio no encontrado"
   - [ ] Sustituir los textos e imágenes de ejemplo por los reales
 - [x] 6.4 Navegador en el dock: un único icono de Chrome con una pestaña por proyecto abierto
-- [ ] 6.5 Modo iPhone en móvil: barra de estado, pantalla de inicio con apps, apps a pantalla completa, selector de apps y el icono "Prohibido divertirse" como app
+- [x] 6.5 Modo iPhone en móvil (≤ 640 px): sustituye a la versión responsive del Mac
+  - [x] Pantalla de bloqueo con fecha y hora grandes
+  - [x] Barra de estado con Dynamic Island, pantalla de inicio con widget de perfil, "Prohibido divertirse" y dock (Perfil, Archivos, Galería, Chrome)
+  - [x] Apps a pantalla completa; barra de inicio: tocar o deslizar un poco → inicio, deslizar más → apps abiertas
+  - [x] Selector de apps: tocar para abrir, deslizar hacia arriba o ✕ para cerrar
+  - [ ] (Opcional) Vista en horizontal: ahora un móvil girado (> 640 px de ancho) ve el Mac
 
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)

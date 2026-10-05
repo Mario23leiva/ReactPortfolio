@@ -84,11 +84,41 @@ h2.bounce-animation{
     99% { transform: translateY(-3%); }
     100% { transform: translateY(0); }
 }
+/* Reloj de la pantalla de bloqueo del iPhone */
+.lock-clock {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.lock-clock-date {
+    font-size: 19px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.lock-clock-time {
+    font-size: 88px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
 @media (max-width: 640px) {
     h2.bounce-animation {
-        font-size: 18px;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+        font-weight: 500;
+        font-size: 16px;
         text-align: center;
-        padding: 0 16px 24px;
+        padding: 0 16px 40px;
     }
 
     .blocked-screen-login img {

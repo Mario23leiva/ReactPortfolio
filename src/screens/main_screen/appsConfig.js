@@ -23,6 +23,9 @@ export const DOCK_LINKS = [
 
 export const getApp = (id) => APPS.find((app) => app.id === id);
 
+// Icono de una ventana: el de su app o, si no es una app, el que se le dio al abrirla
+export const getWindowIcon = (win) => getApp(win.id)?.icon ?? win.icon;
+
 // Título de una ventana: las apps usan su nombre traducido; el navegador, la página activa;
 // el resto, el título con el que se abrieron
 export const getWindowTitle = (win, t) => {
