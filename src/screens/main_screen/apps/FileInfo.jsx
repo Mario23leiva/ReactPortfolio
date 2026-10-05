@@ -2,6 +2,7 @@ import './FileInfo.css';
 import { useWindowManager } from '../windows/WindowManagerContext.js';
 
 import IMG_FILE from '../../../assets/iconos/archivo.webp';
+import IMG_CHROME from '../../../assets/iconos/chrome.webp';
 import IMG_GITHUB from '../../../assets/iconos/github.webp';
 import { TECHNOLOGY_ICONS } from '../technologyIcons.js';
 import { getProjectUrl } from '../browser/browserState.js';
@@ -44,7 +45,7 @@ const FileInfo = ({ project }) => {
                     {/* La mini web del proyecto se abre en el navegador simulado */}
                     <li className="file-info-item" title={t('files.openWebsite')}>
                         <button type="button" onClick={() => openInBrowser(getProjectUrl(project))}>
-                            <img src={IMG_FILE} alt="" />
+                            <img src={IMG_CHROME} alt="" />
                             <span>index.html</span>
                         </button>
                     </li>

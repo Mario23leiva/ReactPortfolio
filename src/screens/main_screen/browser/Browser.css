@@ -195,9 +195,17 @@
     font: 14px system-ui, sans-serif;
 }
 
-.browser-viewport {
+.browser-stage {
+    position: relative;
+    display: flex;
     flex: 1;
     min-height: 0;
+}
+
+/* Sin position: así las capas absolutas de la página se colocan respecto al stage */
+.browser-viewport {
+    flex: 1;
+    min-width: 0;
     overflow-y: auto;
     background-color: #fff;
 }
@@ -325,12 +333,64 @@
     list-style: none;
 }
 
+.project-gallery button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    border-radius: 10px;
+    background: none;
+    cursor: zoom-in;
+    overflow: hidden;
+}
+
 .project-gallery img {
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-gallery button:hover img {
+    transform: scale(1.03);
+}
+
+.project-gallery button:focus-visible {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+}
+
+/* Visor de la galería: tapa la zona visible de la página */
+.project-lightbox {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background-color: rgba(20, 20, 20, 0.92);
+    animation: project-lightbox-in 0.2s ease;
+}
+
+.project-lightbox img {
+    max-width: calc(100% - 128px);
+    max-height: calc(100% - 96px);
+    border-radius: 8px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes project-lightbox-in {
+    from {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-lightbox {
+        animation: none;
+    }
+
+    .project-gallery img {
+        transition: none;
+    }
 }
 
 .project-others,
@@ -497,6 +557,13 @@
 
     .project-hero h1 {
         font-size: 30px;
+    }
+
+    /* En pantallas estrechas la imagen ocupa todo el ancho y las flechas van encima */
+    .project-lightbox img {
+        max-width: 100%;
+        max-height: calc(100% - 120px);
+        border-radius: 0;
     }
 
     .project-body {

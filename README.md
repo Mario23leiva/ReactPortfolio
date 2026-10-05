@@ -51,7 +51,8 @@ src/
 │   ├── fondos/        # Wallpapers
 │   ├── gallery/       # Gallery photos (loaded automatically)
 │   ├── iconos/        # App and technology icons
-│   └── json/          # Profile and projects data
+│   ├── json/          # Profile and projects data
+│   └── projects/      # Project screenshots, one folder per project
 ├── screens/
 │   ├── blocked_screen/    # Lock screen
 │   └── main_screen/

@@ -48,28 +48,40 @@
         "repoUrl": "https://github.com/Mario23leiva/StayWorking",
         "webUrl": "https://mario23leiva.github.io/StayWorking",
         "page": {
-            "cover": "gallery/el_edit.webp",
-            "gallery": ["gallery/otra.webp", "gallery/win_xp.webp", "gallery/el_edit.webp"],
+            "cover": "projects/stayworking/board.webp",
+            "gallery": [
+                "projects/stayworking/board.webp",
+                "projects/stayworking/task.webp",
+                "projects/stayworking/themes.webp",
+                "projects/stayworking/dark.webp"
+            ],
             "sections": [
                 {
                     "title": { "es": "El problema", "en": "The problem" },
                     "body": {
-                        "es": "Texto de ejemplo. Aquí irá por qué hacía falta una herramienta que juntara el Pomodoro y el Kanban.",
-                        "en": "Placeholder text. This is where the reason for combining Pomodoro and Kanban in one tool will be explained."
+                        "es": "Trabajar con la técnica Pomodoro y llevar las tareas en un Kanban casi siempre significa tener dos apps abiertas que no se hablan entre ellas. StayWorking junta las dos en una sola pantalla: a la izquierda el temporizador, a la derecha el tablero, y un puente entre ambos. Marcas una tarea como foco y cada pomodoro que completas se suma a esa tarea, así sabes cuánto tiempo real le has dedicado a cada cosa.",
+                        "en": "Working with the Pomodoro technique while keeping your tasks on a Kanban board usually means juggling two apps that don't talk to each other. StayWorking puts both on a single screen: the timer on the left, the board on the right, and a bridge between them. You pick a task as your focus and every pomodoro you finish is added to it, so you know how much real time each thing took."
                     }
                 },
                 {
                     "title": { "es": "Cómo funciona", "en": "How it works" },
                     "body": {
-                        "es": "Texto de ejemplo. Aquí irá un recorrido por el temporizador, las columnas del tablero y cómo se relacionan.",
-                        "en": "Placeholder text. This is where a walkthrough of the timer, the board columns and how they connect will go."
+                        "es": "El temporizador alterna enfoque, descanso y descanso largo (25, 5 y 15 minutos por defecto, todo configurable), con inicio automático, sonido y notificación del navegador opcionales. El tablero tiene tres columnas (por hacer, en curso y hecho): las tareas se mueven arrastrándolas o con las flechas de cada tarjeta, tienen categoría de color y se añaden al vuelo escribiendo y pulsando Enter. Hay atajos (Espacio para empezar o pausar, N para una tarea nueva), estadísticas del día y nueve temas pastel, incluido uno oscuro. Todo se guarda en el navegador, y las tareas que se quedan de días anteriores aparecen marcadas.",
+                        "en": "The timer cycles through focus, short break and long break (25, 5 and 15 minutes by default, all configurable), with optional auto-start, sound and browser notifications. The board has three columns (to do, doing and done): tasks are moved by dragging them or with the arrows on each card, have a colour category and can be added on the fly by typing and pressing Enter. There are shortcuts (Space to start or pause, N for a new task), daily stats and nine pastel themes, including a dark one. Everything is saved in the browser, and tasks left over from previous days are flagged."
+                    }
+                },
+                {
+                    "title": { "es": "El rediseño", "en": "The redesign" },
+                    "body": {
+                        "es": "La primera versión tenía una pantalla de inicio, dos páginas separadas, Bootstrap y Font Awesome. La rehice desde cero en una sola pantalla y sin dependencias: iconos en SVG, la fuente del sistema y diálogos nativos con <dialog>. Los datos pasaron de cookies y HTML guardado en localStorage a JSON limpio, con una migración automática para que nadie perdiera sus tareas ni sus ajustes al actualizar.",
+                        "en": "The first version had a start screen, two separate pages, Bootstrap and Font Awesome. I rebuilt it from scratch as a single screen with no dependencies: SVG icons, the system font and native <dialog> modals. The data moved from cookies and HTML stored in localStorage to clean JSON, with an automatic migration so nobody lost their tasks or settings after the update."
                     }
                 },
                 {
                     "title": { "es": "Lo que aprendí", "en": "What I learned" },
                     "body": {
-                        "es": "Texto de ejemplo. Aquí irán los retos de hacerlo todo con JavaScript sin frameworks.",
-                        "en": "Placeholder text. This is where the challenges of building it all with vanilla JavaScript will go."
+                        "es": "Que un temporizador no debe restar segundos: guardando la hora de fin no se desfasa cuando la pestaña está en segundo plano y sobrevive a una recarga. También a organizar JavaScript sin frameworks en módulos pequeños (almacenamiento, temas, tablero y pomodoro), a hacer el arrastrar y soltar accesible con teclado y a cuidar que la app funcione aunque el navegador bloquee el almacenamiento.",
+                        "en": "That a timer shouldn't count seconds down: storing the end time means it doesn't drift while the tab is in the background and it survives a reload. I also learned to split vanilla JavaScript into small modules (storage, themes, board and pomodoro), to back drag and drop with keyboard controls and to keep the app working even when the browser blocks storage."
                     }
                 }
             ]

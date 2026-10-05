@@ -80,9 +80,13 @@ const BrowserApp = ({ data }) => {
                 <AddressBar key={`${tab.id}-${url}`} url={url} onNavigate={navigate} />
             </div>
 
-            {/* La key vuelve a montar la página (y su scroll) al navegar, cambiar de pestaña o recargar */}
-            <div className="browser-viewport" key={`${tab.id}-${tab.index}-${reloadCount}`} role="tabpanel">
-                <BrowserPage url={url} onNavigate={navigate} />
+            {/* El stage es el bloque de referencia de las capas a pantalla completa de la página (visor de imágenes),
+                así cubren la zona visible y no se desplazan con el scroll del viewport */}
+            <div className="browser-stage">
+                {/* La key vuelve a montar la página (y su scroll) al navegar, cambiar de pestaña o recargar */}
+                <div className="browser-viewport" key={`${tab.id}-${tab.index}-${reloadCount}`} role="tabpanel">
+                    <BrowserPage url={url} onNavigate={navigate} />
+                </div>
             </div>
         </div>
     );

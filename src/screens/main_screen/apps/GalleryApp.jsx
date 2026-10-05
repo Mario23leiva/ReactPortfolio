@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import './GalleryApp.css';
 import { useI18n } from '../../../i18n/I18nContext.js';
+import ImageViewer from '../ImageViewer.jsx';
 
 // Carga todas las imágenes de src/assets/gallery: para añadir fotos basta con copiarlas en esa carpeta
 const imageModules = import.meta.glob('../../../assets/gallery/*.{png,jpg,jpeg,webp,gif,avif}', {
@@ -12,49 +11,28 @@ const imageModules = import.meta.glob('../../../assets/gallery/*.{png,jpg,jpeg,w
 
 const images = Object.entries(imageModules)
     .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
-    .map(([path, src]) => ({ src, name: path.split('/').pop() }));
+    .map(([path, src]) => {
+        const name = path.split('/').pop();
+        return { src, name, alt: name };
+    });
 
 const GalleryApp = () => {
     const { t } = useI18n();
     const [selectedIndex, setSelectedIndex] = useState(null);
-    const viewerRef = useRef(null);
-
-    useEffect(() => {
-        if (selectedIndex !== null) {
-            viewerRef.current?.focus();
-        }
-    }, [selectedIndex]);
 
     if (images.length === 0) {
         return <div className="gallery-app gallery-empty">{t('gallery.empty')}</div>;
     }
 
-    const showPrevious = () => setSelectedIndex((index) => (index === 0 ? images.length - 1 : index - 1));
-    const showNext = () => setSelectedIndex((index) => (index === images.length - 1 ? 0 : index + 1));
-    const closeViewer = () => setSelectedIndex(null);
-
-    const handleViewerKeyDown = (event) => {
-        if (event.key === 'ArrowLeft') showPrevious();
-        else if (event.key === 'ArrowRight') showNext();
-        else if (event.key === 'Escape') closeViewer();
-    };
-
     if (selectedIndex !== null) {
-        const image = images[selectedIndex];
         return (
-            <div className="gallery-app gallery-viewer" ref={viewerRef} tabIndex={-1} onKeyDown={handleViewerKeyDown}>
-                <img src={image.src} alt={image.name} draggable="false" />
-                <button type="button" className="gallery-viewer-btn close" title={t('gallery.allPhotos')} onClick={closeViewer}>
-                    <FontAwesomeIcon icon={faXmark} />
-                </button>
-                <button type="button" className="gallery-viewer-btn previous" title={t('gallery.previous')} onClick={showPrevious}>
-                    <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
-                <button type="button" className="gallery-viewer-btn next" title={t('gallery.next')} onClick={showNext}>
-                    <FontAwesomeIcon icon={faChevronRight} />
-                </button>
-                <span className="gallery-viewer-counter">{selectedIndex + 1} / {images.length}</span>
-            </div>
+            <ImageViewer
+                images={images}
+                index={selectedIndex}
+                onIndexChange={setSelectedIndex}
+                onClose={() => setSelectedIndex(null)}
+                closeLabel={t('gallery.allPhotos')}
+            />
         );
     }
 

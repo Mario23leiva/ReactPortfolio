@@ -67,6 +67,8 @@
             "viewCode": "View code",
             "technologies": "Technologies",
             "gallery": "Gallery",
+            "enlargeImage": "View larger",
+            "closeImage": "Close",
             "otherProjects": "Other projects"
         }
     },
