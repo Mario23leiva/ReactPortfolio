@@ -12,6 +12,8 @@ const WindowManagerProvider = ({ children }) => {
         minimizeWindow: (id) => dispatch({ type: 'MINIMIZE', id }),
         toggleMaximize: (id) => dispatch({ type: 'TOGGLE_MAXIMIZE', id }),
         dockClick: (window) => dispatch({ type: 'DOCK_CLICK', window }),
+        openInBrowser: (url) => dispatch({ type: 'BROWSER_OPEN', url }),
+        browserAction: (action) => dispatch({ type: 'BROWSER', action }),
     }), []);
 
     const value = useMemo(() => ({ windows: state.windows, ...actions }), [state.windows, actions]);

@@ -1,168 +1,105 @@
 [
     {
-        "id": 0,
-        "titulo": "About Me",
-        "aboutMe": "Junior Software Developer, graduated in Development of Web Applications and Multi-platform Applications Development. I have a passion for designing and developing websites and desktop/mobile apps. I consider myself a highly creative and organized, with high leadership capabilities."
+        "id": "about-me",
+        "title": { "es": "Sobre mí", "en": "About Me" },
+        "aboutMe": {
+            "es": "Desarrollador de software junior, titulado en Desarrollo de Aplicaciones Web y en Desarrollo de Aplicaciones Multiplataforma. Me apasiona diseñar y desarrollar webs y aplicaciones de escritorio y móviles. Me considero una persona muy creativa y organizada, con gran capacidad de liderazgo.",
+            "en": "Junior Software Developer, graduated in Development of Web Applications and Multi-platform Applications Development. I have a passion for designing and developing websites and desktop/mobile apps. I consider myself highly creative and organized, with strong leadership skills."
+        }
     },
     {
-        "id": 1,
-        "titulo": "Certifications",
+        "id": "certifications",
+        "title": { "es": "Titulaciones", "en": "Certifications" },
         "certificates": [
             {
-                "id": 0,
-                "title": "Higher Technician in Development of Web Applications",
+                "title": {
+                    "es": "Técnico Superior en Desarrollo de Aplicaciones Web",
+                    "en": "Higher Technician in Development of Web Applications"
+                },
                 "year": 2024
             },
             {
-                "id": 1,
-                "title": "Higher Technician in Multi-platform Applications Development",
+                "title": {
+                    "es": "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma",
+                    "en": "Higher Technician in Multi-platform Applications Development"
+                },
                 "year": 2023
             },
             {
-                "id": 2,
-                "title": "Technician in Microcomputer Systems and Networks",
+                "title": {
+                    "es": "Técnico en Sistemas Microinformáticos y Redes",
+                    "en": "Technician in Microcomputer Systems and Networks"
+                },
                 "year": 2021
             }
         ]
     },
     {
-        "id": 2,
-        "titulo": "Soft Skills",
-        "soft-skills": [
-            {
-                "id": 0,
-                "name": "Creative"
-            },
-            {
-                "id": 1,
-                "name": "Flexible"
-            },
-            {
-                "id": 2,
-                "name": "Communicative"
-            },
-            {
-                "id": 0,
-                "name": "Polite"
-            },
-            {
-                "id": 1,
-                "name": "Responsible"
-            },
-            {
-                "id": 2,
-                "name": "Punctual"
-            }
+        "id": "soft-skills",
+        "title": { "es": "Habilidades personales", "en": "Soft Skills" },
+        "softSkills": [
+            { "es": "Creativo", "en": "Creative" },
+            { "es": "Flexible", "en": "Flexible" },
+            { "es": "Comunicativo", "en": "Communicative" },
+            { "es": "Educado", "en": "Polite" },
+            { "es": "Responsable", "en": "Responsible" },
+            { "es": "Puntual", "en": "Punctual" }
         ]
     },
     {
-        "id": 3,
-        "titulo": "It Lenguages/Frameworks",
+        "id": "technologies",
+        "title": { "es": "Lenguajes y frameworks", "en": "IT Languages/Frameworks" },
         "categories": [
             {
-                "id": 0,
                 "name": "Front-End",
-                "it-lenguages": [                    
-                    {
-                        "id": 0,
-                        "name": "REACT"
-                    },
-                    {
-                        "id": 1,
-                        "name": "VUE"
-                    },
-                    {
-                        "id": 2,
-                        "name": "JS"
-                    },
-                    {
-                        "id": 3,
-                        "name": "CSS/BOOTSTRAP"
-                    }
-                ]
+                "technologies": ["REACT", "VUE", "JS", "CSS/BOOTSTRAP"]
             },
             {
-                "id": 1,
                 "name": "Back-End",
-                "it-lenguages": [
-                    {
-                        "id": 0,
-                        "name": "PYTHON"
-                    },
-                    {
-                        "id": 1,
-                        "name": "C#"
-                    },
-                    {
-                        "id": 2,
-                        "name": "SQL"
-                    },
-                    {
-                        "id": 3,
-                        "name": "KOTLIN"
-                    },                    
-                    {
-                        "id": 4,
-                        "name": "JAVA"
-                    },
-                    {
-                        "id": 5,
-                        "name": "PHP/LARAVEL"
-                    }
-                ]
+                "technologies": ["PYTHON", "C#", "SQL", "KOTLIN", "JAVA", "PHP/LARAVEL"]
             }
         ]
     },
     {
-        "id": 4,
-        "titulo": "Lenguages",
-        "lenguages": [
-            {
-                "id": 0,
-                "name": "Spanish",
-                "level": "Native"
-            },
-            {
-                "id": 1,
-                "name": "Catalan",
-                "level": "Native"
-            },
-            {
-                "id": 2,
-                "name": "English",
-                "level": "Intermediate"
-            },
-            {
-                "id": 3,
-                "name": "German",
-                "level": "Beginner"
-            }
+        "id": "languages",
+        "title": { "es": "Idiomas", "en": "Languages" },
+        "languages": [
+            { "name": { "es": "Castellano", "en": "Spanish" }, "level": { "es": "Nativo", "en": "Native" } },
+            { "name": { "es": "Catalán", "en": "Catalan" }, "level": { "es": "Nativo", "en": "Native" } },
+            { "name": { "es": "Inglés", "en": "English" }, "level": { "es": "Intermedio", "en": "Intermediate" } },
+            { "name": { "es": "Alemán", "en": "German" }, "level": { "es": "Principiante", "en": "Beginner" } }
         ]
     },
     {
-        "id": 5,
-        "titulo": "Professional Experience",
+        "id": "experience",
+        "title": { "es": "Experiencia profesional", "en": "Professional Experience" },
         "works": [
             {
-                "id": 0,
-                "name": "OS Technician",
-                "year-from": "2024-01",
-                "year-to": "NOW",
-                "description": "I am managing users rols and permissions, Active Directory, windows and linux services, and backups."
+                "name": { "es": "Técnico de sistemas", "en": "OS Technician" },
+                "from": "2024-01",
+                "to": null,
+                "description": {
+                    "es": "Gestiono roles y permisos de usuarios, Active Directory, servicios de Windows y Linux y copias de seguridad.",
+                    "en": "I manage user roles and permissions, Active Directory, Windows and Linux services, and backups."
+                }
             },
             {
-                "id": 1,
-                "name": "Software Developer",
-                "year-from": "2023-06",
-                "year-to": "2023-09",
-                "description": "I have been working in the development of management software targeted for businesses in .NET."
+                "name": { "es": "Desarrollador de software", "en": "Software Developer" },
+                "from": "2023-06",
+                "to": "2023-09",
+                "description": {
+                    "es": "Trabajé en el desarrollo de software de gestión para empresas en .NET.",
+                    "en": "I worked on the development of management software for businesses in .NET."
+                }
             },
             {
-                "id": 2,
-                "name": "Web Designer/Developer",
-                "year-from": "2021-02",
-                "year-to": "2021-05",
-                "description": "I have designed, created from scratch, published, and managed a website for an educational center."
+                "name": { "es": "Diseñador y desarrollador web", "en": "Web Designer/Developer" },
+                "from": "2021-02",
+                "to": "2021-05",
+                "description": {
+                    "es": "Diseñé, creé desde cero, publiqué y mantuve la web de un centro educativo.",
+                    "en": "I designed, created from scratch, published and managed a website for an educational center."
+                }
             }
         ]
     }

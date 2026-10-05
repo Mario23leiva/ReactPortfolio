@@ -2,24 +2,114 @@
     {
         "id": "react-portfolio",
         "title": "React Portfolio",
-        "description": "Well this is my portfolio, I created a Portfolio based on my desktop appearance and my personality, you can find my projects, my pictures and a little bit more about me :)",
+        "description": {
+            "es": "Este es mi portfolio: lo creé inspirándome en mi escritorio y en mi personalidad. Aquí puedes encontrar mis proyectos, mis fotos y un poco más sobre mí :)",
+            "en": "Well this is my portfolio, I created a Portfolio based on my desktop appearance and my personality, you can find my projects, my pictures and a little bit more about me :)"
+        },
         "technologies": ["REACT", "JAVASCRIPT", "CSS", "HTML"],
         "repoUrl": "https://github.com/Mario23leiva/ReactPortfolio",
-        "webUrl": "https://mario23leiva.github.io/ReactPortfolio"
+        "webUrl": "https://mario23leiva.github.io/ReactPortfolio",
+        "page": {
+            "cover": "fondos/macOS-background.webp",
+            "gallery": ["gallery/win_xp.webp", "gallery/el_edit.webp", "gallery/otra.webp"],
+            "sections": [
+                {
+                    "title": { "es": "La idea", "en": "The idea" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá de dónde salió la idea de convertir el portfolio en un escritorio y qué quería transmitir con él.",
+                        "en": "Placeholder text. This is where the story of turning the portfolio into a desktop, and what it was meant to convey, will go."
+                    }
+                },
+                {
+                    "title": { "es": "Cómo lo hice", "en": "How I built it" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá una explicación del gestor de ventanas, el dock y las decisiones técnicas más interesantes.",
+                        "en": "Placeholder text. This is where the window manager, the dock and the most interesting technical decisions will be explained."
+                    }
+                },
+                {
+                    "title": { "es": "Lo que aprendí", "en": "What I learned" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irán las lecciones aprendidas y lo que haría diferente la próxima vez.",
+                        "en": "Placeholder text. This is where the lessons learned and what I would do differently next time will go."
+                    }
+                }
+            ]
+        }
     },
     {
         "id": "stayworking",
         "title": "StayWorking",
-        "description": "This is one of my favourite projects, in this web you can find a mix of the Pomodoro technique and a Kanban Board.",
+        "description": {
+            "es": "Uno de mis proyectos favoritos: una web que mezcla la técnica Pomodoro con un tablero Kanban.",
+            "en": "This is one of my favourite projects, in this web you can find a mix of the Pomodoro technique and a Kanban Board."
+        },
         "technologies": ["JAVASCRIPT", "CSS", "HTML"],
         "repoUrl": "https://github.com/Mario23leiva/StayWorking",
-        "webUrl": "https://mario23leiva.github.io/StayWorking"
+        "webUrl": "https://mario23leiva.github.io/StayWorking",
+        "page": {
+            "cover": "gallery/el_edit.webp",
+            "gallery": ["gallery/otra.webp", "gallery/win_xp.webp", "gallery/el_edit.webp"],
+            "sections": [
+                {
+                    "title": { "es": "El problema", "en": "The problem" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá por qué hacía falta una herramienta que juntara el Pomodoro y el Kanban.",
+                        "en": "Placeholder text. This is where the reason for combining Pomodoro and Kanban in one tool will be explained."
+                    }
+                },
+                {
+                    "title": { "es": "Cómo funciona", "en": "How it works" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá un recorrido por el temporizador, las columnas del tablero y cómo se relacionan.",
+                        "en": "Placeholder text. This is where a walkthrough of the timer, the board columns and how they connect will go."
+                    }
+                },
+                {
+                    "title": { "es": "Lo que aprendí", "en": "What I learned" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irán los retos de hacerlo todo con JavaScript sin frameworks.",
+                        "en": "Placeholder text. This is where the challenges of building it all with vanilla JavaScript will go."
+                    }
+                }
+            ]
+        }
     },
     {
         "id": "restaurant-23-menu",
         "title": "Restaurant 23 Menu",
-        "description": "Well this is a website where you can find the dishes that my grandpa had at his restaurant, the website was made with vanilla JS web components.",
+        "description": {
+            "es": "Una web con los platos que tenía mi abuelo en su restaurante, hecha con web components en JavaScript puro.",
+            "en": "Well this is a website where you can find the dishes that my grandpa had at his restaurant, the website was made with vanilla JS web components."
+        },
         "technologies": ["JAVASCRIPT", "CSS", "HTML"],
-        "webUrl": "https://mario23leiva.github.io/Restaurante23"
+        "webUrl": "https://mario23leiva.github.io/Restaurante23",
+        "page": {
+            "cover": "gallery/otra.webp",
+            "gallery": ["gallery/el_edit.webp", "gallery/otra.webp", "gallery/win_xp.webp"],
+            "sections": [
+                {
+                    "title": { "es": "La historia", "en": "The story" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá la historia del restaurante de mi abuelo y por qué quise recuperar su carta.",
+                        "en": "Placeholder text. This is where the story of my grandpa's restaurant and why I wanted to bring its menu back will go."
+                    }
+                },
+                {
+                    "title": { "es": "Web components", "en": "Web components" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá cómo está organizada la web con componentes nativos, sin frameworks.",
+                        "en": "Placeholder text. This is where the structure of the site using native components, without frameworks, will be explained."
+                    }
+                },
+                {
+                    "title": { "es": "Lo que aprendí", "en": "What I learned" },
+                    "body": {
+                        "es": "Texto de ejemplo. Aquí irá lo que aprendí sobre Shadow DOM y encapsulación de estilos.",
+                        "en": "Placeholder text. This is where what I learned about Shadow DOM and style encapsulation will go."
+                    }
+                }
+            ]
+        }
     }
 ]

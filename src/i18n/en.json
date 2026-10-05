@@ -1,4 +1,11 @@
 {
+    "lockScreen": {
+        "unlock": "^ SWIPE UP or PRESS SPACE TO LOGIN ^",
+        "loading": "Loading"
+    },
+    "common": {
+        "newTab": "{name} (opens in a new tab)"
+    },
     "apps": {
         "profile": "Profile",
         "files": "Files",
@@ -7,7 +14,6 @@
     "dock": {
         "label": "Dock",
         "open": "{name} (open)",
-        "newTab": "{name} (opens in a new tab)",
         "seriousPortfolio": "No fun allowed"
     },
     "window": {
@@ -18,5 +24,49 @@
         "minimizeNamed": "Minimize {name}",
         "maximizeNamed": "Maximize {name}",
         "videoPlayer": "Video player"
+    },
+    "profile": {
+        "role": "Full Stack Developer",
+        "downloadResume": "Download Resume",
+        "now": "Now"
+    },
+    "files": {
+        "title": "Personal Projects",
+        "openWebsite": "Open the project website",
+        "videoResume": "Video Resume",
+        "goToRepository": "Go to repository"
+    },
+    "gallery": {
+        "empty": "No pictures yet",
+        "allPhotos": "All photos",
+        "previous": "Previous",
+        "next": "Next"
+    },
+    "browser": {
+        "name": "Chrome",
+        "tabs": "Tabs",
+        "newTab": "New Tab",
+        "closeTab": "Close tab {name}",
+        "back": "Back",
+        "forward": "Forward",
+        "reload": "Reload",
+        "address": "Address bar",
+        "home": {
+            "heading": "Which project would you like to see?",
+            "search": "Search a project or type a URL"
+        },
+        "notFound": {
+            "title": "This site can't be reached",
+            "text": "{url} could not be found.",
+            "hint": "Try searching for one of my projects from a new tab.",
+            "goHome": "Open a new tab"
+        },
+        "project": {
+            "visitWebsite": "Visit website",
+            "viewCode": "View code",
+            "technologies": "Technologies",
+            "gallery": "Gallery",
+            "otherProjects": "Other projects"
+        }
     }
 }

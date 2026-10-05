@@ -6,6 +6,7 @@ import ProfileIcon from '../../assets/iconos/contact-icon.webp';
 import FilesIcon from '../../assets/iconos/files.webp';
 import GalleryIcon from '../../assets/iconos/pictures.webp';
 import NoFunIcon from '../../assets/iconos/no-fun.svg';
+import { getActiveTab, getCurrentUrl, getPageTitle } from './browser/browserState.js';
 
 // Registro de las apps del dock. Para añadir una app nueva basta con añadirla aquí.
 // nameKey es la clave de traducción del nombre (ver src/i18n).
@@ -22,8 +23,12 @@ export const DOCK_LINKS = [
 
 export const getApp = (id) => APPS.find((app) => app.id === id);
 
-// Título de una ventana: las apps usan su nombre traducido; el resto, el título con el que se abrieron
+// Título de una ventana: las apps usan su nombre traducido; el navegador, la página activa;
+// el resto, el título con el que se abrieron
 export const getWindowTitle = (win, t) => {
+    if (win.variant === 'browser') {
+        return `${t('browser.name')} - ${getPageTitle(getCurrentUrl(getActiveTab(win.data)), t)}`;
+    }
     const app = win.variant === 'app' && getApp(win.id);
     return app ? t(app.nameKey) : win.title;
 };

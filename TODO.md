@@ -32,17 +32,18 @@ Lista de tareas en orden de prioridad.
 - [ ] ~~(Opcional) Versión en español e inglés~~ → pasa a la Fase 6 (i18n)
 
 ## Fase 6 · Mejoras
-- [ ] 6.0 i18n: todos los textos en castellano e inglés
-  - [x] Base: diccionarios `src/i18n/es.json` / `en.json`, hook `useI18n()` con `t()`, idioma detectado del navegador
-  - [ ] Pasar el resto de textos al i18n (pantalla de bloqueo, Perfil, Archivos, Galería, `projects.json`, `my-profile.json`)
-  - [ ] Selector de idioma ES / EN
+- [x] 6.0 i18n: todos los textos en castellano e inglés
+  - [x] Base: diccionarios `src/i18n/es.json` / `en.json`, hook `useI18n()` con `t()`
+  - [x] Resto de textos: pantalla de bloqueo, Perfil, Archivos, Galería. Los JSON de contenido usan `{ "es": ..., "en": ... }` y `localize()`
+  - [x] Idioma automático según el navegador (castellano si lo prefiere; en cualquier otro caso, inglés)
 - [x] 6.1 Icono "Prohibido divertirse" en el dock → enlace al portfolio serio (mario23leiva.github.io)
 - [x] 6.2 Ventanas abiertas en el dock: cada README/vídeo abierto aparece tras un separador, con el texto "Proyecto - README.txt"
-- [ ] 6.3 Mini web por proyecto dentro de un navegador simulado (pestañas, barra de direcciones, atrás/adelante)
-  - Sustituye al README: en Archivos se abre desde el archivo `index.html`
-  - Plantilla: portada, galería de imágenes, explicación detallada, tecnologías y enlaces
-  - Pendiente: textos largos e imágenes de cada proyecto
-- [ ] 6.4 Navegador en el dock: un único icono de Chrome con una pestaña por proyecto abierto
+- [x] 6.3 Mini web por proyecto dentro de un navegador simulado (pestañas, barra de direcciones, atrás/adelante)
+  - [x] Sustituye al README: en Archivos se abre desde el archivo `index.html`
+  - [x] Plantilla: portada, tecnologías, secciones, galería y otros proyectos (contenido en `projects.json` → `page`)
+  - [x] Pestaña nueva con buscador de proyectos y página de "sitio no encontrado"
+  - [ ] Sustituir los textos e imágenes de ejemplo por los reales
+- [x] 6.4 Navegador en el dock: un único icono de Chrome con una pestaña por proyecto abierto
 - [ ] 6.5 Modo iPhone en móvil: barra de estado, pantalla de inicio con apps, apps a pantalla completa, selector de apps y el icono "Prohibido divertirse" como app
 
 ## Pendiente de información

@@ -1,6 +1,6 @@
 import './Dock.css';
 import DockItem from './DockItem.jsx';
-import { APPS, DOCK_LINKS } from '../appsConfig.js';
+import { APPS, DOCK_LINKS, getWindowTitle } from '../appsConfig.js';
 import { useWindowManager } from '../windows/WindowManagerContext.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
 
@@ -27,7 +27,7 @@ const Dock = () => {
             {documentWindows.map((win) => (
                 <DockItem
                     key={win.id}
-                    name={win.title}
+                    name={getWindowTitle(win, t)}
                     icon={win.icon}
                     isOpen
                     onClick={() => dockClick({ id: win.id })}

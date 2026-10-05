@@ -1,4 +1,11 @@
 {
+    "lockScreen": {
+        "unlock": "^ DESLIZA HACIA ARRIBA o PULSA ESPACIO PARA ENTRAR ^",
+        "loading": "Cargando"
+    },
+    "common": {
+        "newTab": "{name} (se abre en una pestaña nueva)"
+    },
     "apps": {
         "profile": "Perfil",
         "files": "Archivos",
@@ -7,7 +14,6 @@
     "dock": {
         "label": "Dock",
         "open": "{name} (abierta)",
-        "newTab": "{name} (se abre en una pestaña nueva)",
         "seriousPortfolio": "Prohibido divertirse"
     },
     "window": {
@@ -18,5 +24,49 @@
         "minimizeNamed": "Minimizar {name}",
         "maximizeNamed": "Maximizar {name}",
         "videoPlayer": "Reproductor de vídeo"
+    },
+    "profile": {
+        "role": "Desarrollador Full Stack",
+        "downloadResume": "Descargar CV",
+        "now": "Actualidad"
+    },
+    "files": {
+        "title": "Proyectos personales",
+        "openWebsite": "Abrir la web del proyecto",
+        "videoResume": "Vídeo resumen",
+        "goToRepository": "Ir al repositorio"
+    },
+    "gallery": {
+        "empty": "Todavía no hay fotos",
+        "allPhotos": "Todas las fotos",
+        "previous": "Anterior",
+        "next": "Siguiente"
+    },
+    "browser": {
+        "name": "Chrome",
+        "tabs": "Pestañas",
+        "newTab": "Nueva pestaña",
+        "closeTab": "Cerrar pestaña {name}",
+        "back": "Atrás",
+        "forward": "Adelante",
+        "reload": "Recargar",
+        "address": "Barra de direcciones",
+        "home": {
+            "heading": "¿Qué proyecto quieres ver?",
+            "search": "Busca un proyecto o escribe una dirección"
+        },
+        "notFound": {
+            "title": "No se puede acceder a este sitio",
+            "text": "No se ha encontrado {url}.",
+            "hint": "Prueba a buscar uno de mis proyectos desde una pestaña nueva.",
+            "goHome": "Abrir pestaña nueva"
+        },
+        "project": {
+            "visitWebsite": "Visitar la web",
+            "viewCode": "Ver el código",
+            "technologies": "Tecnologías",
+            "gallery": "Galería",
+            "otherProjects": "Otros proyectos"
+        }
     }
 }

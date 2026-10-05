@@ -13,7 +13,7 @@ const DockItem = ({ name, icon, isOpen, onClick, href }) => {
 
     if (href) {
         return (
-            <a className="dock-item" href={href} target="_blank" rel="noopener noreferrer" aria-label={t('dock.newTab', { name })}>
+            <a className="dock-item" href={href} target="_blank" rel="noopener noreferrer" aria-label={t('common.newTab', { name })}>
                 {content}
             </a>
         );

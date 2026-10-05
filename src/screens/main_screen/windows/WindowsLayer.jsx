@@ -2,19 +2,15 @@ import Window from './Window.jsx';
 import { useWindowManager } from './WindowManagerContext.js';
 import { getApp } from '../appsConfig.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
+import BrowserApp from '../browser/BrowserApp.jsx';
+import BrowserTabs from '../browser/BrowserTabs.jsx';
 
 const WindowContent = ({ win }) => {
     const { t } = useI18n();
 
     switch (win.variant) {
-        case 'readme':
-            return (
-                <div>
-                    <h2>{win.data.title}</h2>
-                    <br />
-                    <p>{win.data.text}</p>
-                </div>
-            );
+        case 'browser':
+            return <BrowserApp data={win.data} />;
         case 'video':
             return (
                 <iframe
@@ -39,7 +35,11 @@ const WindowsLayer = () => {
     const { windows } = useWindowManager();
 
     return windows.map((win) => (
-        <Window key={win.id} win={win}>
+        <Window
+            key={win.id}
+            win={win}
+            topBarContent={win.variant === 'browser' ? <BrowserTabs data={win.data} /> : null}
+        >
             <WindowContent win={win} />
         </Window>
     ));

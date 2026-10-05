@@ -3,10 +3,12 @@ import './ProfileApp.css';
 import ProfileAppItem from './ProfileAppItem';
 import profileImg from './../../../assets/profile-picture.webp';
 import profileData from './../../../assets/json/my-profile.json';
+import { useI18n } from '../../../i18n/I18nContext.js';
 
 
 const ProfileApp = () => {
-  // "About Me" abierto por defecto, el resto cerrado
+  const { t } = useI18n();
+  // "Sobre mí" abierto por defecto, el resto cerrado
   const [checkedItems, setCheckedItems] = useState(
     profileData.reduce((acc, item) => {
       acc[item.id] = item.aboutMe !== undefined;
@@ -28,9 +30,9 @@ const ProfileApp = () => {
           <img src={profileImg} alt="Mario Leiva Torres" className="profile-app-img" />
           <div className="profile-app-user-details">
             <p>Mario Leiva Torres</p>
-            <p>Full Stack Developer</p>
+            <p>{t('profile.role')}</p>
             <p>marioleivatorres23@gmail.com</p>
-            <a className="btn-download-resume" href="cv/Mario-Leiva-Torres-CV.pdf" download>Download Resume</a>
+            <a className="btn-download-resume" href="cv/Mario-Leiva-Torres-CV.pdf" download>{t('profile.downloadResume')}</a>
           </div>
         </div>
       </div>
@@ -39,14 +41,7 @@ const ProfileApp = () => {
           {profileData.map((item) => (
             <ProfileAppItem
               key={item.id}
-              number={item.id}
-              title={item.titulo}
-              aboutMe={item.aboutMe || ""}
-              certificates={item.certificates || []}
-              softSkills={item["soft-skills"] || []}
-              categories={item.categories || []}
-              languages={item.lenguages || []}
-              works={item.works || []}
+              item={item}
               checked={checkedItems[item.id]}
               onToggle={() => toggleItem(item.id)}
             />

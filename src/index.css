@@ -60,3 +60,13 @@ a{
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Oculto a la vista pero accesible para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

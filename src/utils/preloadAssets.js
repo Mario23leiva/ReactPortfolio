@@ -1,11 +1,7 @@
-// Todas las imágenes de src/assets: se precargan en la pantalla de bloqueo
-// para que el escritorio aparezca con todo ya cargado
-const assetModules = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,gif,svg,avif}', {
-    eager: true,
-    import: 'default',
-});
+import { ASSET_URLS } from './assets.js';
 
-const ASSET_URLS = Object.values(assetModules);
+// Todas las imágenes de src/assets se precargan en la pantalla de bloqueo
+// para que el escritorio aparezca con todo ya cargado
 
 // Límite de seguridad para no dejar al usuario bloqueado con una conexión muy lenta
 const MAX_WAIT_MS = 20000;

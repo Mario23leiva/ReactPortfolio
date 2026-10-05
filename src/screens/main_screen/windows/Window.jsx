@@ -11,7 +11,8 @@ const MOBILE_QUERY = '(max-width: 640px)';
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-const Window = ({ win, children }) => {
+// topBarContent: contenido propio de la barra superior (p. ej. las pestañas del navegador)
+const Window = ({ win, topBarContent, children }) => {
     const { closeWindow, minimizeWindow, toggleMaximize, focusWindow } = useWindowManager();
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const windowRef = useRef(null);
@@ -90,7 +91,7 @@ const Window = ({ win, children }) => {
         >
             <div
                 className="top-bar"
-                onDoubleClick={() => toggleMaximize(win.id)}
+                onDoubleClick={(event) => !event.target.closest('button') && toggleMaximize(win.id)}
                 onPointerDown={handlePointerDown}
                 onPointerMove={handlePointerMove}
                 onPointerUp={handlePointerUp}
@@ -101,7 +102,8 @@ const Window = ({ win, children }) => {
                     <button type="button" className="window-btn minimize" title={t('window.minimize')} aria-label={t('window.minimizeNamed', { name: title })} onClick={() => minimizeWindow(win.id)}></button>
                     <button type="button" className="window-btn maximize" title={t('window.maximize')} aria-label={t('window.maximizeNamed', { name: title })} onClick={() => toggleMaximize(win.id)}></button>
                 </div>
-                <h3 id={titleId}>{title}</h3>
+                <h3 id={titleId} className={topBarContent ? 'visually-hidden' : undefined}>{title}</h3>
+                {topBarContent}
             </div>
             <div className="app-container">
                 {children}

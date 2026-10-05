@@ -1,6 +1,8 @@
+import { BROWSER_WINDOW, browserReducer, createBrowserData } from '../browser/browserState.js';
+
 // Estado de las ventanas abiertas en el escritorio.
 // Cada ventana: { id, title, icon, variant, data, minimized, maximized, z }
-//  - variant: 'app' (apps del dock), 'readme' o 'video'
+//  - variant: 'app' (apps del dock), 'browser' (navegador con las mini webs) o 'video'
 //  - title / icon: solo para las ventanas que no son apps; se muestran en el dock
 //  - z: orden de apilado, la ventana con mayor z está en primer plano
 
@@ -81,6 +83,27 @@ export function windowReducer(state, action) {
                 return updateWindow(state, win.id, { minimized: true });
             }
             return bringToFront(state, win.id);
+        }
+
+        // Abrir una URL en el navegador: abre la ventana si hace falta y la trae al frente
+        case 'BROWSER_OPEN': {
+            const win = findWindow(state, BROWSER_WINDOW.id);
+            if (!win) {
+                return openWindow(state, { ...BROWSER_WINDOW, data: createBrowserData(action.url) });
+            }
+            const data = browserReducer(win.data, { type: 'OPEN_URL', url: action.url });
+            return bringToFront(updateWindow(state, win.id, { data }), win.id);
+        }
+
+        // Acciones dentro del navegador (pestañas, historial). Sin pestañas, la ventana se cierra.
+        case 'BROWSER': {
+            const win = findWindow(state, BROWSER_WINDOW.id);
+            if (!win) return state;
+            const data = browserReducer(win.data, action.action);
+            if (data.tabs.length === 0) {
+                return { ...state, windows: state.windows.filter((item) => item.id !== win.id) };
+            }
+            return updateWindow(state, win.id, { data });
         }
 
         default:

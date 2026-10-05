@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { I18nContext } from './I18nContext.js';
 import es from './es.json';
 import en from './en.json';
@@ -6,39 +6,25 @@ import en from './en.json';
 // Para añadir un idioma: crear su JSON con las mismas claves y registrarlo aquí
 const LANGUAGES = { es, en };
 const DEFAULT_LANGUAGE = 'en';
-const STORAGE_KEY = 'language';
 
-// Idioma guardado por el usuario o, si no hay, el del navegador
+// Primer idioma preferido del navegador que esté traducido; si no hay ninguno, inglés
 const detectLanguage = () => {
-    try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (LANGUAGES[saved]) return saved;
-    } catch {
-        // localStorage puede no estar disponible (modo privado)
-    }
-    const browserLanguage = navigator.language?.slice(0, 2);
-    return LANGUAGES[browserLanguage] ? browserLanguage : DEFAULT_LANGUAGE;
+    const preferred = navigator.languages?.length ? navigator.languages : [navigator.language];
+    const match = preferred
+        .map((code) => code?.slice(0, 2).toLowerCase())
+        .find((code) => LANGUAGES[code]);
+    return match ?? DEFAULT_LANGUAGE;
 };
 
 // Busca una clave con puntos ("dock.open") en el diccionario
 const lookup = (dictionary, key) =>
     key.split('.').reduce((node, part) => node?.[part], dictionary);
 
-const I18nProvider = ({ children }) => {
-    const [language, setLanguageState] = useState(detectLanguage);
+const language = detectLanguage();
 
+const I18nProvider = ({ children }) => {
     useEffect(() => {
         document.documentElement.lang = language;
-    }, [language]);
-
-    const setLanguage = useCallback((next) => {
-        if (!LANGUAGES[next]) return;
-        setLanguageState(next);
-        try {
-            localStorage.setItem(STORAGE_KEY, next);
-        } catch {
-            // Sin persistencia: el idioma se mantiene solo en esta visita
-        }
     }, []);
 
     // t('dock.open', { name: 'Files' }) → "Files (open)"
@@ -47,9 +33,18 @@ const I18nProvider = ({ children }) => {
         const text = lookup(LANGUAGES[language], key) ?? lookup(LANGUAGES[DEFAULT_LANGUAGE], key) ?? key;
         if (!params) return text;
         return text.replace(/\{(\w+)\}/g, (match, name) => params[name] ?? match);
-    }, [language]);
+    }, []);
 
-    const value = useMemo(() => ({ language, setLanguage, t }), [language, setLanguage, t]);
+    // Textos de los JSON de contenido: { "es": "...", "en": "..." } → texto en el idioma actual
+    // Los valores que no son objetos (nombres propios, URLs...) se devuelven tal cual
+    const localize = useCallback((value) => {
+        if (value && typeof value === 'object' && !Array.isArray(value)) {
+            return value[language] ?? value[DEFAULT_LANGUAGE];
+        }
+        return value;
+    }, []);
+
+    const value = useMemo(() => ({ language, t, localize }), [t, localize]);
 
     return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 };

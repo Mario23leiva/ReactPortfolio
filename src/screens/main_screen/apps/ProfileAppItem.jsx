@@ -1,42 +1,46 @@
-const ProfileAppItem = ({ number, title, aboutMe, certificates, softSkills, categories, languages, works, checked, onToggle }) => {
-  const inputId = `profile-section-${number}`;
+import { useI18n } from '../../../i18n/I18nContext.js';
+
+const ProfileAppItem = ({ item, checked, onToggle }) => {
+  const { t, localize } = useI18n();
+  const { aboutMe, certificates = [], softSkills = [], categories = [], languages = [], works = [] } = item;
+  const inputId = `profile-section-${item.id}`;
 
   return (
     <li className='profile-app-main-container-accordion-item'>
       <input type="checkbox" name="accordion" id={inputId} checked={checked} onChange={onToggle} />
-      <label htmlFor={inputId}>{title}</label>
+      <label htmlFor={inputId}>{localize(item.title)}</label>
       <div className="content">
-        {aboutMe && <p>{aboutMe}</p>}
+        {aboutMe && <p>{localize(aboutMe)}</p>}
         {certificates.length > 0 && (
           <ul>
             {certificates.map(cert => (
-              <li key={cert.id + cert.title} style={{margin: 10 + "px"}}>
-                {cert.title} ({cert.year})
+              <li key={cert.year} style={{margin: 10 + "px"}}>
+                {localize(cert.title)} ({cert.year})
               </li>
             ))}
           </ul>
         )}
         {softSkills.length > 0 && (
-          <p>{softSkills.map(skill => skill.name).join(" | ")}</p>
+          <p>{softSkills.map(localize).join(" | ")}</p>
         )}
         {categories.length > 0 && categories.map(category => (
-          <div key={category.id + category.name}>
+          <div key={category.name}>
             <h4>{category.name}</h4>
             <p style={{margin: 10 + 'px'}}>
-              {category["it-lenguages"].map(lang => lang.name).join(" | ")}
+              {category.technologies.join(" | ")}
             </p>
           </div>
         ))}
         {languages.length > 0 && (
-          <p>{languages.map(lang => `${lang.name} (${lang.level})`).join(" | ")}</p>
+          <p>{languages.map(lang => `${localize(lang.name)} (${localize(lang.level)})`).join(" | ")}</p>
         )}
         {works.length > 0 && (
           <ul>
             {works.map(work => (
-              <li key={work.id + work.name} style={{margin: 10 + "px"}}>
-                <h4>{work.name}</h4>
-                <p>{work["year-from"]} - {work["year-to"]}</p>
-                <p>{work.description}</p>
+              <li key={work.from} style={{margin: 10 + "px"}}>
+                <h4>{localize(work.name)}</h4>
+                <p>{work.from} - {work.to ?? t('profile.now')}</p>
+                <p>{localize(work.description)}</p>
               </li>
             ))}
           </ul>

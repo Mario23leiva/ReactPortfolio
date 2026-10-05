@@ -4,11 +4,13 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import './BlockedScreen.css';
 import FotoPerfil from '../../assets/foto_epica_redonda.webp';
 import { preloadAssets } from '../../utils/preloadAssets.js';
+import { useI18n } from '../../i18n/I18nContext.js';
 
 // Tiempo mínimo de la pantalla de carga para que la animación no parpadee
 const MIN_LOADING_MS = 2000;
 
 function BlockedScreen({ onEnter }) {
+    const { t } = useI18n();
     const [bluredScreen, setBluredScreen] = useState(false);
     const [startY, setStartY] = useState(null);
     const [blurValue, setBlurValue] = useState(0);
@@ -113,14 +115,14 @@ function BlockedScreen({ onEnter }) {
             onMouseMove={handleMouseMove}
         >
             <div className='blocked-screen-background-image' style={{ filter: `blur(${blurValue}px)` }}>
-                <h2 className='bounce-animation'>^ SWIPE UP or PRESS SPACE TO LOGIN ^</h2>
+                <h2 className='bounce-animation'>{t('lockScreen.unlock')}</h2>
             </div>
 
             {bluredScreen &&
                 <div className='blocked-screen-login' role="status">
                     <img src={FotoPerfil} alt="" />
                     <h2>Mario Leiva Torres</h2>
-                    <h1>Loading  <FontAwesomeIcon id="spinner" icon={faSpinner} /></h1>
+                    <h1>{t('lockScreen.loading')}  <FontAwesomeIcon id="spinner" icon={faSpinner} /></h1>
                 </div>
             }
         </div>
