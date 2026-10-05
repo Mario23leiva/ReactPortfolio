@@ -1,0 +1,22 @@
+{
+    "apps": {
+        "profile": "Perfil",
+        "files": "Archivos",
+        "gallery": "Galería"
+    },
+    "dock": {
+        "label": "Dock",
+        "open": "{name} (abierta)",
+        "newTab": "{name} (se abre en una pestaña nueva)",
+        "seriousPortfolio": "Prohibido divertirse"
+    },
+    "window": {
+        "close": "Cerrar",
+        "minimize": "Minimizar",
+        "maximize": "Maximizar",
+        "closeNamed": "Cerrar {name}",
+        "minimizeNamed": "Minimizar {name}",
+        "maximizeNamed": "Maximizar {name}",
+        "videoPlayer": "Reproductor de vídeo"
+    }
+}

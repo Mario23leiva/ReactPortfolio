@@ -1,0 +1,22 @@
+{
+    "apps": {
+        "profile": "Profile",
+        "files": "Files",
+        "gallery": "Gallery"
+    },
+    "dock": {
+        "label": "Dock",
+        "open": "{name} (open)",
+        "newTab": "{name} (opens in a new tab)",
+        "seriousPortfolio": "No fun allowed"
+    },
+    "window": {
+        "close": "Close",
+        "minimize": "Minimize",
+        "maximize": "Maximize",
+        "closeNamed": "Close {name}",
+        "minimizeNamed": "Minimize {name}",
+        "maximizeNamed": "Maximize {name}",
+        "videoPlayer": "Video player"
+    }
+}

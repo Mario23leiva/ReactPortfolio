@@ -1,8 +1,11 @@
 import Window from './Window.jsx';
 import { useWindowManager } from './WindowManagerContext.js';
 import { getApp } from '../appsConfig.js';
+import { useI18n } from '../../../i18n/I18nContext.js';
 
 const WindowContent = ({ win }) => {
+    const { t } = useI18n();
+
     switch (win.variant) {
         case 'readme':
             return (
@@ -17,7 +20,7 @@ const WindowContent = ({ win }) => {
                 <iframe
                     className="video-frame"
                     src={win.data.url}
-                    title="YouTube video player"
+                    title={t('window.videoPlayer')}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

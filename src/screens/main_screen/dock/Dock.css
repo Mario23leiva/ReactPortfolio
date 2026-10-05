@@ -19,11 +19,20 @@
     padding: 0 0 8px;
     background: none;
     border: none;
+    text-decoration: none;
     cursor: pointer;
 }
 
 .dock-item:focus-visible {
     outline: none;
+}
+
+/* Línea vertical que separa apps, documentos abiertos y enlaces */
+.dock-separator {
+    align-self: stretch;
+    width: 1px;
+    margin: 4px 0 8px;
+    background-color: rgba(255, 255, 255, 0.45);
 }
 
 .dock-item:focus-visible img {
@@ -97,14 +106,26 @@
 }
 
 @media (max-width: 640px) {
+    /* Con muchos documentos abiertos el dock se desplaza en horizontal */
     .dock {
-        gap: 12px;
-        padding: 4px 12px;
+        gap: 10px;
+        padding: 4px 10px;
         border-radius: 16px;
+        max-width: calc(100vw - 16px);
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .dock::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dock-item {
+        flex-shrink: 0;
     }
 
     .dock-item img {
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
     }
 }

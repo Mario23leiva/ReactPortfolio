@@ -1,6 +1,7 @@
 // Estado de las ventanas abiertas en el escritorio.
-// Cada ventana: { id, title, variant, data, minimized, maximized, z }
+// Cada ventana: { id, title, icon, variant, data, minimized, maximized, z }
 //  - variant: 'app' (apps del dock), 'readme' o 'video'
+//  - title / icon: solo para las ventanas que no son apps; se muestran en el dock
 //  - z: orden de apilado, la ventana con mayor z está en primer plano
 
 export const initialWindowState = {

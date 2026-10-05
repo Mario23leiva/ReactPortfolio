@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import './Window.css';
 import { useWindowManager } from './WindowManagerContext.js';
+import { getWindowTitle } from '../appsConfig.js';
+import { useI18n } from '../../../i18n/I18nContext.js';
 
 // Parte de la ventana que siempre queda visible al arrastrarla
 const MIN_VISIBLE_WIDTH = 100;
@@ -14,6 +16,8 @@ const Window = ({ win, children }) => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const windowRef = useRef(null);
     const dragRef = useRef(null);
+    const { t } = useI18n();
+    const title = getWindowTitle(win, t);
     const titleId = `window-title-${win.id}`;
 
     // Al abrir o traer al frente, el foco pasa a la ventana para poder usarla con teclado
@@ -93,11 +97,11 @@ const Window = ({ win, children }) => {
                 onPointerCancel={handlePointerUp}
             >
                 <div className="buttons">
-                    <button type="button" className="window-btn close" title="Close" aria-label={`Close ${win.title}`} onClick={() => closeWindow(win.id)}></button>
-                    <button type="button" className="window-btn minimize" title="Minimize" aria-label={`Minimize ${win.title}`} onClick={() => minimizeWindow(win.id)}></button>
-                    <button type="button" className="window-btn maximize" title="Maximize/window" aria-label={`Maximize ${win.title}`} onClick={() => toggleMaximize(win.id)}></button>
+                    <button type="button" className="window-btn close" title={t('window.close')} aria-label={t('window.closeNamed', { name: title })} onClick={() => closeWindow(win.id)}></button>
+                    <button type="button" className="window-btn minimize" title={t('window.minimize')} aria-label={t('window.minimizeNamed', { name: title })} onClick={() => minimizeWindow(win.id)}></button>
+                    <button type="button" className="window-btn maximize" title={t('window.maximize')} aria-label={t('window.maximizeNamed', { name: title })} onClick={() => toggleMaximize(win.id)}></button>
                 </div>
-                <h3 id={titleId}>{win.title}</h3>
+                <h3 id={titleId}>{title}</h3>
             </div>
             <div className="app-container">
                 {children}

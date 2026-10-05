@@ -49,7 +49,8 @@ const FileInfo = ({ project }) => {
     const openReadme = () => {
         openWindow({
             id: `readme-project-${project.id}`,
-            title: 'README.txt',
+            title: `${project.title} - README.txt`,
+            icon: IMG_FILE,
             variant: 'readme',
             data: { title: project.title, text: project.description },
         });
@@ -58,7 +59,8 @@ const FileInfo = ({ project }) => {
     const openVideo = () => {
         openWindow({
             id: `video-project-${project.id}`,
-            title: 'VIDEO.mp4',
+            title: `${project.title} - VIDEO.mp4`,
+            icon: IMG_FILE,
             variant: 'video',
             data: { url: project.videoUrl },
         });
