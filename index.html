@@ -8,6 +8,18 @@
     <meta name="author" content="Mario Leiva Torres" />
     <meta name="theme-color" content="#d9c5a7" />
 
+    <!-- Tema antes de pintar, para no ver un destello claro en modo oscuro (ver src/theme/ThemeProvider.jsx) -->
+    <script>
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('theme'); } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+
     <link rel="icon" href="./favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
@@ -20,8 +32,8 @@
     <meta property="og:title" content="Mario Leiva Torres · Portfolio" />
     <meta property="og:description" content="Personal portfolio designed as an interactive macOS-style desktop." />
     <meta name="twitter:card" content="summary" />
-    <script type="module" crossorigin src="./assets/index-Cxsqk_Tk.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Os1iuTQY.css">
+    <script type="module" crossorigin src="./assets/index-BVcEqmnu.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DkorDIgO.css">
   </head>
   <body>
     <noscript>This portfolio needs JavaScript enabled to work.</noscript>
