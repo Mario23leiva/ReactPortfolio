@@ -3,7 +3,8 @@ import { useI18n } from '../../../i18n/I18nContext.js';
 import BrowserApp from '../browser/BrowserApp.jsx';
 
 // Contenido de una ventana según su tipo. Se usa tanto en el Mac como en el iPhone.
-const WindowContent = ({ win }) => {
+// phone: en el iPhone, las apps con phoneComponent usan esa versión en lugar de la del Mac
+const WindowContent = ({ win, phone = false }) => {
     const { t } = useI18n();
 
     switch (win.variant) {
@@ -21,7 +22,8 @@ const WindowContent = ({ win }) => {
                 ></iframe>
             );
         default: {
-            const AppComponent = getApp(win.id)?.component;
+            const app = getApp(win.id);
+            const AppComponent = phone ? app?.phoneComponent ?? app?.component : app?.component;
             return AppComponent ? <AppComponent /> : null;
         }
     }

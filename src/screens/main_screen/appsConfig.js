@@ -1,5 +1,6 @@
 import ProfileApp from './apps/ProfileApp.jsx';
 import FilesApp from './apps/FilesApp.jsx';
+import FinderApp from './apps/finder/FinderApp.jsx';
 import GalleryApp from './apps/GalleryApp.jsx';
 
 import ProfileIcon from '../../assets/iconos/contact-icon.webp';
@@ -10,9 +11,11 @@ import { getActiveTab, getCurrentUrl, getPageTitle } from './browser/browserStat
 
 // Registro de las apps del dock. Para añadir una app nueva basta con añadirla aquí.
 // nameKey es la clave de traducción del nombre (ver src/i18n).
+// phoneComponent: versión para el iPhone, si es distinta de la del Mac.
+// frameless: la ventana no tiene barra superior; la pinta la propia app (ver WindowFrameContext).
 export const APPS = [
     { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ProfileApp },
-    { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FilesApp },
+    { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FinderApp, phoneComponent: FilesApp, frameless: true },
     { id: 'GALLERY', nameKey: 'apps.gallery', icon: GalleryIcon, component: GalleryApp },
 ];
 

@@ -9,7 +9,7 @@ const PhoneApp = ({ win, title, active, style }) => (
             {win.variant === 'browser' ? <BrowserTabs data={win.data} /> : <h1>{title}</h1>}
         </header>
         <div className="phone-app-content">
-            <WindowContent win={win} />
+            <WindowContent win={win} phone />
         </div>
     </section>
 );

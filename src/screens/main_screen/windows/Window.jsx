@@ -1,21 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './Window.css';
 import { useWindowManager } from './WindowManagerContext.js';
+import { WindowFrameContext } from './WindowFrameContext.js';
+import { useWindowDrag } from './useWindowDrag.js';
+import WindowControls from './WindowControls.jsx';
 import { getWindowTitle } from '../appsConfig.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
 
-// Parte de la ventana que siempre queda visible al arrastrarla
-const MIN_VISIBLE_WIDTH = 100;
-const TOP_BAR_HEIGHT = 40;
-
-const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
 // topBarContent: contenido propio de la barra superior (p. ej. las pestañas del navegador)
-const Window = ({ win, topBarContent, children }) => {
-    const { closeWindow, minimizeWindow, toggleMaximize, focusWindow } = useWindowManager();
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+// frameless: la ventana no pinta barra superior; la app la pinta con WindowFrameContext
+// (semáforo, título y zona de arrastre), como el Finder de macOS
+const Window = ({ win, topBarContent, frameless = false, children }) => {
+    const { focusWindow } = useWindowManager();
     const windowRef = useRef(null);
-    const dragRef = useRef(null);
+    const { position, dragProps } = useWindowDrag(win, windowRef);
     const { t } = useI18n();
     const title = getWindowTitle(win, t);
     const titleId = `window-title-${win.id}`;
@@ -27,46 +25,12 @@ const Window = ({ win, topBarContent, children }) => {
         }
     }, [win.z, win.minimized]);
 
-    const handlePointerDown = (event) => {
-        if (event.button !== 0 || win.maximized || event.target.closest('button')) {
-            return;
-        }
-
-        dragRef.current = {
-            startX: event.clientX,
-            startY: event.clientY,
-            origin: position,
-            windowRect: windowRef.current.getBoundingClientRect(),
-            areaRect: windowRef.current.parentElement.getBoundingClientRect(),
-        };
-        event.currentTarget.setPointerCapture(event.pointerId);
-    };
-
-    const handlePointerMove = (event) => {
-        const drag = dragRef.current;
-        if (!drag) return;
-
-        const { windowRect, areaRect } = drag;
-        const dx = clamp(
-            event.clientX - drag.startX,
-            areaRect.left + MIN_VISIBLE_WIDTH - windowRect.right,
-            areaRect.right - MIN_VISIBLE_WIDTH - windowRect.left,
-        );
-        const dy = clamp(
-            event.clientY - drag.startY,
-            areaRect.top - windowRect.top,
-            areaRect.bottom - TOP_BAR_HEIGHT - windowRect.top,
-        );
-        setPosition({ x: drag.origin.x + dx, y: drag.origin.y + dy });
-    };
-
-    const handlePointerUp = () => {
-        dragRef.current = null;
-    };
+    const frame = { win, title, titleId, dragProps };
 
     const className = [
         'desktop-app-layout',
         `window-${win.variant}`,
+        frameless && 'window-frameless',
         win.minimized && 'minimized',
         win.maximized && 'maximize',
     ].filter(Boolean).join(' ');
@@ -87,24 +51,17 @@ const Window = ({ win, topBarContent, children }) => {
             tabIndex={-1}
             onMouseDown={() => focusWindow(win.id)}
         >
-            <div
-                className="top-bar"
-                onDoubleClick={(event) => !event.target.closest('button') && toggleMaximize(win.id)}
-                onPointerDown={handlePointerDown}
-                onPointerMove={handlePointerMove}
-                onPointerUp={handlePointerUp}
-                onPointerCancel={handlePointerUp}
-            >
-                <div className="buttons">
-                    <button type="button" className="window-btn close" title={t('window.close')} aria-label={t('window.closeNamed', { name: title })} onClick={() => closeWindow(win.id)}></button>
-                    <button type="button" className="window-btn minimize" title={t('window.minimize')} aria-label={t('window.minimizeNamed', { name: title })} onClick={() => minimizeWindow(win.id)}></button>
-                    <button type="button" className="window-btn maximize" title={t('window.maximize')} aria-label={t('window.maximizeNamed', { name: title })} onClick={() => toggleMaximize(win.id)}></button>
+            {!frameless && (
+                <div className="top-bar" {...dragProps}>
+                    <WindowControls win={win} title={title} />
+                    <h3 id={titleId} className={topBarContent ? 'visually-hidden' : undefined}>{title}</h3>
+                    {topBarContent}
                 </div>
-                <h3 id={titleId} className={topBarContent ? 'visually-hidden' : undefined}>{title}</h3>
-                {topBarContent}
-            </div>
+            )}
             <div className="app-container">
-                {children}
+                {frameless ? (
+                    <WindowFrameContext.Provider value={frame}>{children}</WindowFrameContext.Provider>
+                ) : children}
             </div>
         </section>
     );

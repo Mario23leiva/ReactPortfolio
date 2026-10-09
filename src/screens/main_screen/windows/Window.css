@@ -107,3 +107,19 @@
         min-width: 0;
     }
 }
+
+/* Ventanas sin barra superior (Finder): esquinas y sombra de macOS Sequoia */
+.desktop-app-layout.window-frameless {
+    border-radius: 12px;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.window-frameless .app-container {
+    border: none;
+    border-radius: inherit;
+}
+
+.desktop-app-layout.window-frameless.maximize,
+.desktop-app-layout.window-frameless.maximize .app-container {
+    border-radius: 0;
+}

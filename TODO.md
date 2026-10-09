@@ -50,6 +50,11 @@ Lista de tareas en orden de prioridad.
   - [x] Apps a pantalla completa; barra de inicio: tocar o deslizar un poco → inicio, deslizar más → apps abiertas
   - [x] Selector de apps: tocar para abrir, deslizar hacia arriba o ✕ para cerrar
   - [ ] (Opcional) Vista en horizontal: ahora un móvil girado (> 640 px de ancho) ve el Mac
+- [x] 6.6 Finder estilo macOS Sequoia (escritorio)
+  - [x] Ventana sin barra superior: semáforo en la barra lateral y la barra de herramientas como zona de arrastre
+  - [x] Proyectos en la barra lateral, atrás/adelante (⌘[ / ⌘]), búsqueda, vistas de iconos y lista, barra de ruta
+  - [x] Selección y navegación con teclado al estilo Mac (clic selecciona, doble clic o Enter abre)
+  - [ ] Versión móvil (ahora el iPhone sigue usando la app Archivos anterior)
 
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)
