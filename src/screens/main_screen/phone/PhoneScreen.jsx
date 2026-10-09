@@ -10,17 +10,21 @@ import { getTopWindow } from '../windows/windowReducer.js';
 import { getApp, getWindowTitle } from '../appsConfig.js';
 import { BROWSER_WINDOW, NEW_TAB_URL } from '../browser/browserState.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
+import { useTheme } from '../../../theme/ThemeContext.js';
 
 // Portfolio en móvil con aspecto de iPhone. La app en primer plano es la ventana de mayor z
 // que no está minimizada; ir al inicio minimiza todas.
 const PhoneScreen = () => {
     const { windows, openWindow, openInBrowser, minimizeAll } = useWindowManager();
     const { t } = useI18n();
+    const { theme } = useTheme();
     const [switcherOpen, setSwitcherOpen] = useState(false);
     const [swipe, setSwipe] = useState(0);
     const topWindow = getTopWindow(windows);
     const inApp = Boolean(topWindow) && !switcherOpen;
     const darkApp = inApp && topWindow.variant === 'app' && Boolean(getApp(topWindow.id)?.phoneDark);
+    // Barra de estado e indicador en blanco sobre el fondo de pantalla, apps oscuras y en modo oscuro
+    const lightContent = !inApp || darkApp || theme === 'dark';
 
     const openApp = (id) => openWindow({ id });
 
@@ -45,7 +49,7 @@ const PhoneScreen = () => {
 
     return (
         <div className={`phone${inApp ? ' in-app' : ''}`}>
-            <StatusBar dark={inApp && !darkApp} />
+            <StatusBar dark={!lightContent} />
 
             <div className="phone-home-layer" hidden={inApp} aria-label={t('phone.homeScreen')}>
                 <HomeScreen onOpenApp={openApp} onOpenBrowser={openBrowser} />
@@ -64,7 +68,7 @@ const PhoneScreen = () => {
             {switcherOpen && <AppSwitcher onHome={goHome} onClose={() => setSwitcherOpen(false)} />}
 
             <HomeIndicator
-                light={!inApp || darkApp}
+                light={lightContent}
                 onHome={goHome}
                 onSwitcher={() => setSwitcherOpen(true)}
                 onDrag={setSwipe}

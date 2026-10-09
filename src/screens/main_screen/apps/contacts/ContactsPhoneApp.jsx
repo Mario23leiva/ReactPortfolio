@@ -6,6 +6,9 @@ import contact from '../../../../assets/json/contact.json';
 import profileImg from '../../../../assets/profile-picture.webp';
 import { useI18n } from '../../../../i18n/I18nContext.js';
 
+// A partir de este avance el fondo de la barra de navegación ya se ve (ver .contacts-phone-nav::before)
+const COLLAPSED_PROGRESS = 0.8;
+
 // App Contactos del iPhone: Póster de contacto de iOS (foto a pantalla completa).
 // Al desplazar, el póster se recoge y la barra de navegación muestra el nombre en pequeño.
 const ContactsPhoneApp = () => {
@@ -25,6 +28,8 @@ const ContactsPhoneApp = () => {
             if (!container || !poster) return;
             const progress = Math.min(Math.max(container.scrollTop / poster.offsetHeight, 0), 1);
             container.style.setProperty('--poster-progress', progress.toFixed(3));
+            // Con la barra de navegación ya opaca, la barra de estado y el texto pasan a los colores del tema
+            container.toggleAttribute('data-collapsed', progress > COLLAPSED_PROGRESS);
         });
     };
 

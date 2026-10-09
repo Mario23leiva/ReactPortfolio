@@ -17,6 +17,13 @@
         "open": "{name} (open)",
         "seriousPortfolio": "No fun allowed"
     },
+    "theme": {
+        "label": "Appearance: {mode}",
+        "short": "Appearance",
+        "system": "Auto",
+        "light": "Light",
+        "dark": "Dark"
+    },
     "window": {
         "close": "Close",
         "minimize": "Minimize",

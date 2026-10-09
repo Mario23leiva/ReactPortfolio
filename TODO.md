@@ -62,6 +62,13 @@ Lista de tareas en orden de prioridad.
   - [x] Versión iPhone al estilo de la ficha de contacto de iOS
   - [x] Versión iPhone con Póster de contacto en modo oscuro: foto a pantalla completa que se recoge al desplazar
 
+- [x] 6.8 Modo claro y oscuro (Mac e iPhone)
+  - [x] Sigue al sistema por defecto; icono de Apariencia en el dock y en la pantalla de inicio: Automático → Claro → Oscuro (se recuerda)
+  - [x] Colores de sistema en `index.css` y variables por app (Finder, Contactos, Archivos, Galería, Chrome y sus páginas)
+  - [x] Sin destello al cargar: el tema se aplica en `index.html` antes de pintar
+  - [x] Fondo de pantalla atenuado en modo oscuro
+  - [x] Póster de contacto en modo claro: barra de estado blanca sobre la foto y del tema al recogerlo
+
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)
 - Vídeos de los proyectos (añadir `videoUrl` con formato https://www.youtube.com/embed/<id>)

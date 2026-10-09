@@ -1,9 +1,12 @@
 import { APPS, DOCK_LINKS } from '../appsConfig.js';
 import { BROWSER_WINDOW } from '../browser/browserState.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
+import { useTheme } from '../../../theme/ThemeContext.js';
+import { THEME_ICONS } from '../../../theme/themeIcons.js';
 import ProfilePicture from '../../../assets/profile-picture.webp';
 
-const AppIcon = ({ name, icon, onClick, href }) => {
+// label: nombre accesible si el visible se queda corto (p. ej. "Apariencia: Oscura")
+const AppIcon = ({ name, label, icon, onClick, href }) => {
     const content = (
         <>
             <img src={icon} alt="" draggable="false" />
@@ -13,13 +16,14 @@ const AppIcon = ({ name, icon, onClick, href }) => {
     return href ? (
         <a className="phone-icon" href={href} target="_blank" rel="noopener noreferrer">{content}</a>
     ) : (
-        <button type="button" className="phone-icon" onClick={onClick}>{content}</button>
+        <button type="button" className="phone-icon" onClick={onClick} aria-label={label}>{content}</button>
     );
 };
 
 // Pantalla de inicio: widget de perfil, iconos sueltos y dock con las apps
 const HomeScreen = ({ onOpenApp, onOpenBrowser }) => {
     const { t } = useI18n();
+    const { preference, cycleTheme } = useTheme();
 
     return (
         <div className="phone-home">
@@ -37,6 +41,14 @@ const HomeScreen = ({ onOpenApp, onOpenBrowser }) => {
                         <AppIcon name={t(link.nameKey)} icon={link.icon} href={link.url} />
                     </li>
                 ))}
+                <li>
+                    <AppIcon
+                        name={t('theme.short')}
+                        label={t('theme.label', { mode: t(`theme.${preference}`) })}
+                        icon={THEME_ICONS[preference]}
+                        onClick={cycleTheme}
+                    />
+                </li>
             </ul>
 
             <div className="phone-page-dots" aria-hidden="true"><span></span></div>

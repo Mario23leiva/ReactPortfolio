@@ -14,6 +14,7 @@ My personal portfolio, designed as an interactive **macOS-style desktop**: unloc
   - **Files**: my projects in a Finder-like view, with a link to the live site, the README and the GitHub repository.
   - **Gallery**: photo grid with a viewer (arrow keys and <kbd>Esc</kbd> supported).
 - **Responsive**: on mobile, windows open full screen.
+- **Light and dark mode**: follows the system appearance by default; the appearance icon in the dock (or on the iPhone home screen) cycles Auto → Light → Dark and remembers the choice.
 - **Accessible**: keyboard navigation, visible focus and `prefers-reduced-motion` support.
 
 ## Tech stack
@@ -53,6 +54,8 @@ src/
 │   ├── iconos/        # App and technology icons
 │   ├── json/          # Profile and projects data
 │   └── projects/      # Project screenshots, one folder per project
+├── i18n/              # Spanish and English texts
+├── theme/             # Light / dark mode (ThemeProvider, useTheme)
 ├── screens/
 │   ├── blocked_screen/    # Lock screen
 │   └── main_screen/

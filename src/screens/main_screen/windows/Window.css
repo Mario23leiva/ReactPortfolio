@@ -10,6 +10,7 @@
     transform: translate(calc(-50% + var(--window-x, 0px)), calc(-50% + var(--window-y, 0px)));
     transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: var(--label);
     display: flex;
     flex-direction: column;
     animation: window-open 0.2s ease-out;
@@ -41,7 +42,7 @@
 }
 
 .top-bar {
-    background-color: #d5d3d6;
+    background-color: var(--window-bar-bg);
     width: 100%;
     height: 40px;
     display: flex;
@@ -82,14 +83,14 @@
 }
 
 .top-bar h3 {
-    color: black;
+    color: var(--label);
 }
 
 .app-container {
     width: 100%;
     height: 100%;
     max-height: 100%;
-    border: 1px solid rgb(228, 228, 228);
+    border: 1px solid var(--window-border);
     border-radius: 0 0 5px 5px;
     position: relative;
     overflow: hidden;
@@ -111,7 +112,7 @@
 /* Ventanas sin barra superior (Finder): esquinas y sombra de macOS Sequoia */
 .desktop-app-layout.window-frameless {
     border-radius: 12px;
-    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--window-shadow);
 }
 
 .window-frameless .app-container {

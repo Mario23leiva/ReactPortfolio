@@ -17,6 +17,13 @@
         "open": "{name} (abierta)",
         "seriousPortfolio": "Prohibido divertirse"
     },
+    "theme": {
+        "label": "Apariencia: {mode}",
+        "short": "Apariencia",
+        "system": "Automática",
+        "light": "Clara",
+        "dark": "Oscura"
+    },
     "window": {
         "close": "Cerrar",
         "minimize": "Minimizar",

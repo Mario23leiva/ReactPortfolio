@@ -1,15 +1,29 @@
 .phone {
     --phone-status-height: 50px;
     --phone-indicator-height: 28px;
+    /* Colores de las apps a pantalla completa y del selector (iOS claro / oscuro) */
+    --phone-app-bg: #ffffff;
+    --phone-app-label: #000000;
+    --phone-header-bg: #f7f7f8;
+    --phone-header-border: #d8d8dc;
+    --phone-card-bg: linear-gradient(160deg, #ffffff, #e9e9ee);
     position: relative;
     width: 100vw;
     height: 100vh;
     height: 100dvh;
     overflow: hidden;
-    background: url(../../../assets/fondos/macOS-background.webp) center / cover no-repeat #1c1c1e;
+    background: var(--wallpaper-shade), url(../../../assets/fondos/macOS-background.webp) center / cover no-repeat #1c1c1e;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
     color: #fff;
     -webkit-tap-highlight-color: transparent;
+}
+
+[data-theme="dark"] .phone {
+    --phone-app-bg: #000000;
+    --phone-app-label: #ffffff;
+    --phone-header-bg: #1c1c1e;
+    --phone-header-border: rgba(84, 84, 88, 0.65);
+    --phone-card-bg: linear-gradient(160deg, #2c2c2e, #1c1c1e);
 }
 
 /* Los contenedores con display propio deben respetar el atributo hidden */
@@ -98,9 +112,9 @@
     gap: 14px;
     width: 100%;
     padding: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--material-border);
     border-radius: 24px;
-    background-color: rgba(255, 255, 255, 0.22);
+    background-color: var(--material-bg);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     color: #fff;
@@ -200,7 +214,7 @@
     justify-content: space-around;
     padding: 14px 8px;
     border-radius: 32px;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: var(--material-bg);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
@@ -226,8 +240,8 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: #fff;
-    color: #000;
+    background-color: var(--phone-app-bg);
+    color: var(--phone-app-label);
     transform-origin: center bottom;
     transition: transform 0.25s ease-out, border-radius 0.25s ease-out;
     animation: phone-app-open 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -250,8 +264,8 @@
 .phone-app-header {
     flex-shrink: 0;
     padding-top: var(--phone-status-height);
-    border-bottom: 1px solid #d8d8dc;
-    background-color: #f7f7f8;
+    border-bottom: 1px solid var(--phone-header-border);
+    background-color: var(--phone-header-bg);
 }
 
 .phone-app-header h1 {
@@ -271,7 +285,7 @@
 
 .phone-app:has(.browser) .phone-app-header {
     border-bottom: none;
-    background-color: #dee1e6;
+    background-color: var(--chrome-frame);
 }
 
 .phone-app-content {
@@ -368,7 +382,7 @@
     height: 58dvh;
     border: none;
     border-radius: 28px;
-    background: linear-gradient(160deg, #ffffff, #e9e9ee);
+    background: var(--phone-card-bg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     cursor: pointer;
     touch-action: pan-x;

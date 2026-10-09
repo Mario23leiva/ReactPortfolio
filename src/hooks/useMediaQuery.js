@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 // Pantallas en las que el portfolio se muestra como un iPhone en lugar de como un Mac
 export const PHONE_QUERY = '(max-width: 640px)';
 
+// El sistema operativo prefiere el modo oscuro
+export const DARK_QUERY = '(prefers-color-scheme: dark)';
+
 export function useMediaQuery(query) {
     const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
 

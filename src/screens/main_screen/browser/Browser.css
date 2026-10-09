@@ -1,3 +1,58 @@
+/* ---------- Colores (Chrome claro / oscuro) ----------
+   En :root porque las pestañas viven fuera de .browser (barra de la ventana o cabecera del iPhone) */
+:root {
+    --chrome-frame: #dee1e6;
+    --chrome-surface: #ffffff;
+    --chrome-tab-hover: rgba(255, 255, 255, 0.45);
+    --chrome-tab-text: #3c4043;
+    --chrome-tab-separator: #a8abb0;
+    --chrome-text: #202124;
+    --chrome-icon: #5f6368;
+    --chrome-icon-disabled: #c4c7c5;
+    --chrome-hover: rgba(0, 0, 0, 0.08);
+    --chrome-border: #dadce0;
+    --chrome-omnibox: #f1f3f4;
+
+    /* Páginas: la pestaña nueva, las mini webs y el 404 también siguen el tema */
+    --page-bg: #ffffff;
+    --page-text: #202124;
+    --page-text-secondary: #3c4043;
+    --page-muted: #5f6368;
+    --page-faint: #9aa0a6;
+    --page-border: #ececec;
+    --page-chip: #f1f3f4;
+    --page-footer: #f8f9fa;
+    --page-search-border: #dfe1e5;
+    --page-search-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    --page-link: #1a73e8;
+}
+
+:root[data-theme="dark"] {
+    --chrome-frame: #202124;
+    --chrome-surface: #35363a;
+    --chrome-tab-hover: rgba(255, 255, 255, 0.06);
+    --chrome-tab-text: #e8eaed;
+    --chrome-tab-separator: #5f6368;
+    --chrome-text: #e8eaed;
+    --chrome-icon: #9aa0a6;
+    --chrome-icon-disabled: #5f6368;
+    --chrome-hover: rgba(255, 255, 255, 0.1);
+    --chrome-border: #3c4043;
+    --chrome-omnibox: #202124;
+
+    --page-bg: #1f1f1f;
+    --page-text: #e8eaed;
+    --page-text-secondary: #bdc1c6;
+    --page-muted: #9aa0a6;
+    --page-faint: #80868b;
+    --page-border: #3c4043;
+    --page-chip: #303134;
+    --page-footer: #171717;
+    --page-search-border: #5f6368;
+    --page-search-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+    --page-link: #8ab4f8;
+}
+
 /* ---------- Ventana ---------- */
 /* Más grande que el resto en escritorio; en tablet y móvil manda Window.css */
 @media (min-width: 1001px) {
@@ -12,7 +67,7 @@
     align-items: flex-end;
     gap: 8px;
     padding: 0 10px;
-    background-color: #dee1e6;
+    background-color: var(--chrome-frame);
 }
 
 .window-browser .top-bar .buttons {
@@ -22,7 +77,7 @@
 
 .window-browser .app-container {
     border: none;
-    background-color: #fff;
+    background-color: var(--page-bg);
 }
 
 /* ---------- Pestañas ---------- */
@@ -42,15 +97,15 @@
     min-width: 0;
     height: 100%;
     border-radius: 8px 8px 0 0;
-    color: #3c4043;
+    color: var(--chrome-tab-text);
 }
 
 .browser-tab:not(.active):hover {
-    background-color: rgba(255, 255, 255, 0.45);
+    background-color: var(--chrome-tab-hover);
 }
 
 .browser-tab.active {
-    background-color: #fff;
+    background-color: var(--chrome-surface);
 }
 
 /* Separador entre pestañas inactivas */
@@ -61,7 +116,7 @@
     top: 9px;
     bottom: 9px;
     width: 1px;
-    background-color: #a8abb0;
+    background-color: var(--chrome-tab-separator);
 }
 
 .browser-tab-select {
@@ -89,7 +144,7 @@
 .browser-tab-icon {
     flex-shrink: 0;
     font-size: 12px;
-    color: #5f6368;
+    color: var(--chrome-icon);
 }
 
 .browser-tab-close,
@@ -103,7 +158,7 @@
     border: none;
     border-radius: 50%;
     background: none;
-    color: #5f6368;
+    color: var(--chrome-icon);
     font-size: 11px;
     cursor: pointer;
 }
@@ -118,7 +173,7 @@
 
 .browser-tab-close:hover,
 .browser-new-tab:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--chrome-hover);
 }
 
 /* ---------- Barra de herramientas ---------- */
@@ -126,7 +181,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    color: #202124;
+    color: var(--page-text);
 }
 
 .browser-toolbar {
@@ -134,8 +189,8 @@
     align-items: center;
     gap: 4px;
     padding: 6px 8px;
-    border-bottom: 1px solid #dadce0;
-    background-color: #fff;
+    border-bottom: 1px solid var(--chrome-border);
+    background-color: var(--chrome-surface);
 }
 
 .browser-toolbar-btn {
@@ -147,17 +202,17 @@
     border: none;
     border-radius: 50%;
     background: none;
-    color: #5f6368;
+    color: var(--chrome-icon);
     font-size: 14px;
     cursor: pointer;
 }
 
 .browser-toolbar-btn:hover:not(:disabled) {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: var(--chrome-hover);
 }
 
 .browser-toolbar-btn:disabled {
-    color: #c4c7c5;
+    color: var(--chrome-icon-disabled);
     cursor: default;
 }
 
@@ -171,18 +226,18 @@
     margin-left: 4px;
     padding: 0 14px;
     border-radius: 16px;
-    background-color: #f1f3f4;
+    background-color: var(--chrome-omnibox);
 }
 
 .browser-address:focus-within {
-    background-color: #fff;
-    box-shadow: 0 0 0 2px #0a84ff;
+    background-color: var(--chrome-surface);
+    box-shadow: 0 0 0 2px var(--accent);
 }
 
 .browser-address-icon {
     flex-shrink: 0;
     font-size: 12px;
-    color: #5f6368;
+    color: var(--chrome-icon);
 }
 
 .browser-address input {
@@ -191,7 +246,7 @@
     border: none;
     outline: none;
     background: none;
-    color: #202124;
+    color: var(--chrome-text);
     font: 14px system-ui, sans-serif;
 }
 
@@ -207,7 +262,7 @@
     flex: 1;
     min-width: 0;
     overflow-y: auto;
-    background-color: #fff;
+    background-color: var(--page-bg);
 }
 
 /* ---------- Botones de las páginas ---------- */
@@ -286,7 +341,7 @@
 
 .project-section {
     padding: 28px 0;
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid var(--page-border);
 }
 
 .project-section:last-child {
@@ -299,7 +354,7 @@
 }
 
 .project-section p {
-    color: #3c4043;
+    color: var(--page-text-secondary);
 }
 
 .project-technologies {
@@ -315,7 +370,7 @@
     gap: 8px;
     padding: 6px 14px 6px 8px;
     border-radius: 999px;
-    background-color: #f1f3f4;
+    background-color: var(--page-chip);
     font-size: 13px;
     font-weight: 600;
 }
@@ -357,7 +412,7 @@
 }
 
 .project-gallery button:focus-visible {
-    outline: 2px solid #1a73e8;
+    outline: 2px solid var(--page-link);
     outline-offset: 2px;
 }
 
@@ -412,14 +467,14 @@
     border: none;
     border-radius: 12px;
     background: none;
-    color: #202124;
+    color: var(--page-text);
     font: 600 13px system-ui, sans-serif;
     cursor: pointer;
 }
 
 .project-others button:hover,
 .newtab-shortcuts button:hover {
-    background-color: #f1f3f4;
+    background-color: var(--page-chip);
 }
 
 .project-others img {
@@ -431,8 +486,8 @@
 
 .project-footer {
     padding: 24px;
-    background-color: #f8f9fa;
-    color: #5f6368;
+    background-color: var(--page-footer);
+    color: var(--page-muted);
     font-size: 13px;
     text-align: center;
 }
@@ -466,15 +521,15 @@
     height: 46px;
     margin-top: 32px;
     padding: 0 20px;
-    border: 1px solid #dfe1e5;
+    border: 1px solid var(--page-search-border);
     border-radius: 999px;
-    color: #9aa0a6;
+    color: var(--page-faint);
 }
 
 .newtab-search:focus-within,
 .newtab-search:hover {
     border-color: transparent;
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    box-shadow: var(--page-search-shadow);
 }
 
 .newtab-search input {
@@ -483,13 +538,13 @@
     border: none;
     outline: none;
     background: none;
-    color: #202124;
+    color: var(--page-text);
     font: 16px system-ui, sans-serif;
 }
 
 .newtab-heading {
     margin: 40px 0 16px;
-    color: #5f6368;
+    color: var(--page-muted);
     font-size: 15px;
     font-weight: 500;
 }
@@ -515,19 +570,19 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 80px 32px;
-    color: #3c4043;
+    color: var(--page-text-secondary);
     font-family: system-ui, sans-serif;
 }
 
 .notfound-icon {
     margin-bottom: 24px;
     font-size: 48px;
-    color: #9aa0a6;
+    color: var(--page-faint);
 }
 
 .notfound-page h1 {
     margin-bottom: 16px;
-    color: #202124;
+    color: var(--page-text);
     font-size: 24px;
     font-weight: 500;
 }

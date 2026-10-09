@@ -11,6 +11,9 @@
     --finder-sidebar-bg: rgba(232, 232, 237, 0.78);
     --finder-content-bg: #ffffff;
     --finder-stripe: #f4f5f5;
+    --finder-selected: rgba(0, 0, 0, 0.09);
+    --finder-field: rgba(0, 0, 0, 0.05);
+    --finder-focus-ring: 0 0 0 3px rgba(10, 100, 214, 0.35), inset 0 0 0 1px rgba(10, 100, 214, 0.6);
 
     height: 100%;
     width: 100%;
@@ -21,6 +24,24 @@
     line-height: 1.3;
     -webkit-font-smoothing: antialiased;
     user-select: none;
+}
+
+/* Modo oscuro de macOS */
+[data-theme="dark"] .finder {
+    --finder-accent: #0a64d6;
+    --finder-accent-soft: rgba(59, 158, 255, 0.2);
+    --finder-text: #f5f5f7;
+    --finder-secondary: rgba(255, 255, 255, 0.55);
+    --finder-tertiary: rgba(255, 255, 255, 0.3);
+    --finder-border: rgba(255, 255, 255, 0.1);
+    --finder-hover: rgba(255, 255, 255, 0.07);
+    --finder-selected-inactive: #464646;
+    --finder-sidebar-bg: rgba(40, 40, 42, 0.82);
+    --finder-content-bg: #1e1e1e;
+    --finder-stripe: #262626;
+    --finder-selected: rgba(255, 255, 255, 0.12);
+    --finder-field: rgba(255, 255, 255, 0.08);
+    --finder-focus-ring: 0 0 0 3px rgba(59, 158, 255, 0.45), inset 0 0 0 1px rgba(59, 158, 255, 0.7);
 }
 
 :where(.finder) button {
@@ -105,7 +126,7 @@
 }
 
 .finder-sidebar-item[aria-current] {
-    background-color: rgba(0, 0, 0, 0.09);
+    background-color: var(--finder-selected);
 }
 
 .finder-sidebar-item:focus-visible {
@@ -166,7 +187,7 @@
 }
 
 .finder-tool-btn[aria-pressed='true'] {
-    background-color: rgba(0, 0, 0, 0.09);
+    background-color: var(--finder-selected);
     color: var(--finder-text);
 }
 
@@ -194,7 +215,7 @@
     gap: 5px;
     padding: 0 8px;
     border-radius: 7px;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--finder-field);
     color: var(--finder-secondary);
     transition: width 0.2s ease, box-shadow 0.2s ease;
 }
@@ -202,7 +223,7 @@
 .finder-search:focus-within {
     width: 200px;
     background-color: var(--finder-content-bg);
-    box-shadow: 0 0 0 3px rgba(10, 100, 214, 0.35), inset 0 0 0 1px rgba(10, 100, 214, 0.6);
+    box-shadow: var(--finder-focus-ring);
 }
 
 .finder-search svg {
@@ -286,7 +307,7 @@
 }
 
 .finder-icon-item[aria-selected='true'] .finder-icon-image {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: var(--finder-selected);
 }
 
 .finder-icon-item[aria-selected='true'] .finder-icon-name {

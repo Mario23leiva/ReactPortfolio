@@ -9,6 +9,7 @@
     --ios-separator: rgba(60, 60, 67, 0.29);
     --ios-fill: rgba(118, 118, 128, 0.12);
     --ios-bar: rgba(249, 249, 249, 0.85);
+    --ios-cell-active: #e5e5ea;
 
     position: absolute;
     inset: 0;
@@ -20,6 +21,20 @@
     letter-spacing: -0.01em;
     user-select: none;
     touch-action: pan-y;
+}
+
+/* Modo oscuro de iOS */
+[data-theme="dark"] .files-phone {
+    --ios-blue: #0a84ff;
+    --ios-bg: #000000;
+    --ios-cell: #1c1c1e;
+    --ios-label: #ffffff;
+    --ios-secondary: rgba(235, 235, 245, 0.6);
+    --ios-tertiary: rgba(235, 235, 245, 0.3);
+    --ios-separator: rgba(84, 84, 88, 0.65);
+    --ios-fill: rgba(118, 118, 128, 0.24);
+    --ios-bar: rgba(22, 22, 24, 0.85);
+    --ios-cell-active: #2c2c2e;
 }
 
 :where(.files-phone) button {
@@ -245,7 +260,7 @@
 }
 
 .files-group-row:active {
-    background-color: #e5e5ea;
+    background-color: var(--ios-cell-active);
 }
 
 .files-group-icon {

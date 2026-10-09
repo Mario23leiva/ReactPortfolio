@@ -2,7 +2,8 @@
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    background-image: url(../../assets/fondos/macOS-background.webp);
+    /* En modo oscuro el fondo se atenúa, como los fondos dinámicos de macOS (--wallpaper-dim) */
+    background-image: var(--wallpaper-shade), url(../../assets/fondos/macOS-background.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

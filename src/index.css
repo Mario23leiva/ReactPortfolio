@@ -3,14 +3,57 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Colores de sistema (estilo Apple). El tema lo fija data-theme en <html>: ver src/theme */
+  color-scheme: light;
+  --label: #1d1d1f;
+  --label-secondary: rgba(60, 60, 67, 0.6);
+  --label-tertiary: rgba(60, 60, 67, 0.3);
+  --separator: rgba(0, 0, 0, 0.1);
+  --fill: rgba(118, 118, 128, 0.12);
+  --hover: rgba(0, 0, 0, 0.06);
+  --accent: #0a84ff;
+  --accent-soft: rgba(10, 132, 255, 0.12);
+  --window-bg: #ffffff;
+  --window-bar-bg: #e8e6e9;
+  --window-border: rgba(0, 0, 0, 0.12);
+  --window-shadow: 0 22px 60px rgba(0, 0, 0, 0.35), 0 0 0 0.5px rgba(0, 0, 0, 0.3);
+  --material-bg: rgba(255, 255, 255, 0.25);
+  --material-border: rgba(255, 255, 255, 0.35);
+  --tooltip-bg: rgba(30, 30, 30, 0.8);
+  --tooltip-label: #ffffff;
+  --scrollbar-thumb: rgba(0, 0, 0, 0.4);
+  --wallpaper-dim: 0;
+  --wallpaper-shade: linear-gradient(rgba(0, 0, 0, var(--wallpaper-dim)), rgba(0, 0, 0, var(--wallpaper-dim)));
+
+  color: var(--label);
+  background-color: #1c1c1e;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --label: #f5f5f7;
+  --label-secondary: rgba(235, 235, 245, 0.6);
+  --label-tertiary: rgba(235, 235, 245, 0.3);
+  --separator: rgba(255, 255, 255, 0.12);
+  --fill: rgba(118, 118, 128, 0.24);
+  --hover: rgba(255, 255, 255, 0.08);
+  --accent: #0a84ff;
+  --accent-soft: rgba(10, 132, 255, 0.24);
+  --window-bg: #1e1e1e;
+  --window-bar-bg: #2c2c2e;
+  --window-border: rgba(255, 255, 255, 0.12);
+  --window-shadow: 0 22px 60px rgba(0, 0, 0, 0.6), 0 0 0 0.5px rgba(255, 255, 255, 0.18);
+  --material-bg: rgba(40, 40, 44, 0.45);
+  --material-border: rgba(255, 255, 255, 0.16);
+  --tooltip-bg: rgba(60, 60, 64, 0.9);
+  --tooltip-label: #ffffff;
+  --scrollbar-thumb: rgba(255, 255, 255, 0.35);
+  --wallpaper-dim: 0.42;
 }
 
 * {
@@ -40,14 +83,13 @@ a{
 
 ::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: rgba(0,0,0,.5);
-  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  background-color: var(--scrollbar-thumb);
 }
 ::-webkit-scrollbar-track{
   background: rgba(0, 0, 0, 0);
 }
 :focus-visible {
-  outline: 2px solid #0a84ff;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
