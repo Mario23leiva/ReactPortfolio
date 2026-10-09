@@ -1,3 +1,5 @@
+import { useId } from 'react';
+
 // Iconos SF Symbols simplificados para Archivos del iPhone. Usan currentColor salvo la carpeta.
 const Svg = ({ children, size = 20, viewBox = '0 0 20 20', ...props }) => (
     <svg viewBox={viewBox} width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.8"
@@ -55,17 +57,24 @@ export const PhoneIcon = () => (
     </Svg>
 );
 
-// Carpeta azul de iOS (con pestaña y degradado)
-export const FolderIcon = ({ size = 64 }) => (
-    <svg viewBox="0 0 64 52" width={size} height={size * 52 / 64} aria-hidden="true" focusable="false">
-        <defs>
-            <linearGradient id="ios-folder-front" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#6ec4fb" />
-                <stop offset="1" stopColor="#3aa2f2" />
-            </linearGradient>
-        </defs>
-        <path d="M4 6a4 4 0 0 1 4-4h15.5a4 4 0 0 1 3 1.4L30 7h26a4 4 0 0 1 4 4v4H4Z" fill="#2f8fe0" />
-        <rect x="2" y="11" width="60" height="39" rx="4.5" fill="url(#ios-folder-front)" />
-        <path d="M2 15.5a4.5 4.5 0 0 1 4.5-4.5h51a4.5 4.5 0 0 1 4.5 4.5" fill="none" stroke="rgba(255,255,255,.45)" strokeWidth="1" />
-    </svg>
-);
+// Carpeta azul de iOS (con pestaña y degradado).
+// Cada icono necesita su propio id de degradado: si se compartiera y el primero estuviera
+// en una pantalla oculta, el navegador no podría pintarlo en los demás.
+export const FolderIcon = ({ size = 64 }) => {
+    // Sin los caracteres especiales de useId (":r0:") para que url(#...) sea siempre válido
+    const gradientId = `ios-folder${useId().replace(/[^\w-]/g, '')}`;
+
+    return (
+        <svg viewBox="0 0 64 52" width={size} height={size * 52 / 64} aria-hidden="true" focusable="false">
+            <defs>
+                <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="#6ec4fb" />
+                    <stop offset="1" stopColor="#3aa2f2" />
+                </linearGradient>
+            </defs>
+            <path d="M4 6a4 4 0 0 1 4-4h15.5a4 4 0 0 1 3 1.4L30 7h26a4 4 0 0 1 4 4v4H4Z" fill="#2f8fe0" />
+            <rect x="2" y="11" width="60" height="39" rx="4.5" fill={`url(#${gradientId})`} />
+            <path d="M2 15.5a4.5 4.5 0 0 1 4.5-4.5h51a4.5 4.5 0 0 1 4.5 4.5" fill="none" stroke="rgba(255,255,255,.45)" strokeWidth="1" />
+        </svg>
+    );
+};
