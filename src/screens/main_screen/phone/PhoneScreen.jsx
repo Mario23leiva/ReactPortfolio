@@ -7,7 +7,7 @@ import AppSwitcher from './AppSwitcher.jsx';
 import HomeIndicator from './HomeIndicator.jsx';
 import { useWindowManager } from '../windows/WindowManagerContext.js';
 import { getTopWindow } from '../windows/windowReducer.js';
-import { getWindowTitle } from '../appsConfig.js';
+import { getApp, getWindowTitle } from '../appsConfig.js';
 import { BROWSER_WINDOW, NEW_TAB_URL } from '../browser/browserState.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
 
@@ -20,6 +20,7 @@ const PhoneScreen = () => {
     const [swipe, setSwipe] = useState(0);
     const topWindow = getTopWindow(windows);
     const inApp = Boolean(topWindow) && !switcherOpen;
+    const darkApp = inApp && topWindow.variant === 'app' && Boolean(getApp(topWindow.id)?.phoneDark);
 
     const openApp = (id) => openWindow({ id });
 
@@ -44,7 +45,7 @@ const PhoneScreen = () => {
 
     return (
         <div className={`phone${inApp ? ' in-app' : ''}`}>
-            <StatusBar dark={inApp} />
+            <StatusBar dark={inApp && !darkApp} />
 
             <div className="phone-home-layer" hidden={inApp} aria-label={t('phone.homeScreen')}>
                 <HomeScreen onOpenApp={openApp} onOpenBrowser={openBrowser} />
@@ -63,7 +64,7 @@ const PhoneScreen = () => {
             {switcherOpen && <AppSwitcher onHome={goHome} onClose={() => setSwitcherOpen(false)} />}
 
             <HomeIndicator
-                light={!inApp}
+                light={!inApp || darkApp}
                 onHome={goHome}
                 onSwitcher={() => setSwitcherOpen(true)}
                 onDrag={setSwipe}

@@ -15,8 +15,9 @@ import { getActiveTab, getCurrentUrl, getPageTitle } from './browser/browserStat
 // phoneComponent: versión para el iPhone, si es distinta de la del Mac.
 // frameless: la ventana no tiene barra superior; la pinta la propia app (ver WindowFrameContext).
 // narrow: ventana estrecha de ancho fijo; al maximizarla solo crece en vertical.
+// phoneDark: en el iPhone la app tiene fondo oscuro (barra de estado y de inicio en blanco).
 export const APPS = [
-    { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ContactsApp, phoneComponent: ContactsPhoneApp, frameless: true, narrow: true },
+    { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ContactsApp, phoneComponent: ContactsPhoneApp, frameless: true, narrow: true, phoneDark: true },
     { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FinderApp, phoneComponent: FilesPhoneApp, frameless: true },
     { id: 'GALLERY', nameKey: 'apps.gallery', icon: GalleryIcon, component: GalleryApp },
 ];

@@ -75,9 +75,10 @@ const Section = ({ id, title, rows }) => (
 );
 
 // Ficha de la app Contactos: cabecera, botones de acción, datos de contacto y secciones del perfil.
-// La comparten el Mac y el iPhone; cambia solo el CSS (clase "phone").
+// La comparten el Mac y el iPhone. poster: versión del iPhone, sin cabecera (la pinta el
+// Póster de contacto) y con las secciones en tarjetas.
 // getSectionId(id): id del DOM de cada sección, para poder desplazarse a ella
-const ContactCard = ({ phone = false, getSectionId }) => {
+const ContactCard = ({ poster = false, getSectionId }) => {
     const i18n = useI18n();
     const { t, localize } = i18n;
     const name = `${contact.firstName} ${contact.lastName}`;
@@ -110,13 +111,15 @@ const ContactCard = ({ phone = false, getSectionId }) => {
     ].filter(Boolean);
 
     return (
-        <article className={`contact-card${phone ? ' phone' : ''}`}>
-            <header className="contact-header">
-                <img src={profileImg} alt="" className="contact-avatar" draggable="false" />
-                <h2 className="contact-name">{name}</h2>
-                <p className="contact-role">{t('profile.role')}</p>
-                {location && <p className="contact-location">{location}</p>}
-            </header>
+        <article className={`contact-card${poster ? ' poster' : ''}`}>
+            {!poster && (
+                <header className="contact-header">
+                    <img src={profileImg} alt="" className="contact-avatar" draggable="false" />
+                    <h2 className="contact-name">{name}</h2>
+                    <p className="contact-role">{t('profile.role')}</p>
+                    {location && <p className="contact-location">{location}</p>}
+                </header>
+            )}
 
             <ul className="contact-actions" aria-label={t('contacts.actions')}>
                 {actions.map((action) => (

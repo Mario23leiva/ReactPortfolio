@@ -33,13 +33,6 @@ export const DownloadIcon = () => (
     </Svg>
 );
 
-export const ShareIcon = () => (
-    <Svg>
-        <path d="M8 1.75V9.5M5.25 4.25 8 1.5l2.75 2.75" />
-        <path d="M5.5 6.5H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-1.5" />
-    </Svg>
-);
-
 export const PersonIcon = () => (
     <Svg>
         <circle cx="8" cy="5.25" r="2.75" />

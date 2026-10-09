@@ -60,6 +60,7 @@ Lista de tareas en orden de prioridad.
   - [x] Barra lateral con las secciones de la ficha, que se marca al desplazarse
   - [x] Ventana estrecha: el botón verde solo la maximiza en vertical
   - [x] Versión iPhone al estilo de la ficha de contacto de iOS
+  - [x] Versión iPhone con Póster de contacto en modo oscuro: foto a pantalla completa que se recoge al desplazar
 
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)

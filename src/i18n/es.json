@@ -42,9 +42,6 @@
         "location": "ubicación",
         "note": "notas",
         "personal": "personales",
-        "edit": "Editar",
-        "readOnly": "Solo lectura: esta ficha no se puede editar",
-        "shareContact": "Compartir contacto",
         "back": "Contactos"
     },
     "files": {

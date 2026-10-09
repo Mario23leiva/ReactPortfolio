@@ -42,9 +42,6 @@
         "location": "location",
         "note": "notes",
         "personal": "personal",
-        "edit": "Edit",
-        "readOnly": "Read only: this card can't be edited",
-        "shareContact": "Share Contact",
         "back": "Contacts"
     },
     "files": {
