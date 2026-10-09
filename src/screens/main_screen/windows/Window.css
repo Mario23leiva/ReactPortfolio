@@ -123,3 +123,16 @@
 .desktop-app-layout.window-frameless.maximize .app-container {
     border-radius: 0;
 }
+
+/* Ventanas estrechas (Contactos): ancho fijo; al maximizar solo crecen en vertical */
+.desktop-app-layout.window-narrow,
+.desktop-app-layout.window-narrow.maximize {
+    width: 640px;
+    min-width: 0;
+    max-width: calc(100% - 32px);
+}
+
+.desktop-app-layout.window-frameless.window-narrow.maximize,
+.desktop-app-layout.window-frameless.window-narrow.maximize .app-container {
+    border-radius: 12px;
+}

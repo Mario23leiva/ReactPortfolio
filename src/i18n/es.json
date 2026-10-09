@@ -8,7 +8,7 @@
         "newTab": "{name} (se abre en una pestaña nueva)"
     },
     "apps": {
-        "profile": "Perfil",
+        "profile": "Contactos",
         "files": "Archivos",
         "gallery": "Galería"
     },
@@ -30,6 +30,22 @@
         "role": "Desarrollador Full Stack",
         "downloadResume": "Descargar CV",
         "now": "Actualidad"
+    },
+    "contacts": {
+        "card": "Ficha",
+        "contact": "Contacto",
+        "sections": "Secciones de la ficha",
+        "actions": "Acciones",
+        "mail": "correo",
+        "email": "correo",
+        "resume": "CV",
+        "location": "ubicación",
+        "note": "notas",
+        "personal": "personales",
+        "edit": "Editar",
+        "readOnly": "Solo lectura: esta ficha no se puede editar",
+        "shareContact": "Compartir contacto",
+        "back": "Contactos"
     },
     "files": {
         "openWebsite": "Abrir la web del proyecto",

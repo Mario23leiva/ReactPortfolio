@@ -1,0 +1,486 @@
+/* ---------- Contactos (macOS Sequoia) ---------- */
+.contacts,
+.contacts-phone {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, system-ui, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+:where(.contacts, .contacts-phone) button {
+    font: inherit;
+    color: inherit;
+}
+
+:where(.contacts, .contacts-phone) ul,
+:where(.contacts, .contacts-phone) dl,
+:where(.contacts, .contacts-phone) dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contacts {
+    --contacts-accent: #0a64d6;
+    --contacts-accent-soft: rgba(10, 100, 214, 0.1);
+    --contacts-text: #1d1d1f;
+    --contacts-secondary: rgba(0, 0, 0, 0.5);
+    --contacts-tertiary: rgba(0, 0, 0, 0.28);
+    --contacts-border: rgba(0, 0, 0, 0.1);
+    --contacts-hover: rgba(0, 0, 0, 0.06);
+    --contacts-sidebar-bg: rgba(232, 232, 237, 0.78);
+    --contacts-content-bg: #ffffff;
+    --contacts-label-width: 112px;
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    color: var(--contacts-text);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+/* ---------- Barra lateral ---------- */
+.contacts-sidebar {
+    width: 190px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 12px;
+    background-color: var(--contacts-sidebar-bg);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-right: 1px solid var(--contacts-border);
+    overflow-y: auto;
+    user-select: none;
+}
+
+.contacts-sidebar-titlebar {
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin: 0 -10px;
+    touch-action: none;
+}
+
+/* Semáforo a tamaño macOS */
+.contacts-sidebar-titlebar .buttons {
+    gap: 8px;
+    padding-left: 10px;
+}
+
+.contacts-sidebar-titlebar .buttons button {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+    box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.18);
+}
+
+.contacts-sidebar-heading {
+    margin: 10px 0 4px;
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--contacts-tertiary);
+}
+
+.contacts-sidebar-item {
+    width: 100%;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    text-align: left;
+    cursor: default;
+}
+
+.contacts-sidebar-item svg {
+    flex-shrink: 0;
+    color: var(--contacts-accent);
+}
+
+.contacts-sidebar-item span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contacts-sidebar-item[aria-current] {
+    background-color: rgba(0, 0, 0, 0.09);
+}
+
+.contacts-sidebar-item:focus-visible {
+    outline: 2px solid var(--contacts-accent);
+    outline-offset: -2px;
+}
+
+/* ---------- Zona principal ---------- */
+.contacts-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--contacts-content-bg);
+}
+
+.contacts-toolbar {
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid var(--contacts-border);
+    touch-action: none;
+    user-select: none;
+}
+
+.contacts-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Contenedor de referencia de offsetTop para saber qué sección está a la vista */
+.contacts-scroll {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+/* ---------- Ficha (Mac) ---------- */
+.contact-card {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 24px 24px 40px;
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.contact-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.contact-name {
+    margin: 12px 0 2px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.contact-role,
+.contact-location {
+    margin: 0;
+    color: var(--contacts-secondary);
+}
+
+.contact-location {
+    color: var(--contacts-tertiary);
+}
+
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.contact-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--contacts-accent);
+    text-decoration: none;
+}
+
+.contact-action-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.06);
+    transition: background-color 0.15s;
+}
+
+.contact-action:hover .contact-action-icon {
+    background-color: rgba(0, 0, 0, 0.11);
+}
+
+.contact-action:active .contact-action-icon {
+    background-color: rgba(0, 0, 0, 0.16);
+}
+
+.contact-action:focus-visible {
+    outline: none;
+}
+
+.contact-action:focus-visible .contact-action-icon {
+    outline: 2px solid var(--contacts-accent);
+    outline-offset: 2px;
+}
+
+.contact-action-label {
+    font-size: 11px;
+}
+
+/* Secciones: etiqueta gris a la derecha y valor a la izquierda, como en Contactos */
+.contact-group {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--contacts-border);
+    scroll-margin-top: 8px;
+}
+
+.contact-group-title {
+    margin: 0 0 6px;
+    padding-left: calc(var(--contacts-label-width) + 14px);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.contact-row {
+    display: grid;
+    grid-template-columns: var(--contacts-label-width) 1fr;
+    gap: 14px;
+    padding: 4px 0;
+}
+
+.contact-row dt {
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--contacts-secondary);
+}
+
+.contact-row dd {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.contact-row a {
+    color: var(--contacts-accent);
+    text-decoration: none;
+}
+
+.contact-row a:hover {
+    text-decoration: underline;
+}
+
+.contact-row-title {
+    display: block;
+    font-weight: 600;
+}
+
+.contact-row-detail {
+    display: block;
+    color: var(--contacts-secondary);
+}
+
+.contact-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.contact-chips li {
+    padding: 1px 8px;
+    border-radius: 999px;
+    background-color: var(--contacts-accent-soft);
+    color: var(--contacts-accent);
+    font-size: 12px;
+}
+
+/* ---------- iPhone (ficha de contacto de iOS) ---------- */
+.contacts-phone {
+    --contacts-accent: #007aff;
+    --contacts-accent-soft: rgba(0, 122, 255, 0.1);
+    --contacts-text: #000000;
+    --contacts-secondary: rgba(60, 60, 67, 0.6);
+    --contacts-tertiary: rgba(60, 60, 67, 0.3);
+    --contacts-separator: rgba(60, 60, 67, 0.29);
+    --contacts-cell: #ffffff;
+    --contacts-bg: #f2f2f7;
+
+    position: absolute;
+    inset: 0;
+    overflow-y: auto;
+    padding: 0 16px calc(var(--phone-indicator-height, 28px) + 16px);
+    background-color: var(--contacts-bg);
+    color: var(--contacts-text);
+    font-size: 17px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.contacts-phone-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(var(--phone-status-height, 50px) + 44px);
+    padding-top: var(--phone-status-height, 50px);
+    margin: 0 -16px;
+    padding-inline: 8px 16px;
+    background-color: rgba(242, 242, 247, 0.85);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    user-select: none;
+}
+
+.contacts-phone-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--contacts-accent);
+}
+
+.contacts-phone-edit {
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--contacts-accent);
+    opacity: 0.4;
+}
+
+.contact-card.phone {
+    max-width: none;
+    padding: 4px 0 0;
+}
+
+.contact-card.phone .contact-avatar {
+    width: 120px;
+    height: 120px;
+}
+
+.contact-card.phone .contact-name {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.contact-card.phone .contact-role,
+.contact-card.phone .contact-location {
+    font-size: 15px;
+}
+
+.contact-card.phone .contact-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.contact-card.phone .contact-action {
+    gap: 4px;
+    padding: 9px 0 7px;
+    border-radius: 10px;
+    background-color: var(--contacts-cell);
+}
+
+.contact-card.phone .contact-action:active {
+    background-color: #e5e5ea;
+}
+
+.contact-card.phone .contact-action-icon {
+    width: auto;
+    height: auto;
+    background: none;
+}
+
+.contact-card.phone .contact-action-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.contact-card.phone .contact-group {
+    margin-top: 22px;
+    padding-top: 0;
+    border-top: none;
+}
+
+.contact-card.phone .contact-group-title {
+    margin: 0 0 6px;
+    padding: 0 16px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--contacts-secondary);
+}
+
+/* Lista agrupada con separador inset */
+.contact-card.phone .contact-group-list {
+    padding-left: 16px;
+    border-radius: 10px;
+    background-color: var(--contacts-cell);
+}
+
+.contact-card.phone .contact-row {
+    display: block;
+    padding: 10px 16px 10px 0;
+}
+
+.contact-card.phone .contact-row + .contact-row {
+    border-top: 0.5px solid var(--contacts-separator);
+}
+
+.contact-card.phone .contact-row dt {
+    text-align: left;
+    font-size: 14px;
+    color: var(--contacts-text);
+}
+
+.contact-card.phone .contact-row a:hover {
+    text-decoration: none;
+}
+
+.contact-card.phone .contact-chips {
+    margin-top: 4px;
+}
+
+.contact-card.phone .contact-chips li {
+    font-size: 14px;
+    padding: 2px 10px;
+}
+
+.contacts-phone-share {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 22px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--contacts-cell);
+    color: var(--contacts-accent);
+    cursor: pointer;
+}
+
+.contacts-phone-share:active {
+    background-color: #e5e5ea;
+}
+
+.contacts-phone-share svg {
+    width: 20px;
+    height: 20px;
+}

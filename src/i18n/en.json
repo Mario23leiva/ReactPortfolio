@@ -8,7 +8,7 @@
         "newTab": "{name} (opens in a new tab)"
     },
     "apps": {
-        "profile": "Profile",
+        "profile": "Contacts",
         "files": "Files",
         "gallery": "Gallery"
     },
@@ -30,6 +30,22 @@
         "role": "Full Stack Developer",
         "downloadResume": "Download Resume",
         "now": "Now"
+    },
+    "contacts": {
+        "card": "Card",
+        "contact": "Contact",
+        "sections": "Card sections",
+        "actions": "Actions",
+        "mail": "mail",
+        "email": "email",
+        "resume": "Resume",
+        "location": "location",
+        "note": "notes",
+        "personal": "personal",
+        "edit": "Edit",
+        "readOnly": "Read only: this card can't be edited",
+        "shareContact": "Share Contact",
+        "back": "Contacts"
     },
     "files": {
         "openWebsite": "Open the project website",

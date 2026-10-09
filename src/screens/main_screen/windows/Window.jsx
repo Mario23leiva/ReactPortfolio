@@ -4,7 +4,7 @@ import { useWindowManager } from './WindowManagerContext.js';
 import { WindowFrameContext } from './WindowFrameContext.js';
 import { useWindowDrag } from './useWindowDrag.js';
 import WindowControls from './WindowControls.jsx';
-import { getWindowTitle } from '../appsConfig.js';
+import { getApp, getWindowTitle } from '../appsConfig.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
 
 // topBarContent: contenido propio de la barra superior (p. ej. las pestañas del navegador)
@@ -13,7 +13,9 @@ import { useI18n } from '../../../i18n/I18nContext.js';
 const Window = ({ win, topBarContent, frameless = false, children }) => {
     const { focusWindow } = useWindowManager();
     const windowRef = useRef(null);
-    const { position, dragProps } = useWindowDrag(win, windowRef);
+    // Ventanas estrechas: al maximizar solo crecen en vertical y se siguen moviendo en horizontal
+    const narrow = win.variant === 'app' && Boolean(getApp(win.id)?.narrow);
+    const { position, dragProps } = useWindowDrag(win, windowRef, { narrow });
     const { t } = useI18n();
     const title = getWindowTitle(win, t);
     const titleId = `window-title-${win.id}`;
@@ -31,13 +33,16 @@ const Window = ({ win, topBarContent, frameless = false, children }) => {
         'desktop-app-layout',
         `window-${win.variant}`,
         frameless && 'window-frameless',
+        narrow && 'window-narrow',
         win.minimized && 'minimized',
         win.maximized && 'maximize',
     ].filter(Boolean).join(' ');
 
     const style = { zIndex: win.z };
-    if (!win.maximized) {
+    if (!win.maximized || narrow) {
         style['--window-x'] = `${position.x}px`;
+    }
+    if (!win.maximized) {
         style['--window-y'] = `${position.y}px`;
     }
 

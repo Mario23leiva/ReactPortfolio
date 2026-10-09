@@ -55,6 +55,11 @@ Lista de tareas en orden de prioridad.
   - [x] Proyectos en la barra lateral, atrás/adelante (⌘[ / ⌘]), búsqueda, vistas de iconos y lista, barra de ruta
   - [x] Selección y navegación con teclado al estilo Mac (clic selecciona, doble clic o Enter abre)
   - [x] Versión móvil al estilo de la app Archivos de iOS: Explorar (ubicaciones, favoritos, etiquetas y buscador) → carpetas en cuadrícula o lista, con gesto de volver
+- [x] 6.7 Perfil → app Contactos al estilo de macOS Sequoia
+  - [x] Ficha de contacto: avatar, botones de acción (correo, GitHub, LinkedIn, CV) y campos etiqueta/valor
+  - [x] Barra lateral con las secciones de la ficha, que se marca al desplazarse
+  - [x] Ventana estrecha: el botón verde solo la maximiza en vertical
+  - [x] Versión iPhone al estilo de la ficha de contacto de iOS
 
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)

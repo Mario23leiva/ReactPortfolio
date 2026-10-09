@@ -12,13 +12,14 @@ const isInteractive = (target) => target.closest('button, input, a, [role="optio
 
 // Arrastre de una ventana desde su barra superior. dragProps se reparte en la zona
 // de arrastre; doble clic en ella maximiza o restaura.
-export function useWindowDrag(win, windowRef) {
+// narrow: ventana que al maximizar solo crece en vertical; maximizada se mueve solo en horizontal
+export function useWindowDrag(win, windowRef, { narrow = false } = {}) {
     const { toggleMaximize } = useWindowManager();
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const dragRef = useRef(null);
 
     const onPointerDown = (event) => {
-        if (event.button !== 0 || win.maximized || isInteractive(event.target)) {
+        if (event.button !== 0 || (win.maximized && !narrow) || isInteractive(event.target)) {
             return;
         }
 
@@ -42,7 +43,7 @@ export function useWindowDrag(win, windowRef) {
             areaRect.left + MIN_VISIBLE_WIDTH - windowRect.right,
             areaRect.right - MIN_VISIBLE_WIDTH - windowRect.left,
         );
-        const dy = clamp(
+        const dy = win.maximized ? 0 : clamp(
             event.clientY - drag.startY,
             areaRect.top - windowRect.top,
             areaRect.bottom - TOP_BAR_HEIGHT - windowRect.top,

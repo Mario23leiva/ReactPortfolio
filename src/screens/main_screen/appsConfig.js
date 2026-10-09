@@ -1,4 +1,5 @@
-import ProfileApp from './apps/ProfileApp.jsx';
+import ContactsApp from './apps/contacts/ContactsApp.jsx';
+import ContactsPhoneApp from './apps/contacts/ContactsPhoneApp.jsx';
 import FilesPhoneApp from './apps/files_phone/FilesPhoneApp.jsx';
 import FinderApp from './apps/finder/FinderApp.jsx';
 import GalleryApp from './apps/GalleryApp.jsx';
@@ -13,8 +14,9 @@ import { getActiveTab, getCurrentUrl, getPageTitle } from './browser/browserStat
 // nameKey es la clave de traducción del nombre (ver src/i18n).
 // phoneComponent: versión para el iPhone, si es distinta de la del Mac.
 // frameless: la ventana no tiene barra superior; la pinta la propia app (ver WindowFrameContext).
+// narrow: ventana estrecha de ancho fijo; al maximizarla solo crece en vertical.
 export const APPS = [
-    { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ProfileApp },
+    { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ContactsApp, phoneComponent: ContactsPhoneApp, frameless: true, narrow: true },
     { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FinderApp, phoneComponent: FilesPhoneApp, frameless: true },
     { id: 'GALLERY', nameKey: 'apps.gallery', icon: GalleryIcon, component: GalleryApp },
 ];
