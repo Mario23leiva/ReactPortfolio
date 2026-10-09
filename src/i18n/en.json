@@ -32,7 +32,6 @@
         "now": "Now"
     },
     "files": {
-        "title": "Personal Projects",
         "openWebsite": "Open the project website",
         "videoResume": "Video Resume",
         "goToRepository": "Go to repository",
@@ -54,7 +53,15 @@
         "kindLink": "Web link",
         "kindTechnology": "Technology",
         "path": "Path",
-        "users": "Users"
+        "users": "Users",
+        "browse": "Browse",
+        "onMyIphone": "On My iPhone",
+        "favorites": "Favorites",
+        "tags": "Tags",
+        "cancel": "Cancel",
+        "more": "More options",
+        "viewGrid": "Grid",
+        "inProject": "In {name}"
     },
     "gallery": {
         "empty": "No pictures yet",

@@ -1,10 +1,10 @@
-import IMG_FILE from '../../../../assets/iconos/archivo.webp';
-import IMG_CHROME from '../../../../assets/iconos/chrome.webp';
-import IMG_GITHUB from '../../../../assets/iconos/github.webp';
-import { TECHNOLOGY_ICONS } from '../../technologyIcons.js';
-import { getProjectUrl } from '../../browser/browserState.js';
+import IMG_FILE from '../../../assets/iconos/archivo.webp';
+import IMG_CHROME from '../../../assets/iconos/chrome.webp';
+import IMG_GITHUB from '../../../assets/iconos/github.webp';
+import { TECHNOLOGY_ICONS } from '../technologyIcons.js';
+import { getProjectUrl } from '../browser/browserState.js';
 
-// "Archivos" que se ven dentro de la carpeta de un proyecto en el Finder.
+// "Archivos" que se ven dentro de la carpeta de un proyecto (Finder del Mac y Archivos del iPhone).
 // Cada uno: { id, name, icon, kind, title, open? }. Los que no tienen open no hacen nada al abrirlos.
 // actions: { t, openWindow, openInBrowser } (del gestor de ventanas e i18n)
 export function getProjectItems(project, { t, openWindow, openInBrowser }) {

@@ -5,7 +5,7 @@ import FinderToolbar from './FinderToolbar.jsx';
 import FinderIconView from './FinderIconView.jsx';
 import FinderListView from './FinderListView.jsx';
 import FinderPathBar from './FinderPathBar.jsx';
-import { getProjectItems } from './finderItems.js';
+import { getProjectItems } from '../projectItems.js';
 import projects from '../../../../assets/json/projects.json';
 import { useWindowFrame } from '../../windows/WindowFrameContext.js';
 import { useWindowManager } from '../../windows/WindowManagerContext.js';

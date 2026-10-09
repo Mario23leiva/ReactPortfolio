@@ -1,0 +1,440 @@
+/* ---------- Archivos del iPhone (app Files de iOS) ---------- */
+.files-phone {
+    --ios-blue: #007aff;
+    --ios-bg: #f2f2f7;
+    --ios-cell: #ffffff;
+    --ios-label: #000000;
+    --ios-secondary: rgba(60, 60, 67, 0.6);
+    --ios-tertiary: rgba(60, 60, 67, 0.3);
+    --ios-separator: rgba(60, 60, 67, 0.29);
+    --ios-fill: rgba(118, 118, 128, 0.12);
+    --ios-bar: rgba(249, 249, 249, 0.85);
+
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-color: var(--ios-bg);
+    color: var(--ios-label);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    user-select: none;
+    touch-action: pan-y;
+}
+
+:where(.files-phone) button {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+:where(.files-phone) ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Pantallas y transiciones ---------- */
+.files-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ios-bg);
+    transform: translateX(var(--files-swipe, 0px));
+}
+
+.files-phone[style] .files-screen {
+    box-shadow: -8px 0 24px rgba(0, 0, 0, 0.15);
+}
+
+.files-screen-push {
+    animation: files-push 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.files-screen-pop {
+    animation: files-pop 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes files-push {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes files-pop {
+    from { transform: translateX(-30%); opacity: 0.6; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .files-screen-push,
+    .files-screen-pop {
+        animation: none;
+    }
+}
+
+/* ---------- Barra de navegación ---------- */
+.files-navbar {
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    height: calc(var(--phone-status-height, 50px) + 44px);
+    padding: var(--phone-status-height, 50px) 8px 0;
+    border-bottom: 0.5px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.files-navbar.collapsed {
+    background-color: var(--ios-bar);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom-color: var(--ios-separator);
+}
+
+.files-navbar-side {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.files-navbar-actions {
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.files-navbar-title {
+    max-width: 50vw;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.files-navbar.collapsed .files-navbar-title {
+    opacity: 1;
+}
+
+.files-back {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+    height: 44px;
+    color: var(--ios-blue);
+}
+
+.files-back span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.files-nav-btn {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: var(--ios-blue);
+}
+
+.files-back:active,
+.files-nav-btn:active {
+    opacity: 0.3;
+}
+
+/* ---------- Contenido ---------- */
+.files-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0 16px calc(var(--phone-indicator-height, 28px) + 24px);
+}
+
+.files-large-title {
+    margin: 0 0 8px;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    outline: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Buscador */
+.files-search-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.files-search {
+    flex: 1;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
+    border-radius: 10px;
+    background-color: var(--ios-fill);
+    color: var(--ios-secondary);
+}
+
+.files-search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    background: none;
+    outline: none;
+    font: inherit;
+    color: var(--ios-label);
+}
+
+.files-search input::placeholder {
+    color: var(--ios-secondary);
+}
+
+.files-search input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.files-search-cancel {
+    color: var(--ios-blue);
+    animation: files-fade-in 0.2s ease-out;
+}
+
+@keyframes files-fade-in {
+    from { opacity: 0; transform: translateX(8px); }
+}
+
+/* Listas agrupadas (inset grouped) */
+.files-group {
+    margin-top: 22px;
+}
+
+.files-group-title {
+    margin: 0 0 6px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.files-group-list {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--ios-cell);
+}
+
+.files-group-row {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 16px;
+    text-align: left;
+}
+
+.files-group-row:active {
+    background-color: #e5e5ea;
+}
+
+.files-group-icon {
+    width: 28px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    color: var(--ios-blue);
+}
+
+.files-group-label {
+    flex: 1;
+    min-width: 0;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Separador inset: empieza donde empieza el texto */
+.files-group-list li + li .files-group-label,
+.files-group-list li + li .files-group-row .files-chevron {
+    box-shadow: inset 0 0.5px 0 var(--ios-separator);
+}
+
+.files-group-row .files-chevron {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding-right: 16px;
+}
+
+.files-chevron {
+    flex-shrink: 0;
+    color: var(--ios-tertiary);
+}
+
+.files-tag-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+/* Cuadrícula */
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px 8px;
+    padding-top: 12px;
+}
+
+.files-cell {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.files-cell .files-entry-icon {
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+}
+
+.files-cell img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+.files-cell .files-entry-text {
+    width: 100%;
+}
+
+.files-cell .files-entry-name {
+    font-size: 13px;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-word;
+}
+
+.files-entry-subtitle {
+    display: block;
+    font-size: 12px;
+    color: var(--ios-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.files-cell:active:not(:disabled) .files-entry-icon,
+.files-row:active:not(:disabled) {
+    opacity: 0.5;
+}
+
+/* Lista */
+.files-list {
+    margin-top: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--ios-cell);
+}
+
+.files-row {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 14px;
+    text-align: left;
+}
+
+.files-row .files-entry-icon {
+    width: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+}
+
+.files-row img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.files-row .files-entry-text,
+.files-row .files-chevron {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.files-row .files-entry-text {
+    flex: 1;
+    min-width: 0;
+    padding-right: 14px;
+}
+
+.files-row .files-chevron {
+    padding-right: 14px;
+}
+
+.files-list li + li .files-entry-text,
+.files-list li + li .files-chevron {
+    box-shadow: inset 0 0.5px 0 var(--ios-separator);
+}
+
+.files-row .files-entry-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.files-row .files-entry-subtitle {
+    font-size: 13px;
+}
+
+.files-cell:disabled,
+.files-row:disabled {
+    cursor: default;
+    color: inherit;
+}
+
+.files-footer,
+.files-empty {
+    margin: 24px 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--ios-secondary);
+}
+
+.files-empty {
+    margin-top: 48px;
+    font-size: 17px;
+}
+
+.files-phone button:focus-visible {
+    outline: 2px solid var(--ios-blue);
+    outline-offset: 2px;
+    border-radius: 8px;
+}

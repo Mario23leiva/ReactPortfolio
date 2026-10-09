@@ -54,7 +54,7 @@ Lista de tareas en orden de prioridad.
   - [x] Ventana sin barra superior: semáforo en la barra lateral y la barra de herramientas como zona de arrastre
   - [x] Proyectos en la barra lateral, atrás/adelante (⌘[ / ⌘]), búsqueda, vistas de iconos y lista, barra de ruta
   - [x] Selección y navegación con teclado al estilo Mac (clic selecciona, doble clic o Enter abre)
-  - [ ] Versión móvil (ahora el iPhone sigue usando la app Archivos anterior)
+  - [x] Versión móvil al estilo de la app Archivos de iOS: Explorar (ubicaciones, favoritos, etiquetas y buscador) → carpetas en cuadrícula o lista, con gesto de volver
 
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)

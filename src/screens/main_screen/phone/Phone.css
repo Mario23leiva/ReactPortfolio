@@ -431,3 +431,8 @@
 .phone-home-indicator.light .phone-home-bar span {
     background-color: #fff;
 }
+
+/* Apps que pintan su propia cabecera (Archivos): ocupan también la zona de la barra de estado */
+.phone-app-frameless .phone-app-content {
+    padding-bottom: 0;
+}

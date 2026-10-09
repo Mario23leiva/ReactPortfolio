@@ -32,7 +32,6 @@
         "now": "Actualidad"
     },
     "files": {
-        "title": "Proyectos personales",
         "openWebsite": "Abrir la web del proyecto",
         "videoResume": "Vídeo resumen",
         "goToRepository": "Ir al repositorio",
@@ -54,7 +53,15 @@
         "kindLink": "Enlace web",
         "kindTechnology": "Tecnología",
         "path": "Ruta",
-        "users": "Usuarios"
+        "users": "Usuarios",
+        "browse": "Explorar",
+        "onMyIphone": "En mi iPhone",
+        "favorites": "Favoritos",
+        "tags": "Etiquetas",
+        "cancel": "Cancelar",
+        "more": "Más opciones",
+        "viewGrid": "Cuadrícula",
+        "inProject": "En {name}"
     },
     "gallery": {
         "empty": "Todavía no hay fotos",

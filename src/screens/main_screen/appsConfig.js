@@ -1,5 +1,5 @@
 import ProfileApp from './apps/ProfileApp.jsx';
-import FilesApp from './apps/FilesApp.jsx';
+import FilesPhoneApp from './apps/files_phone/FilesPhoneApp.jsx';
 import FinderApp from './apps/finder/FinderApp.jsx';
 import GalleryApp from './apps/GalleryApp.jsx';
 
@@ -15,7 +15,7 @@ import { getActiveTab, getCurrentUrl, getPageTitle } from './browser/browserStat
 // frameless: la ventana no tiene barra superior; la pinta la propia app (ver WindowFrameContext).
 export const APPS = [
     { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ProfileApp },
-    { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FinderApp, phoneComponent: FilesApp, frameless: true },
+    { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FinderApp, phoneComponent: FilesPhoneApp, frameless: true },
     { id: 'GALLERY', nameKey: 'apps.gallery', icon: GalleryIcon, component: GalleryApp },
 ];
 
