@@ -3,14 +3,35 @@
         "id": "about-me",
         "title": { "es": "Sobre mí", "en": "About Me" },
         "aboutMe": {
-            "es": "Desarrollador de software junior, titulado en Desarrollo de Aplicaciones Web y en Desarrollo de Aplicaciones Multiplataforma. Me apasiona diseñar y desarrollar webs y aplicaciones de escritorio y móviles. Me considero una persona muy creativa y organizada, con gran capacidad de liderazgo.",
-            "en": "Junior Software Developer, graduated in Development of Web Applications and Multi-platform Applications Development. I have a passion for designing and developing websites and desktop/mobile apps. I consider myself highly creative and organized, with strong leadership skills."
+            "es": "Desarrollador junior especializado en SAP: servicios backend con SAP CAP, integraciones con SAP CPI e interfaces con Fiori/SAPUI5. Certificado como SAP Integration Developer y titulado en Desarrollo de Aplicaciones Web y en Desarrollo de Aplicaciones Multiplataforma, con experiencia full stack en .NET, React y Vue. Me considero una persona muy creativa y organizada, con gran capacidad de liderazgo.",
+            "en": "Junior developer specialized in SAP: backend services with SAP CAP, integrations with SAP CPI and user interfaces with Fiori/SAPUI5. SAP Certified Integration Developer, graduated in Development of Web Applications and Multi-platform Applications Development, with full-stack experience in .NET, React and Vue. I consider myself highly creative and organized, with strong leadership skills."
         }
     },
     {
         "id": "certifications",
         "title": { "es": "Titulaciones", "en": "Certifications" },
         "certificates": [
+            {
+                "title": {
+                    "es": "SAP Certified – Integration Developer",
+                    "en": "SAP Certified – Integration Developer"
+                },
+                "year": 2026
+            },
+            {
+                "title": {
+                    "es": "Generación Digital PYMES: Inteligencia Artificial aplicada (Ironhack)",
+                    "en": "Digital Generation SMEs: Applied Artificial Intelligence (Ironhack)"
+                },
+                "year": 2025
+            },
+            {
+                "title": {
+                    "es": "Consultor SAP ABAP (Cloud Formación TIC)",
+                    "en": "SAP ABAP Consultant (Cloud Formación TIC)"
+                },
+                "year": 2025
+            },
             {
                 "title": {
                     "es": "Técnico Superior en Desarrollo de Aplicaciones Web",
@@ -39,6 +60,8 @@
         "title": { "es": "Habilidades personales", "en": "Soft Skills" },
         "softSkills": [
             { "es": "Creativo", "en": "Creative" },
+            { "es": "Liderazgo de equipos", "en": "Team leadership" },
+            { "es": "Resolución de problemas", "en": "Problem solving" },
             { "es": "Flexible", "en": "Flexible" },
             { "es": "Comunicativo", "en": "Communicative" },
             { "es": "Educado", "en": "Polite" },
@@ -51,12 +74,16 @@
         "title": { "es": "Lenguajes y frameworks", "en": "IT Languages/Frameworks" },
         "categories": [
             {
+                "name": "SAP",
+                "technologies": ["SAP CAP", "SAP CPI", "FIORI/SAPUI5", "ABAP", "SAP HANA", "ODATA"]
+            },
+            {
                 "name": "Front-End",
                 "technologies": ["REACT", "VUE", "JS", "CSS/BOOTSTRAP"]
             },
             {
                 "name": "Back-End",
-                "technologies": ["PYTHON", "C#", "SQL", "KOTLIN", "JAVA", "PHP/LARAVEL"]
+                "technologies": ["PYTHON", "C#/.NET", "SQL", "KOTLIN", "JAVA", "PHP/LARAVEL"]
             }
         ]
     },
@@ -75,30 +102,43 @@
         "title": { "es": "Experiencia profesional", "en": "Professional Experience" },
         "works": [
             {
-                "name": { "es": "Técnico de sistemas", "en": "OS Technician" },
-                "from": "2024-01",
+                "name": { "es": "Desarrollador Junior SAP CAP e Integración", "en": "Junior SAP CAP and Integration Developer" },
+                "company": "KPS AG",
+                "from": "2025-10",
                 "to": null,
                 "description": {
-                    "es": "Gestiono roles y permisos de usuarios, Active Directory, servicios de Windows y Linux y copias de seguridad.",
-                    "en": "I manage user roles and permissions, Active Directory, Windows and Linux services, and backups."
+                    "es": "Desarrollo servicios backend con SAP CAP (OData/SOAP), flujos de integración entre sistemas con SAP CPI y aplicaciones Fiori/SAPUI5, desde el análisis de requisitos hasta la resolución de incidencias.",
+                    "en": "I build backend services with SAP CAP (OData/SOAP), system integration flows with SAP CPI and Fiori/SAPUI5 apps, from requirements analysis to incident resolution."
                 }
             },
             {
-                "name": { "es": "Desarrollador de software", "en": "Software Developer" },
+                "name": { "es": "Operador de sistemas informáticos", "en": "IT Systems Operator" },
+                "company": "COS Global Services · Aeropuerto El Prat BCN",
+                "from": "2024-01",
+                "to": "2025-10",
+                "description": {
+                    "es": "Gestioné roles y permisos (RBAC) de más de 300 usuarios en Windows y Linux, Active Directory y Windows Server, la monitorización con Zabbix y las copias de seguridad diarias con Data Protector.",
+                    "en": "I managed roles and permissions (RBAC) for 300+ users on Windows and Linux, Active Directory and Windows Server, monitoring with Zabbix and daily backups with Data Protector."
+                }
+            },
+            {
+                "name": { "es": "Desarrollador Full Stack", "en": "Full-stack Developer" },
+                "company": "BrainWorks Solutions S.L.",
                 "from": "2023-06",
                 "to": "2023-09",
                 "description": {
-                    "es": "Trabajé en el desarrollo de software de gestión para empresas en .NET.",
-                    "en": "I worked on the development of management software for businesses in .NET."
+                    "es": "Desarrollé software empresarial con C#, .NET Core y SQL Server (Entity Framework), y optimicé consultas y lógica de negocio mejorando la eficiencia de las aplicaciones un 20 %.",
+                    "en": "I developed business software with C#, .NET Core and SQL Server (Entity Framework), and optimized queries and business logic, improving application efficiency by 20%."
                 }
             },
             {
-                "name": { "es": "Diseñador y desarrollador web", "en": "Web Designer/Developer" },
+                "name": { "es": "Desarrollador web", "en": "Web Developer" },
+                "company": "Escola Joan Salamero",
                 "from": "2021-02",
-                "to": "2021-05",
+                "to": "2021-06",
                 "description": {
-                    "es": "Diseñé, creé desde cero, publiqué y mantuve la web de un centro educativo.",
-                    "en": "I designed, created from scratch, published and managed a website for an educational center."
+                    "es": "Diseñé y desarrollé desde cero la web responsive del centro con HTML, CSS, JavaScript, Bootstrap y WordPress, aumentando un 25 % el tiempo medio en página.",
+                    "en": "I designed and built the school's responsive website from scratch with HTML, CSS, JavaScript, Bootstrap and WordPress, increasing average time on page by 25%."
                 }
             }
         ]

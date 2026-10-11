@@ -30,7 +30,7 @@ const getSectionRows = (item, { t, localize, language }) => {
         return [{ key: 'note', label: t('contacts.note'), value: localize(item.aboutMe) }];
     }
     if (item.certificates) {
-        return item.certificates.map((cert) => ({ key: cert.year, label: cert.year, value: localize(cert.title) }));
+        return item.certificates.map((cert) => ({ key: cert.title.en, label: cert.year, value: localize(cert.title) }));
     }
     if (item.softSkills) {
         return [{ key: 'skills', label: t('contacts.personal'), value: <Chips items={item.softSkills.map(localize)} /> }];
@@ -52,6 +52,7 @@ const getSectionRows = (item, { t, localize, language }) => {
             value: (
                 <>
                     <strong className="contact-row-title">{localize(work.name)}</strong>
+                    {work.company && <span className="contact-row-company">{work.company}</span>}
                     <span className="contact-row-detail">{localize(work.description)}</span>
                 </>
             ),
