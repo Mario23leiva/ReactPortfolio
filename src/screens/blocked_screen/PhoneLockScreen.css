@@ -1,0 +1,239 @@
+/* Pantalla de bloqueo del iPhone: hora grande → código → desbloqueo */
+.phone-lock {
+    --phone-status-height: 50px;
+    --phone-lock-key: min(78px, 10.5dvh);
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    overflow: hidden;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    /* Al desbloquear, todo sube cuando el candado ya se ha abierto */
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.6, 1) 0.15s;
+}
+
+.phone-lock.is-unlocking {
+    transform: translateY(-100%);
+    pointer-events: none;
+}
+
+.phone-lock-wallpaper {
+    position: absolute;
+    inset: -40px;
+    background: var(--wallpaper-shade), url(../../assets/fondos/pantalla.jpg) center / cover no-repeat #1c1c1e;
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+/* En la pantalla de código el fondo se desenfoca y oscurece, como en iOS */
+.phone-lock:not(.is-lock) .phone-lock-wallpaper {
+    filter: blur(28px) brightness(0.7);
+    transform: scale(1.08);
+}
+
+.phone-lock-padlock {
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    z-index: 2;
+    font-size: 18px;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* ---------- Bloqueo con la hora ---------- */
+.phone-lock-cover {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    touch-action: none;
+}
+
+.phone-lock:not(.is-lock) .phone-lock-cover {
+    transform: translateY(-30%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.phone-lock-clock {
+    position: absolute;
+    top: 88px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.phone-lock-date {
+    font-size: 19px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.phone-lock-time {
+    font-size: 88px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+/* Linterna y cámara (decorativas) */
+.phone-lock-action {
+    position: absolute;
+    bottom: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    font-size: 20px;
+}
+
+.phone-lock-action.left {
+    left: 46px;
+}
+
+.phone-lock-action.right {
+    right: 46px;
+}
+
+.phone-lock-action svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.phone-lock-home-bar {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    width: 134px;
+    height: 5px;
+    border-radius: 3px;
+    background: #fff;
+    transform: translateX(-50%);
+}
+
+/* ---------- Código ---------- */
+.phone-lock-passcode {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    animation: phone-lock-passcode-in 0.4s ease both;
+}
+
+.phone-lock-title {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.phone-lock-dots {
+    display: flex;
+    gap: 22px;
+    margin: 18px 0 min(48px, 5dvh);
+}
+
+.phone-lock-dots span {
+    width: 13px;
+    height: 13px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    transition: background-color 0.1s ease;
+}
+
+.phone-lock-dots span.filled {
+    background-color: #fff;
+}
+
+.phone-lock-keypad {
+    display: grid;
+    grid-template-columns: repeat(3, var(--phone-lock-key));
+    column-gap: 26px;
+    row-gap: 15px;
+}
+
+/* El 0 va en la columna del centro de la última fila */
+.phone-lock-key:last-child {
+    grid-column: 2;
+}
+
+.phone-lock-key {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: var(--phone-lock-key);
+    height: var(--phone-lock-key);
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    cursor: pointer;
+    /* Se apaga despacio al soltar, como en iOS */
+    transition: background-color 0.35s ease;
+}
+
+.phone-lock-key:disabled {
+    cursor: default;
+}
+
+.phone-lock-key:active,
+.phone-lock-key.pressed {
+    background: rgba(255, 255, 255, 0.6);
+    transition: none;
+}
+
+.phone-lock-key-number {
+    font-size: calc(var(--phone-lock-key) * 0.46);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.phone-lock-key-letters {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.4;
+}
+
+.phone-lock-cancel {
+    position: absolute;
+    right: 46px;
+    bottom: 44px;
+    padding: 8px;
+    border: none;
+    background: none;
+    color: #fff;
+    font: inherit;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+@keyframes phone-lock-passcode-in {
+    from {
+        opacity: 0;
+        transform: scale(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

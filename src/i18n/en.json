@@ -1,8 +1,13 @@
 {
     "lockScreen": {
-        "unlock": "^ SWIPE UP or PRESS SPACE TO LOGIN ^",
+        "passwordPlaceholder": "Enter Password",
+        "passwordLabel": "Password",
+        "login": "Log In",
         "loading": "Loading",
-        "swipeUp": "Swipe up to unlock"
+        "enterPasscode": "Enter Passcode",
+        "digitsEntered": "{count} of 6 digits",
+        "delete": "Delete",
+        "cancel": "Cancel"
     },
     "common": {
         "newTab": "{name} (opens in a new tab)"

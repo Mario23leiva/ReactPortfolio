@@ -6,7 +6,7 @@ My personal portfolio, designed as an interactive **macOS-style desktop**: unloc
 
 ## Features
 
-- **Lock screen**: swipe up, or press <kbd>Space</kbd> / <kbd>Enter</kbd>, to log in. All images are preloaded before entering the desktop.
+- **Lock screen**: on the Mac, a macOS Sequoia-style login with a big clock that logs in by itself (the password types itself in), or press <kbd>Enter</kbd> / <kbd>Space</kbd> to skip ahead; on the iPhone, the iOS lock screen moves on to the passcode keypad and the PIN types itself in (or tap the keys yourself). On the Mac, a boot progress bar shows the real image preloading; on the iPhone, the lock screen slides up straight onto the home screen.
 - **Dock**: macOS-like dock with hover magnification and an indicator dot for open apps.
 - **Windows**: open, close, minimize, maximize (double click on the title bar) and drag them around. Clicking an app in the dock brings it to the front, or minimizes it if it is already in front.
 - **Apps**

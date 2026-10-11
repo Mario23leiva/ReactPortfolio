@@ -1,22 +1,20 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import BlockedScreen from './screens/blocked_screen/BlockedScreen.jsx';
 import MainScreen from './screens/main_screen/MainScreen.jsx';
 
 function App() {
-  const [showMainScreen, setShowMainScreen] = useState(false);
-
-  // Función para mostrar la pantalla principal
-  const handleEnter = () => {
-    setShowMainScreen(true);
-  };
+  // entered: la pantalla principal ya está montada; lockVisible: el bloqueo sigue encima
+  // (mientras hace su animación de salida, la pantalla principal se ve debajo)
+  const [entered, setEntered] = useState(false);
+  const [lockVisible, setLockVisible] = useState(true);
+  const handleEnter = useCallback(() => setEntered(true), []);
+  const handleExited = useCallback(() => setLockVisible(false), []);
 
   return (
     <>
-      {/* Renderizar la pantalla principal solo si showMainScreen es true */}
-      {showMainScreen ? (
-        <MainScreen />
-      ) : (
-        <BlockedScreen onEnter={handleEnter} />
+      {entered && <MainScreen />}
+      {lockVisible && (
+        <BlockedScreen onEnter={handleEnter} onExited={handleExited} />
       )}
     </>
   );

@@ -1,8 +1,13 @@
 {
     "lockScreen": {
-        "unlock": "^ DESLIZA HACIA ARRIBA o PULSA ESPACIO PARA ENTRAR ^",
+        "passwordPlaceholder": "Introduce la contraseña",
+        "passwordLabel": "Contraseña",
+        "login": "Iniciar sesión",
         "loading": "Cargando",
-        "swipeUp": "Desliza hacia arriba para desbloquear"
+        "enterPasscode": "Introduce el código",
+        "digitsEntered": "{count} de 6 dígitos",
+        "delete": "Borrar",
+        "cancel": "Cancelar"
     },
     "common": {
         "newTab": "{name} (se abre en una pestaña nueva)"

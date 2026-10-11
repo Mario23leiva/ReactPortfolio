@@ -18,7 +18,13 @@ const preloadImage = (src) => new Promise((resolve) => {
     preloadedImages.push(img);
 });
 
-export function preloadAssets() {
+// onProgress (opcional) recibe la fracción de imágenes ya cargadas, de 0 a 1
+export function preloadAssets(onProgress) {
+    let loaded = 0;
+    const track = (src) => preloadImage(src).then(() => {
+        loaded += 1;
+        onProgress?.(loaded / ASSET_URLS.length);
+    });
     const timeout = new Promise((resolve) => setTimeout(resolve, MAX_WAIT_MS));
-    return Promise.race([Promise.all(ASSET_URLS.map(preloadImage)), timeout]);
+    return Promise.race([Promise.all(ASSET_URLS.map(track)), timeout]);
 }

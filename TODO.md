@@ -69,6 +69,18 @@ Lista de tareas en orden de prioridad.
   - [x] Fondo de pantalla atenuado en modo oscuro
   - [x] Póster de contacto en modo claro: barra de estado blanca sobre la foto y del tema al recogerlo
 
+- [x] 6.9 Pantalla de bloqueo del Mac al estilo macOS Sequoia/Tahoe
+  - [x] Reloj y fecha grandes, barra de estado (idioma, Wi‑Fi, batería), avatar, nombre y campo de contraseña de cristal
+  - [x] Autologin: la contraseña se escribe sola y se pulsa la flecha; Enter, Espacio o clic para entrar antes
+  - [x] Pantalla de arranque con manzana y barra de progreso real de la precarga
+  - [x] Nuevo fondo (La gran ola de Kanagawa) comprimido de 7,8 MB a 0,9 MB
+
+- [x] 6.10 Pantalla de bloqueo del iPhone con código
+  - [x] Bloqueo con candado, fecha y hora grandes, linterna y cámara; tocar o deslizar para pasar al código
+  - [x] Pantalla de código con teclado de cristal: el PIN se teclea solo (o a mano), con Borrar / Cancelar
+  - [x] Desbloqueo sin pantalla de carga: el candado se abre y el bloqueo sube dejando ver la pantalla de inicio
+  - [x] En el Mac, la pantalla de carga se desvanece hacia el escritorio
+
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)
 - Vídeos de los proyectos (añadir `videoUrl` con formato https://www.youtube.com/embed/<id>)
