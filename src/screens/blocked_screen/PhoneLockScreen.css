@@ -46,7 +46,7 @@
 .phone-lock-cover {
     position: absolute;
     inset: 0;
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     transition: transform 0.4s ease, opacity 0.3s ease;
     touch-action: none;
 }
@@ -185,13 +185,13 @@
     -webkit-backdrop-filter: blur(20px) saturate(160%);
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     /* Se apaga despacio al soltar, como en iOS */
     transition: background-color 0.35s ease;
 }
 
 .phone-lock-key:disabled {
-    cursor: default;
+    cursor: var(--cursor-default);
 }
 
 .phone-lock-key:active,
@@ -223,7 +223,7 @@
     color: #fff;
     font: inherit;
     font-size: 17px;
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
 }
 
 @keyframes phone-lock-passcode-in {

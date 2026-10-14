@@ -1,0 +1,74 @@
+/* Cursores de macOS en la vista de escritorio (ver src/assets/cursors).
+   Los componentes usan siempre estas variables en lugar de las palabras clave de CSS:
+   en el iPhone o con pantalla táctil se quedan los cursores del sistema. */
+:root {
+  --cursor-default: default;
+  --cursor-pointer: pointer;
+  --cursor-grab: grab;
+  --cursor-grabbing: grabbing;
+  --cursor-wait: progress;
+}
+
+/* Complemento de PHONE_QUERY (src/hooks/useMediaQuery.js), solo con ratón o trackpad */
+@media (min-width: 641px) and (hover: hover) and (pointer: fine) {
+  :root {
+    --cursor-default: url('./assets/cursors/arrow.svg') 6 4, default;
+    --cursor-pointer: url('./assets/cursors/pointer.svg') 12 3, pointer;
+    --cursor-grab: url('./assets/cursors/grab.svg') 16 16, grab;
+    --cursor-grabbing: url('./assets/cursors/grabbing.svg') 16 18, grabbing;
+    --cursor-wait: url('./assets/cursors/wait-00.svg') 16 16, progress;
+    cursor: var(--cursor-default);
+  }
+
+  a:any-link,
+  [role="link"] {
+    cursor: var(--cursor-pointer);
+  }
+
+  /* Los campos de texto conservan la barra en I */
+  textarea,
+  [contenteditable="true"],
+  input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]) {
+    cursor: text;
+  }
+
+  /* La rueda de colores gira: los cursores no se animan, pero sí la propiedad cursor */
+  .cursor-wait {
+    animation: mac-beachball 0.9s linear infinite;
+  }
+
+  @keyframes mac-beachball {
+    0% { cursor: url('./assets/cursors/wait-00.svg') 16 16, progress; }
+    8.33% { cursor: url('./assets/cursors/wait-01.svg') 16 16, progress; }
+    16.67% { cursor: url('./assets/cursors/wait-02.svg') 16 16, progress; }
+    25% { cursor: url('./assets/cursors/wait-03.svg') 16 16, progress; }
+    33.33% { cursor: url('./assets/cursors/wait-04.svg') 16 16, progress; }
+    41.67% { cursor: url('./assets/cursors/wait-05.svg') 16 16, progress; }
+    50% { cursor: url('./assets/cursors/wait-06.svg') 16 16, progress; }
+    58.33% { cursor: url('./assets/cursors/wait-07.svg') 16 16, progress; }
+    66.67% { cursor: url('./assets/cursors/wait-08.svg') 16 16, progress; }
+    75% { cursor: url('./assets/cursors/wait-09.svg') 16 16, progress; }
+    83.33% { cursor: url('./assets/cursors/wait-10.svg') 16 16, progress; }
+    91.67% { cursor: url('./assets/cursors/wait-11.svg') 16 16, progress; }
+    100% { cursor: url('./assets/cursors/wait-00.svg') 16 16, progress; }
+  }
+}
+
+.cursor-wait {
+  cursor: var(--cursor-wait);
+}
+
+/* Zona de arrastre de una ventana (useWindowDrag): mano abierta; sus botones, flecha normal */
+[data-window-drag] {
+  cursor: var(--cursor-grab);
+}
+
+:where([data-window-drag]) :where(button, a, [role="option"]) {
+  cursor: var(--cursor-default);
+}
+
+/* Mientras se arrastra, mano cerrada en toda la pantalla aunque el puntero salga de la barra */
+:root.is-grabbing,
+:root.is-grabbing * {
+  cursor: var(--cursor-grabbing) !important;
+}

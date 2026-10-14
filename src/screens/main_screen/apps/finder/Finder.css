@@ -111,7 +111,7 @@
     border-radius: 6px;
     background: none;
     text-align: left;
-    cursor: default;
+    cursor: var(--cursor-default);
 }
 
 .finder-sidebar-item svg {
@@ -175,7 +175,7 @@
     border-radius: 6px;
     background: none;
     color: var(--finder-secondary);
-    cursor: default;
+    cursor: var(--cursor-default);
 }
 
 .finder-tool-btn:hover:not(:disabled) {

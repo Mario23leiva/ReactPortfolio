@@ -36,7 +36,7 @@
     padding: 0;
     border: none;
     background: var(--gallery-thumb-bg);
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     overflow: hidden;
 }
 

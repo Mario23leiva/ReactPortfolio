@@ -116,7 +116,7 @@
     border-radius: 6px;
     background: none;
     text-align: left;
-    cursor: default;
+    cursor: var(--cursor-default);
 }
 
 .contacts-sidebar-item svg {

@@ -129,7 +129,9 @@ function MacLockScreen({ assetsLoaded, progress, onEnter, onExited }) {
     const percent = Math.round(Math.min(progress, elapsed) * 100);
 
     return (
-        <div className={`mac-lock${submitting ? ' is-submitting' : ''}${exiting ? ' is-exiting' : ''}`}>
+        <div
+            className={`mac-lock${submitting ? ' is-submitting' : ''}${loading ? ' cursor-wait' : ''}${exiting ? ' is-exiting' : ''}`}
+        >
             <div className="mac-lock-wallpaper" aria-hidden="true" />
 
             <div className="mac-lock-status">

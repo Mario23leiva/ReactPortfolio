@@ -81,6 +81,11 @@ Lista de tareas en orden de prioridad.
   - [x] Desbloqueo sin pantalla de carga: el candado se abre y el bloqueo sube dejando ver la pantalla de inicio
   - [x] En el Mac, la pantalla de carga se desvanece hacia el escritorio
 
+- [x] 6.11 Cursores de macOS en el escritorio (con ratón o trackpad; el iPhone mantiene los del sistema)
+  - [x] Flecha, mano que señala, mano abierta al pasar por la barra de una ventana y cerrada al arrastrarla
+  - [x] Rueda de colores girando mientras carga el escritorio tras el login
+  - [x] SVG en `src/assets/cursors` y variables `--cursor-*` en `src/cursors.css`
+
 ## Pendiente de información
 - Restaurant 23 Menu: URL del repo (añadir `repoUrl` en projects.json)
 - Vídeos de los proyectos (añadir `videoUrl` con formato https://www.youtube.com/embed/<id>)
