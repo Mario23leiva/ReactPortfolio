@@ -52,16 +52,7 @@
     transition: transform 0.25s ease 0.4s;
 }
 
-.main-screen .dock-hotzone {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 8px;
-    z-index: 4;
-}
-
-.main-screen .dock-hotzone:hover ~ .menu,
+.main-screen.fullscreen.dock-revealed .menu,
 .main-screen.fullscreen .menu:hover,
 .main-screen.fullscreen .menu:focus-within {
     transform: none;
