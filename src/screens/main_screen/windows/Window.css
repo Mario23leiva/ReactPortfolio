@@ -29,10 +29,10 @@
     height: 100%;
 }
 
-/* Maximizada a pantalla completa: sin esquinas ni sombra, encaja con los bordes */
-.desktop-app-layout.maximize:not(.window-narrow),
-.desktop-app-layout.maximize:not(.window-narrow) .top-bar,
-.desktop-app-layout.maximize:not(.window-narrow) .app-container {
+/* Maximizada a pantalla completa: sin esquinas, encaja con los bordes (las anchas, también sin sombra) */
+.desktop-app-layout.maximize,
+.desktop-app-layout.maximize .top-bar,
+.desktop-app-layout.maximize .app-container {
     border-radius: 0;
 }
 
@@ -140,15 +140,10 @@
     border-radius: 0;
 }
 
-/* Ventanas estrechas (Contactos): ancho fijo; al maximizar solo crecen en vertical */
+/* Ventanas estrechas (Contactos): ancho fijo; al maximizar solo crecen en vertical (todo el alto) */
 .desktop-app-layout.window-narrow,
 .desktop-app-layout.window-narrow.maximize {
     width: 640px;
     min-width: 0;
     max-width: calc(100% - 32px);
-}
-
-.desktop-app-layout.window-frameless.window-narrow.maximize,
-.desktop-app-layout.window-frameless.window-narrow.maximize .app-container {
-    border-radius: 12px;
 }
