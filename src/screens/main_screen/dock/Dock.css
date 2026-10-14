@@ -21,7 +21,7 @@
     background: none;
     border: none;
     text-decoration: none;
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
 }
 
 .dock-item:focus-visible {

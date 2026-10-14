@@ -131,7 +131,7 @@
     font: inherit;
     font-size: 13px;
     letter-spacing: 0.1em;
-    cursor: default;
+    cursor: var(--cursor-default);
     outline: none;
 }
 
@@ -154,7 +154,7 @@
     border: none;
     background: none;
     color: rgba(255, 255, 255, 0.85);
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     transition: transform 0.15s ease, color 0.15s ease;
 }
 
