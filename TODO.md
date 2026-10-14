@@ -78,6 +78,13 @@ Lista de tareas en orden de prioridad.
 - [x] 6.10 Pantalla de bloqueo del iPhone con código
   - [x] Bloqueo con candado, fecha y hora grandes, linterna y cámara; tocar o deslizar para pasar al código
   - [x] Pantalla de código con teclado de cristal: el PIN se teclea solo (o a mano), con Borrar / Cancelar
+
+- [x] 6.11 Galería → app Fotos al estilo de macOS Sequoia e iOS
+  - [x] Semáforo a tamaño macOS igual en todas las ventanas (Chrome, Fotos y vídeos como Contactos y Archivos)
+  - [x] Mac: ventana sin barra superior, barra lateral (Biblioteca y Favoritas), zoom de miniaturas (⌘+ / ⌘−), búsqueda y selección con teclado
+  - [x] Visor dentro de la ventana con barra propia, tira de miniaturas y teclado (← → Esc y «.» para favorita)
+  - [x] Favoritas guardadas en el navegador y compartidas entre Mac e iPhone
+  - [x] iPhone: título grande, cuadrícula de 3 columnas, selector flotante y visor con gestos (deslizar a los lados y hacia abajo para cerrar)
   - [x] Desbloqueo sin pantalla de carga: el candado se abre y el bloqueo sube dejando ver la pantalla de inicio
   - [x] En el Mac, la pantalla de carga se desvanece hacia el escritorio
 

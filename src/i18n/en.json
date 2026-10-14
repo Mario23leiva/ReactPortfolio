@@ -15,7 +15,7 @@
     "apps": {
         "profile": "Contacts",
         "files": "Files",
-        "gallery": "Gallery"
+        "gallery": "Photos"
     },
     "dock": {
         "label": "Dock",
@@ -89,8 +89,27 @@
         "inProject": "In {name}"
     },
     "gallery": {
-        "empty": "No pictures yet",
-        "allPhotos": "All photos",
+        "empty": "No photos yet",
+        "photos": "Photos",
+        "collections": "Collections",
+        "library": "Library",
+        "favorites": "Favorites",
+        "sections": "Sections",
+        "photoCountOne": "1 photo",
+        "photoCount": "{count} photos",
+        "position": "{index} of {count}",
+        "search": "Search",
+        "noResults": "No results",
+        "noFavorites": "No favorites",
+        "noFavoritesHint": "Open a photo and click the heart (or press “.”) to add it here.",
+        "noFavoritesHintPhone": "Open a photo and tap the heart to add it here.",
+        "addFavorite": "Add to Favorites",
+        "removeFavorite": "Remove from Favorites",
+        "zoom": "Thumbnail size",
+        "zoomIn": "Larger thumbnails",
+        "zoomOut": "Smaller thumbnails",
+        "filmstrip": "Photos in this collection",
+        "back": "Back",
         "previous": "Previous",
         "next": "Next"
     },

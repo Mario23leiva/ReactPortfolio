@@ -12,7 +12,7 @@ My personal portfolio, designed as an interactive **macOS-style desktop**: unloc
 - **Apps**
   - **Profile**: about me, certifications, skills, languages, experience and a button to download my CV.
   - **Files**: my projects in a Finder-like view, with a link to the live site, the README and the GitHub repository.
-  - **Gallery**: photo grid with a viewer (arrow keys and <kbd>Esc</kbd> supported).
+  - **Photos**: macOS Sequoia–style Photos app (Library and Favorites, thumbnail zoom, search, in-window viewer with filmstrip) and an iOS-style version on the iPhone with swipe gestures. Favorites are saved in the browser.
 - **Responsive**: on mobile, windows open full screen.
 - **Light and dark mode**: follows the system appearance by default; the appearance icon in the dock (or on the iPhone home screen) cycles Auto → Light → Dark and remembers the choice.
 - **Accessible**: keyboard navigation, visible focus and `prefers-reduced-motion` support.
@@ -50,7 +50,7 @@ Then open http://localhost:5173.
 src/
 ├── assets/
 │   ├── fondos/        # Wallpapers
-│   ├── gallery/       # Gallery photos (loaded automatically)
+│   ├── gallery/       # Photos app pictures (loaded automatically)
 │   ├── iconos/        # App and technology icons
 │   ├── json/          # Profile and projects data
 │   └── projects/      # Project screenshots, one folder per project
@@ -59,7 +59,7 @@ src/
 ├── screens/
 │   ├── blocked_screen/    # Lock screen
 │   └── main_screen/
-│       ├── apps/          # Profile, Files and Gallery apps
+│       ├── apps/          # Contacts, Files and Photos apps
 │       ├── dock/          # Dock
 │       ├── windows/       # Window manager (reducer, context, window component)
 │       └── appsConfig.js  # Apps registry
@@ -69,7 +69,7 @@ src/
 
 ## Customizing the content
 
-- **Gallery photos**: drop the images into `src/assets/gallery/`. They are picked up automatically, in alphabetical order. Use WebP, max. 1920 px, to keep the page light.
+- **Photos app pictures**: drop the images into `src/assets/gallery/`. They are picked up automatically, in alphabetical order. Use WebP, max. 1920 px, to keep the page light.
 - **Projects**: edit `src/assets/json/projects.json`. `webUrl`, `repoUrl` and `videoUrl` are optional: each icon only appears when its field is set. `videoUrl` must be a YouTube embed URL (`https://www.youtube.com/embed/<id>`).
 - **Profile**: edit `src/assets/json/my-profile.json`.
 - **CV**: replace `public/cv/Mario-Leiva-Torres-CV.pdf`.

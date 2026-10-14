@@ -15,7 +15,7 @@
     "apps": {
         "profile": "Contactos",
         "files": "Archivos",
-        "gallery": "Galería"
+        "gallery": "Fotos"
     },
     "dock": {
         "label": "Dock",
@@ -90,7 +90,26 @@
     },
     "gallery": {
         "empty": "Todavía no hay fotos",
-        "allPhotos": "Todas las fotos",
+        "photos": "Fotos",
+        "collections": "Colecciones",
+        "library": "Biblioteca",
+        "favorites": "Favoritas",
+        "sections": "Secciones",
+        "photoCountOne": "1 foto",
+        "photoCount": "{count} fotos",
+        "position": "{index} de {count}",
+        "search": "Buscar",
+        "noResults": "Sin resultados",
+        "noFavorites": "Sin favoritas",
+        "noFavoritesHint": "Abre una foto y pulsa el corazón (o la tecla «.») para añadirla aquí.",
+        "noFavoritesHintPhone": "Abre una foto y toca el corazón para añadirla aquí.",
+        "addFavorite": "Añadir a Favoritas",
+        "removeFavorite": "Quitar de Favoritas",
+        "zoom": "Tamaño de las miniaturas",
+        "zoomIn": "Miniaturas más grandes",
+        "zoomOut": "Miniaturas más pequeñas",
+        "filmstrip": "Fotos de la colección",
+        "back": "Volver",
         "previous": "Anterior",
         "next": "Siguiente"
     },

@@ -1,0 +1,379 @@
+/* ---------- Fotos del iPhone (app Fotos de iOS) ---------- */
+.photos-phone {
+    --ios-blue: #007aff;
+    --ios-favorite: #ff2d55;
+    --ios-bg: #ffffff;
+    --ios-label: #000000;
+    --ios-secondary: rgba(60, 60, 67, 0.6);
+    --ios-separator: rgba(60, 60, 67, 0.29);
+    --ios-thumb: #e5e5ea;
+    --ios-bar: rgba(249, 249, 249, 0.86);
+    --ios-glass: rgba(255, 255, 255, 0.72);
+    --ios-glass-border: rgba(0, 0, 0, 0.08);
+    --ios-segment: rgba(118, 118, 128, 0.16);
+
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-color: var(--ios-bg);
+    color: var(--ios-label);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+    user-select: none;
+}
+
+/* Modo oscuro de iOS */
+[data-theme="dark"] .photos-phone {
+    --ios-blue: #0a84ff;
+    --ios-favorite: #ff375f;
+    --ios-bg: #000000;
+    --ios-label: #ffffff;
+    --ios-secondary: rgba(235, 235, 245, 0.6);
+    --ios-separator: rgba(84, 84, 88, 0.65);
+    --ios-thumb: #1c1c1e;
+    --ios-bar: rgba(22, 22, 24, 0.86);
+    --ios-glass: rgba(44, 44, 46, 0.72);
+    --ios-glass-border: rgba(255, 255, 255, 0.1);
+    --ios-segment: rgba(118, 118, 128, 0.32);
+}
+
+:where(.photos-phone) button {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+:where(.photos-phone) ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------- Biblioteca ---------- */
+.photos-phone-library {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra superior: transparente y, al recoger el título grande, translúcida con el título pequeño */
+.photos-phone-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    height: calc(var(--phone-status-height, 50px) + 44px);
+    padding-top: var(--phone-status-height, 50px);
+    display: grid;
+    place-items: center;
+    border-bottom: 0.5px solid transparent;
+    pointer-events: none;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.photos-phone-navbar span {
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.photos-phone-navbar.collapsed {
+    background-color: var(--ios-bar);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom-color: var(--ios-separator);
+}
+
+.photos-phone-navbar.collapsed span {
+    opacity: 1;
+}
+
+.photos-phone-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: calc(var(--phone-status-height, 50px) + 44px) 0 calc(var(--phone-indicator-height, 28px) + 84px);
+}
+
+.photos-phone-header {
+    padding: 0 16px 10px;
+}
+
+.photos-phone-header h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+    outline: none;
+}
+
+.photos-phone-header p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--ios-secondary);
+}
+
+.photos-phone-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+}
+
+.photos-phone-thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background-color: var(--ios-thumb);
+}
+
+.photos-phone-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.15s;
+}
+
+.photos-phone-thumb:active img {
+    opacity: 0.7;
+}
+
+.photos-phone-thumb-favorite {
+    position: absolute;
+    left: 5px;
+    bottom: 4px;
+    display: flex;
+    color: #fff;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.6));
+}
+
+.photos-phone-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 80px 32px 0;
+    text-align: center;
+    color: var(--ios-secondary);
+    font-size: 15px;
+}
+
+.photos-phone-empty p {
+    margin: 0;
+}
+
+.photos-phone-empty svg {
+    margin-bottom: 8px;
+}
+
+.photos-phone-empty-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ios-label);
+}
+
+/* Selector flotante de cristal */
+.photos-phone-tabs {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--phone-indicator-height, 28px) + 12px);
+    z-index: 2;
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    border: 0.5px solid var(--ios-glass-border);
+    background-color: var(--ios-glass);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+    transform: translateX(-50%);
+}
+
+.photos-phone-tabs button {
+    min-width: 96px;
+    height: 34px;
+    padding: 0 16px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.photos-phone-tabs button[aria-selected='true'] {
+    background-color: var(--ios-segment);
+}
+
+/* ---------- Visor ---------- */
+.photos-phone-viewer {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    outline: none;
+    animation: photos-phone-zoom-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes photos-phone-zoom-in {
+    from { opacity: 0; transform: scale(0.85); }
+}
+
+.photos-phone-viewer-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--ios-bg);
+    opacity: var(--viewer-bg-opacity, 1);
+}
+
+.photos-phone-viewer-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    background-color: var(--ios-bar);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.photos-phone-viewer-top {
+    top: 0;
+    height: calc(var(--phone-status-height, 50px) + 44px);
+    padding: var(--phone-status-height, 50px) 8px 0;
+    border-bottom: 0.5px solid var(--ios-separator);
+}
+
+.photos-phone-viewer-bottom {
+    bottom: 0;
+    justify-content: center;
+    height: calc(var(--phone-indicator-height, 28px) + 50px);
+    padding-bottom: var(--phone-indicator-height, 28px);
+    border-top: 0.5px solid var(--ios-separator);
+}
+
+.photos-phone-viewer.immersive .photos-phone-viewer-bar {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.photos-phone-viewer.immersive .photos-phone-viewer-top {
+    transform: translateY(-8px);
+}
+
+.photos-phone-viewer.immersive .photos-phone-viewer-bottom {
+    transform: translateY(8px);
+}
+
+.photos-phone-back {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 44px;
+    color: var(--ios-blue);
+}
+
+.photos-phone-back span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.photos-phone-viewer-spacer {
+    flex: 1;
+}
+
+.photos-phone-viewer-title {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+}
+
+.photos-phone-viewer-title span {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.photos-phone-viewer-title span:first-child {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.photos-phone-viewer-title span:last-child {
+    font-size: 12px;
+    color: var(--ios-secondary);
+}
+
+.photos-phone-viewer-btn {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: var(--ios-blue);
+}
+
+.photos-phone-viewer-btn[aria-pressed='true'] {
+    color: var(--ios-favorite);
+}
+
+.photos-phone-back:active,
+.photos-phone-viewer-btn:active {
+    opacity: 0.3;
+}
+
+.photos-phone-stage {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.photos-phone-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.photos-phone-track.dragging {
+    transition: none;
+}
+
+.photos-phone-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photos-phone-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .photos-phone-viewer,
+    .photos-phone-track {
+        animation: none;
+        transition: none;
+    }
+}

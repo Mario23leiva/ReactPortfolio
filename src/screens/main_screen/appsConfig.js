@@ -2,7 +2,8 @@ import ContactsApp from './apps/contacts/ContactsApp.jsx';
 import ContactsPhoneApp from './apps/contacts/ContactsPhoneApp.jsx';
 import FilesPhoneApp from './apps/files_phone/FilesPhoneApp.jsx';
 import FinderApp from './apps/finder/FinderApp.jsx';
-import GalleryApp from './apps/GalleryApp.jsx';
+import PhotosApp from './apps/photos/PhotosApp.jsx';
+import PhotosPhoneApp from './apps/photos/PhotosPhoneApp.jsx';
 
 import ProfileIcon from '../../assets/iconos/contact-icon.webp';
 import FilesIcon from '../../assets/iconos/files.webp';
@@ -19,7 +20,7 @@ import { getActiveTab, getCurrentUrl, getPageTitle } from './browser/browserStat
 export const APPS = [
     { id: 'PROFILE', nameKey: 'apps.profile', icon: ProfileIcon, component: ContactsApp, phoneComponent: ContactsPhoneApp, frameless: true, narrow: true },
     { id: 'FILES', nameKey: 'apps.files', icon: FilesIcon, component: FinderApp, phoneComponent: FilesPhoneApp, frameless: true },
-    { id: 'GALLERY', nameKey: 'apps.gallery', icon: GalleryIcon, component: GalleryApp },
+    { id: 'GALLERY', nameKey: 'apps.gallery', icon: GalleryIcon, component: PhotosApp, phoneComponent: PhotosPhoneApp, frameless: true },
 ];
 
 // Enlaces externos del dock: se muestran al final, separados de las apps

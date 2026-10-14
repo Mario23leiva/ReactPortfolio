@@ -66,13 +66,14 @@
     justify-content: flex-start;
     align-items: flex-end;
     gap: 8px;
-    padding: 0 10px;
+    padding: 0 10px 0 20px;
     background-color: var(--chrome-frame);
 }
 
 .window-browser .top-bar .buttons {
     align-self: center;
     flex-shrink: 0;
+    margin-right: 12px;
 }
 
 .window-browser .app-container {
