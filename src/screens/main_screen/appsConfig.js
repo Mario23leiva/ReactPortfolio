@@ -30,6 +30,9 @@ export const DOCK_LINKS = [
 
 export const getApp = (id) => APPS.find((app) => app.id === id);
 
+// Ventana de una app estrecha: al maximizar solo crece en vertical
+export const isNarrowWindow = (win) => win.variant === 'app' && Boolean(getApp(win.id)?.narrow);
+
 // Icono de una ventana: el de su app o, si no es una app, el que se le dio al abrirla
 export const getWindowIcon = (win) => getApp(win.id)?.icon ?? win.icon;
 

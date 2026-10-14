@@ -4,7 +4,7 @@ import { useWindowManager } from './WindowManagerContext.js';
 import { WindowFrameContext } from './WindowFrameContext.js';
 import { useWindowDrag } from './useWindowDrag.js';
 import WindowControls from './WindowControls.jsx';
-import { getApp, getWindowTitle } from '../appsConfig.js';
+import { getWindowTitle, isNarrowWindow } from '../appsConfig.js';
 import { useI18n } from '../../../i18n/I18nContext.js';
 
 // topBarContent: contenido propio de la barra superior (p. ej. las pestañas del navegador)
@@ -14,7 +14,7 @@ const Window = ({ win, topBarContent, frameless = false, children }) => {
     const { focusWindow } = useWindowManager();
     const windowRef = useRef(null);
     // Ventanas estrechas: al maximizar solo crecen en vertical y se siguen moviendo en horizontal
-    const narrow = win.variant === 'app' && Boolean(getApp(win.id)?.narrow);
+    const narrow = isNarrowWindow(win);
     const { position, dragProps } = useWindowDrag(win, windowRef, { narrow });
     const { t } = useI18n();
     const title = getWindowTitle(win, t);

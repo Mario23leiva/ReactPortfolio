@@ -29,6 +29,17 @@
     height: 100%;
 }
 
+/* Maximizada a pantalla completa: sin esquinas ni sombra, encaja con los bordes */
+.desktop-app-layout.maximize:not(.window-narrow),
+.desktop-app-layout.maximize:not(.window-narrow) .top-bar,
+.desktop-app-layout.maximize:not(.window-narrow) .app-container {
+    border-radius: 0;
+}
+
+.desktop-app-layout.maximize:not(.window-narrow) {
+    box-shadow: none;
+}
+
 @keyframes window-open {
     from {
         opacity: 0;

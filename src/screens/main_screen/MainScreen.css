@@ -19,6 +19,7 @@
     bottom: 90px;
     /* Contexto de apilado propio: el z-index de las ventanas nunca tapa el dock */
     z-index: 1;
+    transition: bottom 0.3s ease-in-out;
 }
 
 .main-screen .menu {
@@ -29,4 +30,40 @@
     display: flex;
     justify-content: center;
     z-index: 2;
+    /* Solo el dock recibe clics, no la franja vacía a sus lados */
+    pointer-events: none;
+}
+
+.main-screen .menu .dock {
+    pointer-events: auto;
+}
+
+/* Pantalla completa: la ventana maximizada ocupa toda la pantalla, por encima del dock */
+.main-screen.fullscreen .main-container {
+    bottom: 0;
+    z-index: 3;
+}
+
+/* El dock se esconde bajo el borde inferior y aparece al acercar el ratón, como en macOS.
+   El retardo al ocultarlo evita parpadeos al pasar del borde al dock. */
+.main-screen.fullscreen .menu {
+    z-index: 4;
+    transform: translateY(calc(100% + 16px));
+    transition: transform 0.25s ease 0.4s;
+}
+
+.main-screen .dock-hotzone {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 8px;
+    z-index: 4;
+}
+
+.main-screen .dock-hotzone:hover ~ .menu,
+.main-screen.fullscreen .menu:hover,
+.main-screen.fullscreen .menu:focus-within {
+    transform: none;
+    transition-delay: 0s;
 }
